@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_special_split.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 11:41:19 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/06/18 16:43:35 by bda-mota         ###   ########.fr       */
+/*   Created: 2024/07/24 14:34:06 by bsantana          #+#    #+#             */
+/*   Updated: 2024/07/24 14:34:10 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:09:01 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/04/04 16:46:00 by bda-mota         ###   ########.fr       */
+/*   Created: 2024/07/24 14:37:43 by bsantana          #+#    #+#             */
+/*   Updated: 2024/07/24 14:37:47 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
