@@ -1,71 +1,98 @@
-# Colors to print message
-GREEN := \033[1;32m
-WHITE := \033[1;37m
+NAME		:= cub3D
+CFLAGS		:= -Wextra -Wall -Werror -g3
+MAKEFLAGS += --silent
 
-# Executable name
-NAME	:= cub3D
+# LIBRARIES_PATH
+LIBMLX		:= ./MLX42
+LIBFT_PATH	:= ./libft
+LIBFT		:= $(addprefix $(LIBFT_PATH)/, libft.a)
 
-# Flags
-CFLAGS	:=  -g -Wextra -Wall -Werror
+# PATHS
+CC			:= gcc
+SRC_PATH 	:= sources
+OBJ_PATH	:= objects
 
-# Libraries path
-LIBMLX	:= ./MLX42
-LIBFT_PATH := ./libft/
-LIBFT := $(addprefix $(LIBFT_PATH), libft.a)
+# SOURCES
+CFILES		:=  main.c \
 
-# Files
+#PATH_FILES
+SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))
+OBJS		:= $(addprefix $(OBJ_PATH)/, $(CFILES:%.c=%.o))
 
-# Source directory where .c files are located
-SRC_DIR:= src
+#HEADERS
+HEADERS		:= -I ./includes 
+HEADER_FILE := includes/cub.h ./MLX42/include
+LIBS_MLX	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 
-# List of source files
-FILES_SRC := game.c map.c validations.c flood_fill.c images_draw.c images_put.c hooks.c updates.c  map_utils.c
+# COLORS
+GREEN	:=	\033[1;32m
+RED		:=	\033[1;31m
+WHITE	:=	\033[1;37m
+YELLOW	:=	\033[1;33m
+BOLD	:=	\033[1;1m
+ORANGE	:=	\033[38;2;255;165;0m
+BLUE	:=	\033[1;34m
+MAGENT	:=	\033[1;35m
+CYAN	:=	\033[1;36m
+RESET	:=	\033[0m
 
-# List of object files derived from source files
-FILES_SRC_O := $(FILES_SRC:.c=.o)
+#LOADING BAR
+TOTAL_FILES := $(words $(CFILES))
+CURRENT_CFILES := 0
 
-# List of header files directories
-HEADERS	:= -I ./include -I $(LIBMLX)/include -I $(LIBFT)
+define print_progress
+    $(eval CURRENT_FILES=$(shell echo $$(($(CURRENT_FILES)+1))))
+    @echo -n "\r$(MAG_B)Progress: $(MAGENT)$(CURRENT_FILES) / $(TOTAL_FILES) [$$((($(CURRENT_FILES) * 100) / $(TOTAL_FILES)))%] $(RESET) : $(BLUE)$(1)$(RESET) "
+endef
 
-# List of libraries to link against
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-
-# Get the list of source files with the correct path
-SRCS	:= $(addprefix $(SRC_DIR)/, $(FILES_SRC))
-OBJS	:= ${addprefix $(SRC_DIR)/, $(FILES_SRC_O)}
-
-# Compile MLX library
-all: libmlx $(NAME)
+all: libmlx $(OBJ_PATH) $(NAME)
 
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
-# Compile LIBFT library
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
 
-# Compile .c file into .o file
-%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER_FILE) | $(OBJ_PATH)
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -o $@ -c $<
+	@echo "                                     "
+	$(call print_progress, $(BLUE_B)Compiling:$(RESET) $<)
+	@echo "                                     "
 
-# Build the final executable
-$(NAME): $(OBJS) $(LIBFT)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
-	@echo "$(GREEN)\nCompilation complete! Use the so_long executable to start playing!"
-	
-# Clean object files
+$(OBJ_PATH):
+	@mkdir -p $(OBJ_PATH)
+
+$(NAME): $(LIBFT) $(OBJS)
+	@$(CC) $(OBJS) $(LIBS_MLX) $(LIBFT) $(LFLAGS) $(HEADERS) -o $(NAME)
+	@echo "$(GREEN)🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
+	@echo "$(WHITE)🟧 The [$(RED)C$(ORANGE)U$(YELLOW)B$(GREEN)E $(CYAN)3$(MAGENT)D$(WHITE)] has been compiled! 🟧"
+	@echo "$(GREEN)🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
+
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJ_PATH)
+	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
+	@echo " 🟧                                  🟧"
+	@echo " 🟨   $(WHITE)Objects - $(RED)C$(ORANGE)U$(YELLOW)B$(GREEN)E $(CYAN)3$(MAGENT)D$(WHITE) - cleaned    🟨"
+	@echo " 🟩                                  🟩"
 
-# Clean everything (including temporary build artifacts)
 fclean: clean
+	@echo " 🟦 $(WHITE)         Cleaning all... 🧹      🟦"
+	@echo " 🟪                                  🟪"
 	@rm -rf $(NAME)
 	@rm -rf $(LIBMLX)/build
-	@make fclean -C$(LIBFT_PATH)
-	@echo "$(WHITE)\nCleaning - SO LONG - completed!"
+	@make fclean -C $(LIBFT_PATH)
+	@echo " 🟥$(WHITE) Cleaning - $(RED)C$(ORANGE)U$(YELLOW)B$(GREEN)E $(CYAN)3$(MAGENT)D$(WHITE) - complete!   🟥"
+	@echo " 🟧                                  🟧"
+	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
 
-# Clean and rebuild everything
-re: clean all
+val: $(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all -q ./$(NAME)
 
-# Targets that are not associated with files
-.PHONY: all, clean, fclean, re, libmlx, libft
+clear:
+	clear
+	$(MAKE) all
+
+re: fclean all
+
+.PHONY: all, clean, fclean, re, libmlx
