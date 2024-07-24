@@ -42,7 +42,7 @@ CURRENT_CFILES := 0
 
 define print_progress
     $(eval CURRENT_FILES=$(shell echo $$(($(CURRENT_FILES)+1))))
-    @echo -n "\r$(MAG_B)Progress: $(MAGENT)$(CURRENT_FILES) / $(TOTAL_FILES) [$$((($(CURRENT_FILES) * 100) / $(TOTAL_FILES)))%] $(RESET) : $(BLUE)$(1)$(RESET) "
+    @echo -n "\r$(YELLOW)Progress: $(MAGENT)$(CURRENT_FILES) / $(TOTAL_FILES) [$$((($(CURRENT_FILES) * 100) / $(TOTAL_FILES)))%] $(RESET) : $(CYAN)$(1)$(RESET) "
 endef
 
 all: libmlx $(OBJ_PATH) $(NAME)

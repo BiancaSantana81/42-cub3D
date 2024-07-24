@@ -6,7 +6,7 @@
 #    By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/08 11:41:34 by bda-mota          #+#    #+#              #
-#    Updated: 2024/06/07 17:48:55 by bsantana         ###   ########.fr        #
+#    Updated: 2024/07/24 16:23:05 by bsantana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
