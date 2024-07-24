@@ -13,7 +13,7 @@ SRC_PATH 	:= sources
 OBJ_PATH	:= objects
 
 # SOURCES
-CFILES		:=  main.c \
+CFILES		:=  main.c validation.c\
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))
@@ -37,8 +37,8 @@ CYAN	:=	\033[1;36m
 RESET	:=	\033[0m
 
 #LOADING BAR
-TOTAL_FILES := $(words $(CFILES))
-CURRENT_CFILES := 0
+TOTAL_FILES = $(words $(CFILES))
+CURRENT_CFILES = 0
 
 define print_progress
     $(eval CURRENT_FILES=$(shell echo $$(($(CURRENT_FILES)+1))))

@@ -1,6 +1,7 @@
 #include "../includes/cub.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	printf("Olá Cub3D\n");
+	validate_map(argc, argv);
+	return (EXIT_SUCCESS);
 }
