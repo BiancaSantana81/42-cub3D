@@ -2,6 +2,7 @@
 
 void	init_data(t_data *data)
 {
+	data->size_textures = 0;
 	data->no = NULL;
 	data->so = NULL;
 	data->we = NULL;

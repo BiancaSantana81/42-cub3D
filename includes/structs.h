@@ -3,6 +3,7 @@
 
 typedef struct s_data
 {
+	int		size_textures;
 	char	*no;
 	char	*so;
 	char	*we;

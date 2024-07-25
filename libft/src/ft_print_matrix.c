@@ -1,9 +1,9 @@
 
 #include "libft.h"
 
-void ft_print_matrix(char **matrix)
+void	ft_print_matrix(char **matrix)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 0;

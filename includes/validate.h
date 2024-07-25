@@ -14,6 +14,7 @@ int		check_extension(char *map_file);
 
 int		data_processing(char *map_file, t_data *data);
 void	read_textures_path(t_data *data, char *temp, int fd);
-
+void	count_map_size(t_data *data, char *temp, int fd);
+void	read_map_content(t_data *data, char *temp, int fd);
 
 #endif

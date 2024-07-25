@@ -12,6 +12,7 @@ int	main(int argc, char **argv)
 	printf("EA: %s\n", data.ea);
 	printf("F: %s\n", data.floor);
 	printf("C: %s\n", data.ceiling);
+	ft_print_matrix(data.map);
 	free_data(&data);
 	return (EXIT_SUCCESS);
 }
