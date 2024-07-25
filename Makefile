@@ -13,14 +13,14 @@ SRC_PATH 	:= sources
 OBJ_PATH	:= objects
 
 # SOURCES
-CFILES		:=  main.c validation.c\
+CFILES		:=  main.c validation.c data_processing.c map.c utils.c init.c\
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))
 OBJS		:= $(addprefix $(OBJ_PATH)/, $(CFILES:%.c=%.o))
 
 #HEADERS
-HEADERS		:= -I ./includes 
+HEADERS		:= -I ./includes
 HEADER_FILE := includes/cub.h ./MLX42/include
 LIBS_MLX	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 
@@ -56,7 +56,6 @@ $(LIBFT):
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER_FILE) | $(OBJ_PATH)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -o $@ -c $<
-	@echo "                                     "
 	$(call print_progress, $(BLUE_B)Compiling:$(RESET) $<)
 	@echo "                                     "
 
@@ -65,15 +64,16 @@ $(OBJ_PATH):
 
 $(NAME): $(LIBFT) $(OBJS)
 	@$(CC) $(OBJS) $(LIBS_MLX) $(LIBFT) $(LFLAGS) $(HEADERS) -o $(NAME)
-	@echo "$(GREEN)🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
-	@echo "$(WHITE)🟧 The [$(RED)C$(ORANGE)U$(YELLOW)B$(GREEN)E $(CYAN)3$(MAGENT)D$(WHITE)] has been compiled! 🟧"
-	@echo "$(GREEN)🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
+	@echo "                                     "
+	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
+	@echo "$(WHITE) 🟧  The [$(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE)] has been compiled!  🟧"
+	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
 
 clean:
 	@rm -rf $(OBJ_PATH)
 	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
 	@echo " 🟧                                  🟧"
-	@echo " 🟨   $(WHITE)Objects - $(RED)C$(ORANGE)U$(YELLOW)B$(GREEN)E $(CYAN)3$(MAGENT)D$(WHITE) - cleaned    🟨"
+	@echo " 🟨    $(WHITE)Objects - $(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) - cleaned     🟨"
 	@echo " 🟩                                  🟩"
 
 fclean: clean
@@ -82,7 +82,7 @@ fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf $(LIBMLX)/build
 	@make fclean -C $(LIBFT_PATH)
-	@echo " 🟥$(WHITE) Cleaning - $(RED)C$(ORANGE)U$(YELLOW)B$(GREEN)E $(CYAN)3$(MAGENT)D$(WHITE) - complete!   🟥"
+	@echo " 🟥$(WHITE)   Cleaning - $(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) - complete!   🟥"
 	@echo " 🟧                                  🟧"
 	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
 
