@@ -7,11 +7,11 @@ int	data_processing(char *map_file, t_data *data)
 	char	*temp;
 	int		fd;
 
-	fd = open(map_file, O_RDONLY);
+	fd = open_file(map_file);
 	temp = NULL;
 	read_textures_path(data, temp, fd);
 	count_map_size(data, temp, fd);
-	fd = open(map_file, O_RDONLY);
+	fd = open_file(map_file);
 	read_map_content(data, temp, fd);
 	return (EXIT_SUCCESS);
 }
@@ -37,19 +37,20 @@ void	read_textures_path(t_data *data, char *temp, int fd)
 		handle_error("Error\n");
 }
 
+// realizar validações de RGB e caminho aqui antes de atribuir
 static void	read_textures_path_aux(t_data *data, char *temp)
 {
-	if (ft_strncmp("NO ", temp, 3) == 0)
-		data->no = ft_strdup(temp + 3);
-	else if (ft_strncmp("SO ", temp, 3) == 0)
-		data->so = ft_strdup(temp + 3);
-	else if (ft_strncmp("WE ", temp, 3) == 0)
-		data->we = ft_strdup(temp + 3);
-	else if (ft_strncmp("EA ", temp, 3) == 0)
-		data->ea = ft_strdup(temp + 3);
-	else if (ft_strncmp("F ", temp, 2) == 0)
+	if (ft_strncmp("NO", temp, 2) == 0)
+		data->no = ft_strdup(temp + 2);
+	else if (ft_strncmp("SO", temp, 2) == 0)
+		data->so = ft_strdup(temp + 2);
+	else if (ft_strncmp("WE", temp, 2) == 0)
+		data->we = ft_strdup(temp + 2);
+	else if (ft_strncmp("EA", temp, 2) == 0)
+		data->ea = ft_strdup(temp + 2);
+	else if (ft_strncmp("F", temp, 1) == 0)
 		data->floor = ft_strdup(temp + 2);
-	else if (ft_strncmp("C ", temp, 2) == 0)
+	else if (ft_strncmp("C", temp, 1) == 0)
 		data->ceiling = ft_strdup(temp + 2);
 	data->size_textures++;
 }

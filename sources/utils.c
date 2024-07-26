@@ -37,3 +37,13 @@ void	free_data(t_data *data)
 	if (data->map)
 		ft_free_matrix(data->map);
 }
+
+int	open_file(char *filename)
+{
+	int	fd;
+
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		handle_error("Error: open file\n");
+	return (fd);
+}

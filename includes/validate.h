@@ -27,8 +27,8 @@ void	analyze_map_content(t_data *data, t_validate *valid);
 int		check_map_content(t_validate *valid);
 
 /* BORDERS */
-int		get_max_lines(char **map);
-int		get_max_columns(char **map);
+void	get_max_lines(char **map);
+void	get_max_columns(char **map);
 int		check_borders(t_data *data);
 
 #endif

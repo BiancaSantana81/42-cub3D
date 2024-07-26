@@ -10,6 +10,7 @@
 # include "../libft/src/libft.h"
 
 /* UTILS */
+int	    open_file(char *filename);
 void	handle_error(char *error);
 void	free_data(t_data *data);
 t_data	*get_data(t_data *data);
