@@ -16,5 +16,6 @@ t_data	*get_data(t_data *data);
 
 /* INIT */
 void	init_data(t_data *data);
+void	init_variables_valid(t_validate *valid);
 
 #endif

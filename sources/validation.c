@@ -2,9 +2,19 @@
 
 int	validate_map(int argc, char **argv, t_data *data)
 {
+	t_validate	valid;
+
 	check_arguments(argc);
 	check_extension(argv[1]);
 	data_processing(argv[1], data);
+	init_variables_valid(&valid);
+	analyze_map_content(data, &valid);
+	check_map_content(&valid);
+	if (check_borders(data) == 1)
+	{
+		printf("mapa inválido.\n");
+		return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -44,3 +54,4 @@ int	check_extension(char *map_file)
 	printf(WARNING_EXT);
 	exit(EXIT_FAILURE);
 }
+

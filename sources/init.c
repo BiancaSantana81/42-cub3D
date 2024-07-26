@@ -11,3 +11,11 @@ void	init_data(t_data *data)
 	data->ceiling = NULL;
 	data->map = NULL;
 }
+
+void	init_variables_valid(t_validate *valid)
+{
+	valid->invalid = 0;
+	valid->player = 0;
+	valid->n = 0;
+}
+
