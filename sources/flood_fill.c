@@ -1,5 +1,7 @@
 #include "../includes/cub.h"
 
+// conta a quantidade de linhas do mapa
+
 void	get_max_lines(t_validate *data)
 {
 	int	lines;
@@ -9,6 +11,8 @@ void	get_max_lines(t_validate *data)
 		lines++;
 	data->lines = lines;
 }
+
+// considera a maior coluna do mapa para contar a quantidade e colunas
 
 void	get_max_columns(t_validate *data)
 {
@@ -27,67 +31,3 @@ void	get_max_columns(t_validate *data)
 	}
 	data->columns = max_columns;
 }
-
-void	flood_fill(t_validate *data, int x, int y)
-{
-	if (x < 0 || x >= data->lines
-		|| y < 0 || y >= data->columns
-		|| data->clone_map[x][y] != '0')
-		return ;
-
-}
-
-
-// void floodFill(char **map, int x, int y, int rows, int cols) {
-//     // Verifica se a posição está fora dos limites ou se não é espaço vazio
-//     if (x < 0 || x >= rows || y < 0 || y >= cols || map[x][y] != '0') {
-//         return;
-//     }
-
-//     // Marca a posição atual como preenchida
-//     map[x][y] = 'F';
-
-//     // Preenche as posições adjacentes
-//     floodFill(map, x+1, y, rows, cols);
-//     floodFill(map, x-1, y, rows, cols);
-//     floodFill(map, x, y+1, rows, cols);
-//     floodFill(map, x, y-1, rows, cols);
-// }
-
-// int	check_borders(t_data *data)
-// {
-// 	size_t	x;
-// 	size_t	y;
-// 	size_t	max_lines;
-// 	size_t	max_columns;
-
-// 	max_lines = get_max_lines(data->map);
-// 	max_columns = get_max_columns(data->map);
-// 	y = 0;
-// 	while (y < max_columns)
-// 	{
-// 		if (data->map[0][y] != '1')
-// 			return (1);
-// 		y++;
-// 	}
-// 	y = 0;
-// 	while (y < max_columns)
-// 	{
-// 		if (max_lines > 0 && data->map[max_lines - 1][y] != '1')
-// 			return (1);
-// 		y++;
-// 	}
-// 	x = 0;
-// 	while (x < max_lines)
-// 	{
-// 		if (data->map[x][0] != '1')
-// 			return (1);
-// 		if (ft_strlen(data->map[x]) > 0
-// 			&& data->map[x][ft_strlen(data->map[x]) - 1] != '1')
-// 			return (1);
-// 		x++;
-// 	}
-// 	return (0);
-// }
-
-
