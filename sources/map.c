@@ -1,6 +1,6 @@
 #include "../includes/cub.h"
 
-static int	check_invalid_char(char	c)
+static int	check_invalid_char(char c)
 {
 	if (c != 'N' && c != 'S' && c != 'E' && c != 'W' && c != '0' && c != '1'
 		&& c != '\0' && c != '\n' && (c >= 9 && c <= 13))
@@ -23,7 +23,9 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 		{
 			if (check_invalid_char(data->map[i][j]) == 1)
 				valid->invalid++;
-			else if (data->map[i][j] == 'N' || data->map[i][j] == 'S' || data->map[i][j] == 'E' || data->map[i][j] == 'W')
+			else if (data->map[i][j] == 'N'
+				|| data->map[i][j] == 'S'
+				|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
 			{
 				valid->player++;
 				valid->pos_player = data->map[i][j];

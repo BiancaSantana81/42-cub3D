@@ -47,3 +47,23 @@ int	open_file(char *filename)
 		handle_error("Error: open file\n");
 	return (fd);
 }
+
+void	handle_mlx_actions(int action, t_cub *game)
+{
+	if (action == INIT)
+	{
+		game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3D", false);
+		if (!game->mlx)
+			puts(mlx_strerror(mlx_errno));
+	}
+	else if (action == NEW_IMAGE)
+	{
+		// add funções MLX necessárias;
+		return ;
+	}
+	else if (action == IMAGE_TO_WIDOW)
+	{
+		// add funções MLX necessárias;
+		return ;
+	}
+}

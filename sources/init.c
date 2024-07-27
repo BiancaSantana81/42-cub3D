@@ -19,3 +19,8 @@ void	init_variables_valid(t_validate *valid)
 	valid->n = 0;
 }
 
+void	init_cub(t_cub *game)
+{
+	*game = (t_cub){0};
+	game->mlx = NULL;
+}
