@@ -52,7 +52,7 @@ void	handle_mlx_actions(int action, t_cub *game)
 {
 	if (action == INIT)
 	{
-		game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3D", false);
+		game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3D", true);
 		if (!game->mlx)
 			puts(mlx_strerror(mlx_errno));
 	}
