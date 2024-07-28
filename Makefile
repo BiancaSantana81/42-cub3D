@@ -13,7 +13,7 @@ SRC_PATH 	:= sources
 OBJ_PATH	:= objects
 
 # SOURCES
-CFILES		:=  main.c validation.c data_processing.c map.c utils.c init.c flood_fill.c\
+CFILES		:=  main.c 1_validation.c 2_validation.c data_processing.c map.c utils.c init.c flood_fill.c\
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))

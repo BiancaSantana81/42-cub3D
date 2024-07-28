@@ -8,8 +8,8 @@ typedef struct s_data
 	char	*so;
 	char	*we;
 	char	*ea;
-	char	*floor;
-	char	*ceiling;
+	uint32_t		floor;
+	uint32_t		ceiling;
 	char	**map;
 }	t_data;
 

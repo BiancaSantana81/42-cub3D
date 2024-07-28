@@ -7,8 +7,8 @@ void	init_data(t_data *data)
 	data->so = NULL;
 	data->we = NULL;
 	data->ea = NULL;
-	data->floor = NULL;
-	data->ceiling = NULL;
+	data->floor = 0;
+	data->ceiling = 0;
 	data->map = NULL;
 }
 

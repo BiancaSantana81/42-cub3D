@@ -5,6 +5,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <errno.h>
+# include <string.h>
+//# include "../MLX42/include/MLX42/MLX42_Int.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 # include "structs.h"
 # include "validate.h"
 # include "../libft/src/libft.h"

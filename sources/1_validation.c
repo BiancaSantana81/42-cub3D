@@ -10,11 +10,11 @@ int	validate_map(int argc, char **argv, t_data *data)
 	init_variables_valid(&valid);
 	analyze_map_content(data, &valid);
 	check_map_content(&valid);
-	if (check_borders(data) == 1)
-	{
-		printf("mapa inválido.\n");
-		return (EXIT_FAILURE);
-	}
+	//if (check_borders(data) == 1)
+	//{
+	//	printf("mapa inválido.\n");
+	//	return (EXIT_FAILURE);
+	//}
 	return (EXIT_SUCCESS);
 }
 
@@ -36,9 +36,9 @@ int	check_arguments(int argc)
 
 int	check_extension(char *map_file)
 {
-	char	*dotcub;
-	int		i;
-	int		len;
+	char *dotcub;
+	int i;
+	int len;
 
 	i = 0;
 	dotcub = ".cub";
@@ -55,3 +55,20 @@ int	check_extension(char *map_file)
 	exit(EXIT_FAILURE);
 }
 
+char	*check_path(char *path)
+{
+	char	*path_copy;
+	int		fd;
+
+	printf("path: %s\n", path);
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+	{
+		//printf("Error: invalid path (%s)\n", strerror(errno));
+		handle_error("Error: invalid texture path\n");
+		return (NULL);
+	}
+	close(fd);
+	path_copy = ft_strdup(path);
+	return (path_copy);
+}

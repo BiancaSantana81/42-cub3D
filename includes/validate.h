@@ -12,23 +12,27 @@
 # define WARNING_EMPTY_LINE "Error: map invalid\n"
 
 /* VALIDATION */
-int		validate_map(int argc, char **argv, t_data *data);
-int		check_arguments(int argc);
-int		check_extension(char *map_file);
+int			validate_map(int argc, char **argv, t_data *data);
+int			check_arguments(int argc);
+int			check_extension(char *map_file);
+char		*check_path(char *path);
+uint32_t	check_rgb(char *rgb_color);
+char		**split_rgb(char *rgb_color);
+uint32_t	transform_rgb(int r, int g, int b);
 
 /* DATA PROCESSING */
-int		data_processing(char *map_file, t_data *data);
-void	read_textures_path(t_data *data, char *temp, int fd);
-void	count_map_size(t_data *data, char *temp, int fd);
-void	read_map_content(t_data *data, char *temp, int fd);
+int			data_processing(char *map_file, t_data *data);
+void		read_textures_path(t_data *data, char *temp, int fd);
+void		count_map_size(t_data *data, char *temp, int fd);
+void		read_map_content(t_data *data, char *temp, int fd);
 
 /* MAP */
-void	analyze_map_content(t_data *data, t_validate *valid);
-int		check_map_content(t_validate *valid);
+void		analyze_map_content(t_data *data, t_validate *valid);
+int			check_map_content(t_validate *valid);
 
 /* BORDERS */
-void	get_max_lines(char **map);
-void	get_max_columns(char **map);
-int		check_borders(t_data *data);
+void		get_max_lines(char **map);
+void		get_max_columns(char **map);
+int			check_borders(t_data *data);
 
 #endif

@@ -30,10 +30,6 @@ void	free_data(t_data *data)
 		free(data->we);
 	if (data->ea)
 		free(data->ea);
-	if (data->floor)
-		free(data->floor);
-	if (data->ceiling)
-		free(data->ceiling);
 	if (data->map)
 		ft_free_matrix(data->map);
 }

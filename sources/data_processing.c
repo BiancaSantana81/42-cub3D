@@ -38,6 +38,7 @@ void	read_textures_path(t_data *data, char *temp, int fd)
 }
 
 // realizar validações de RGB e caminho aqui antes de atribuir
+//check_path da sempre invalid
 static void	read_textures_path_aux(t_data *data, char *temp)
 {
 	if (ft_strncmp("NO", temp, 2) == 0)
@@ -49,9 +50,9 @@ static void	read_textures_path_aux(t_data *data, char *temp)
 	else if (ft_strncmp("EA", temp, 2) == 0)
 		data->ea = ft_strdup(temp + 2);
 	else if (ft_strncmp("F", temp, 1) == 0)
-		data->floor = ft_strdup(temp + 2);
+		data->floor = check_rgb(temp);
 	else if (ft_strncmp("C", temp, 1) == 0)
-		data->ceiling = ft_strdup(temp + 2);
+		data->ceiling = check_rgb(temp);
 	data->size_textures++;
 }
 
