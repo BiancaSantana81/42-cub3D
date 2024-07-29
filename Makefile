@@ -72,6 +72,7 @@ $(NAME): $(LIBFT) $(OBJS)
 
 clean:
 	@rm -rf $(OBJ_PATH)
+	@echo "                                     "
 	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
 	@echo " 🟧                                  🟧"
 	@echo " 🟨    $(WHITE)Objects - $(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) - cleaned     🟨"

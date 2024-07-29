@@ -1,5 +1,52 @@
 #include "../includes/cub.h"
 
+void	count_map_size(t_data *data, char *temp, int fd)
+{
+	int	map_size;
+
+	map_size = 0;
+	temp = get_next_line(fd);
+	while (temp)
+	{
+		map_size++;
+		free(temp);
+		temp = get_next_line(fd);
+	}
+	close(fd);
+	data->map = ft_calloc(sizeof(char *), (map_size + 1));
+	if (!data->map)
+		handle_error("Error\n");
+}
+
+void	read_and_copy_map_content(t_data *data, char *temp, int fd)
+{
+	int		i;
+	int		size;
+
+	i = 0;
+	size = 0;
+	temp = get_next_line(fd);
+	while (temp)
+	{
+		if (i == 0 && temp[0] == '\n')
+		{
+			free(temp);
+			size++;
+			temp = get_next_line(fd);
+			continue ;
+		}
+		else if (size > data->size_textures)
+		{
+			data->map[i] = ft_strdup(temp);
+			i++;
+		}
+		size++;
+		free(temp);
+		temp = get_next_line(fd);
+	}
+	close(fd);
+}
+
 static int	check_invalid_char(char c)
 {
 	if (c != 'N' && c != 'S' && c != 'E' && c != 'W' && c != '0' && c != '1'
