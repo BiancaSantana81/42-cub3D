@@ -6,7 +6,7 @@ void	print_data(t_data data)
 	printf("SO: %s\n", data.so);
 	printf("WE: %s\n", data.we);
 	printf("EA: %s\n", data.ea);
-	printf("F: %s\n", data.floor);
-	printf("C: %s\n", data.ceiling);
+	printf("F: %u\n", data.floor);
+	printf("C: %u\n", data.ceiling);
 	ft_print_matrix(data.map);
 }

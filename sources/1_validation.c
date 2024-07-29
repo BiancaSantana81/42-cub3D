@@ -10,11 +10,6 @@ int	validate_map(int argc, char **argv, t_data *data)
 	init_variables_valid(&valid);
 	analyze_map_content(data, &valid);
 	check_map_content(&valid);
-	//if (check_borders(data) == 1)
-	//{
-	//	printf("mapa inválido.\n");
-	//	return (EXIT_FAILURE);
-	//}
 	return (EXIT_SUCCESS);
 }
 
@@ -36,9 +31,9 @@ int	check_arguments(int argc)
 
 int	check_extension(char *map_file)
 {
-	char *dotcub;
-	int i;
-	int len;
+	char	*dotcub;
+	int		i;
+	int		len;
 
 	i = 0;
 	dotcub = ".cub";

@@ -24,7 +24,8 @@ uint32_t	check_rgb(char *rgb_color)
 			handle_error("Error: invalid rgb color\n");
 		i++;
 	}
-	converted = transform_rgb(ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]));
+	converted = transform_rgb(ft_atoi(rgb[0]),
+			ft_atoi(rgb[1]), ft_atoi(rgb[2]));
 	while (i >= 0)
 		free(rgb[i--]);
 	free(rgb);
@@ -52,5 +53,5 @@ char	**split_rgb(char *rgb_color)
 
 uint32_t	transform_rgb(int r, int g, int b)
 {
-	return ((uint32_t)r << 16) | ((uint32_t)g << 8) | (uint32_t)b;
+	return (((uint32_t)r << 16) | ((uint32_t)g << 8) | (uint32_t)b);
 }
