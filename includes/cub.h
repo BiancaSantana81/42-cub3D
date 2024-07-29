@@ -26,12 +26,14 @@
 int		open_file(char *filename);
 void	handle_error(char *error);
 void	free_data(t_data *data);
+void	free_memory(t_cub *game);
 t_data	*get_data(t_data *data);
+t_cub	*get_game(t_cub *game);
 void	handle_mlx_actions(int action, t_cub *game);
 
 /* INIT */
 void	init_data(t_data *data);
-void	init_cub(t_cub *game);
+void	init_cub(t_cub **game);
 void	init_variables_valid(t_validate *valid);
 
 /* TRASH */

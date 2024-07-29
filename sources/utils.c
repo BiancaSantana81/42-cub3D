@@ -20,6 +20,15 @@ t_data	*get_data(t_data *data)
 	return (data_ptr);
 }
 
+t_cub	*get_game(t_cub *game)
+{
+	static t_cub	*game_ptr;
+
+	if (game)
+		game_ptr = game;
+	return (game_ptr);
+}
+
 void	free_data(t_data *data)
 {
 	if (data->no)
@@ -32,6 +41,16 @@ void	free_data(t_data *data)
 		free(data->ea);
 	if (data->map)
 		ft_free_matrix(data->map);
+	free(data);
+}
+
+void	free_memory(t_cub *game)
+{
+	if (game)
+	{
+		free_data(game->data);
+		free(game);
+	}
 }
 
 int	open_file(char *filename)

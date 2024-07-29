@@ -5,11 +5,11 @@
 
 typedef struct s_data
 {
-	int		size_textures;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
+	int				size_textures;
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
 	uint32_t		floor;
 	uint32_t		ceiling;
 	char	**map;

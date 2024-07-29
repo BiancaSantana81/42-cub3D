@@ -19,8 +19,11 @@ void	init_variables_valid(t_validate *valid)
 	valid->n = 0;
 }
 
-void	init_cub(t_cub *game)
+void	init_cub(t_cub **game)
 {
-	*game = (t_cub){0};
-	game->mlx = NULL;
+	*game = ft_calloc(1, sizeof(t_cub));
+	(*game)->mlx = NULL;
+	(*game)->data = ft_calloc(1, sizeof(t_data));
+	init_data((*game)->data);
+	get_game(*game);
 }

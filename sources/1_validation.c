@@ -18,11 +18,13 @@ int	check_arguments(int argc)
 	if (argc < 2)
 	{
 		printf(WARNING_ARGS_1);
+		free_memory(get_game(NULL));
 		exit(EXIT_FAILURE);
 	}
 	else if (argc > 2)
 	{
 		printf(WARNING_ARGS_2);
+		free_memory(get_game(NULL));
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -47,6 +49,7 @@ int	check_extension(char *map_file)
 	if (dotcub[i] == '\0')
 		return (EXIT_SUCCESS);
 	printf(WARNING_EXT);
+	free_memory(get_game(NULL));
 	exit(EXIT_FAILURE);
 }
 

@@ -8,7 +8,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceFolder}/cub3D",
-        "args": ["../maps/map.cub"],
+        "args": ["../maps/map.txt"],
         "stopAtEntry": false,
         "cwd": "${fileDirname}",
         "environment": [],
