@@ -41,16 +41,14 @@ void	free_data(t_data *data)
 		free(data->ea);
 	if (data->map)
 		ft_free_matrix(data->map);
-	free(data);
+	if (data)
+		free(data);
 }
 
 void	free_memory(t_cub *game)
 {
 	if (game)
-	{
 		free_data(game->data);
-		free(game);
-	}
 }
 
 int	open_file(char *filename)

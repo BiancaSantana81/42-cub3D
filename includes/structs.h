@@ -10,9 +10,10 @@ typedef struct s_data
 	char			*so;
 	char			*we;
 	char			*ea;
+	bool			colors;
 	uint32_t		floor;
 	uint32_t		ceiling;
-	char	**map;
+	char			**map;
 }	t_data;
 
 typedef struct s_validate
