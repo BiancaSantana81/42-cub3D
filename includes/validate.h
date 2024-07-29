@@ -30,8 +30,7 @@ void		read_map_content(t_data *data, char *temp, int fd);
 void		analyze_map_content(t_data *data, t_validate *valid);
 int			check_map_content(t_validate *valid);
 
-/* BORDERS */
-void	get_max_lines(t_validate *data);
-void	get_max_columns(t_validate *data);
+/* WALL */
+int			surrounded_by_walls(t_data *data);
 
 #endif
