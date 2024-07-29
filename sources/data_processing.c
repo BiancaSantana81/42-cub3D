@@ -22,6 +22,7 @@ void	read_textures_path(t_data *data, char *temp, int fd)
 
 	temp = get_next_line(fd);
 	while (temp)
+
 	{
 		line = temp;
 		while (*temp >= 9 && *temp <= 13)

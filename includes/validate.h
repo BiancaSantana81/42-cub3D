@@ -18,7 +18,7 @@ int			check_extension(char *map_file);
 char		*check_path(char *path);
 uint32_t	check_rgb(char *rgb_color);
 char		**split_rgb(char *rgb_color);
-uint32_t	transform_rgb(int r, int g, int b);
+uint32_t	convert_rgb(int r, int g, int b);
 
 /* DATA PROCESSING */
 int			data_processing(char *map_file, t_data *data);

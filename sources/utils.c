@@ -2,11 +2,11 @@
 
 void	handle_error(char *error)
 {
-	t_data	*data;
+	t_cub	*game;
 
-	data = get_data(NULL);
-	if (data)
-		free_data(data);
+	game = get_game(NULL);
+	if (game)
+		free_memory(game);
 	ft_putstr_fd(error, 2);
 	exit(1);
 }
