@@ -62,6 +62,7 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 	int	j;
 
 	i = 0;
+	found_tabs(data);
 	while (data->map[i])
 	{
 		j = 0;

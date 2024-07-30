@@ -2,7 +2,6 @@
 
 void	init_cub(t_cub *game)
 {
-	//*game = ft_calloc(1, sizeof(t_cub));
 	game->mlx = NULL;
 	game->data = ft_calloc(1, sizeof(t_data));
 	init_data(game->data);
@@ -28,4 +27,3 @@ void	init_variables_valid(t_validate *valid)
 	valid->player = 0;
 	valid->n = 0;
 }
-

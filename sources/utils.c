@@ -11,15 +11,6 @@ void	handle_error(char *error)
 	exit(1);
 }
 
-t_data	*get_data(t_data *data)
-{
-	static t_data	*data_ptr;
-
-	if (data)
-		data_ptr = data;
-	return (data_ptr);
-}
-
 t_cub	*get_game(t_cub *game)
 {
 	static t_cub	*game_ptr;
