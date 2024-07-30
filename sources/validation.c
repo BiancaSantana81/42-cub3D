@@ -10,6 +10,8 @@ int	validate_map(int argc, char **argv, t_data *data)
 	init_variables_valid(&valid);
 	analyze_map_content(data, &valid);
 	check_map_content(&valid);
+	get_max_columns(data);
+	get_max_lines(data);
 	surrounded_by_walls(data);
 	return (EXIT_SUCCESS);
 }

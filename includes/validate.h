@@ -10,6 +10,7 @@
 # define WARNING_PLAYER "Error: invalid player\n"
 # define WARNING_INVALID "Error: there are invalid characters on the map\n"
 # define WARNING_EMPTY_LINE "Error: map invalid\n"
+# define WARNING_OPEN_MAP "Error: map is open.\n"
 
 /* VALIDATION */
 int			validate_map(int argc, char **argv, t_data *data);
@@ -29,6 +30,8 @@ void		read_and_copy_map_content(t_data *data, char *temp, int fd);
 /* MAP */
 void		analyze_map_content(t_data *data, t_validate *valid);
 int			check_map_content(t_validate *valid);
+void		get_max_columns(t_data *data);
+void		get_max_lines(t_data *data);
 
 /* WALL */
 int			surrounded_by_walls(t_data *data);

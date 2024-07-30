@@ -1,10 +1,17 @@
 #include "../includes/cub.h"
 
-static int	is_open(char **map, int *line, int *column)
+static int	is_open(t_data *data, int line, int column)
 {
-	if (map[*line][*column] != '1' && map[*line][*column] != ' ')
+	char	**map;
+
+	map = data->map;
+	if (map[line][column] == '0')
 	{
-		if (line == 0 && map[*line + 1] == '\n')
+		if (line == 0 || line == data->lines)
+			return (1);
+		else if (column == 0 || column == data->columns)
+			return (1);
+		else if (map[line - 1][column] == ' ' || map[line + 1][column] == ' ')
 			return (1);
 	}
 	return (0);
@@ -12,23 +19,20 @@ static int	is_open(char **map, int *line, int *column)
 
 int	surrounded_by_walls(t_data *data)
 {
-	int	i;
-	int	j;
+	int	line;
+	int	column;
 
-	i = 0;
-	while (data->map[i])
+	line = 0;
+	while (data->map[line])
 	{
-		j = 0;
-		while (data->map[i][j])
+		column = 0;
+		while (data->map[line][column] != '\n')
 		{
-			if (is_open(data->map, &i, &j) == 1)
-			{
-				printf("esta aberto.\n");
-				return (EXIT_FAILURE);
-			}
-			j++;
+			if (is_open(data, line, column) == 1)
+				return (handle_error(WARNING_OPEN_MAP), (EXIT_FAILURE));
+			column++;
 		}
-		i++;
+		line++;
 	}
 	return (EXIT_SUCCESS);
 }

@@ -14,6 +14,8 @@ typedef struct s_data
 	uint32_t		floor;
 	uint32_t		ceiling;
 	char			**map;
+	int				lines;
+	int				columns;
 }	t_data;
 
 typedef struct s_validate
