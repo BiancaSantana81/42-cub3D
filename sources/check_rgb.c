@@ -4,9 +4,9 @@ static void	handle_error_rgb(char *rgb_color, char **rgb);
 
 void	check_rgb(uint32_t *color, char *rgb_color)
 {
-	char		**rgb;
-	int			i;
-	int			j;
+	char	**rgb;
+	int		i;
+	int		j;
 
 	i = 0;
 	split_rgb(&rgb, rgb_color);

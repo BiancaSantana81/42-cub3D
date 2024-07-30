@@ -24,20 +24,19 @@ void	read_and_copy_map_content(t_data *data, char *temp, int fd)
 {
 	int		i;
 	int		size;
+	bool	empty_line;
 
 	i = 0;
 	size = 0;
+	empty_line = false;
 	temp = get_next_line(fd);
 	while (temp)
 	{
 		if (i == 0 && temp[0] == '\n')
-		{
-			free(temp);
-			size++;
-			temp = get_next_line(fd);
-			continue ;
-		}
-		else if (size > data->size_textures)
+			empty_line = true;
+		else
+			empty_line = false;
+		if (size >= data->size_textures && empty_line == false)
 		{
 			data->map[i] = ft_strdup(temp);
 			i++;
