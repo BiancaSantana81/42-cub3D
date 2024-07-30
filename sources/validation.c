@@ -9,9 +9,6 @@ int	validate_map(int argc, char **argv, t_data *data)
 	data_processing(argv[1], data);
 	init_variables_valid(&valid);
 	analyze_map_content(data, &valid);
-	check_map_content(&valid);
-	get_max_columns(data);
-	get_max_lines(data);
 	surrounded_by_walls(data);
 	return (EXIT_SUCCESS);
 }
@@ -56,20 +53,19 @@ int	check_extension(char *map_file)
 	exit(EXIT_FAILURE);
 }
 
-char	*check_path(char *path)
-{
-	char	*path_copy;
-	int		fd;
+// char	*check_path(char *path)
+// {
+// 	char	*path_copy;
+// 	int		fd;
 
-	printf("path: %s\n", path);
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-	{
-		//printf("Error: invalid path (%s)\n", strerror(errno));
-		handle_error("Error: invalid texture path\n");
-		return (NULL);
-	}
-	close(fd);
-	path_copy = ft_strdup(path);
-	return (path_copy);
-}
+// 	printf("path: %s\n", path);
+// 	fd = open(path, O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		handle_error("Error: invalid texture path\n");
+// 		return (NULL);
+// 	}
+// 	close(fd);
+// 	path_copy = ft_strdup(path);
+// 	return (path_copy);
+// }

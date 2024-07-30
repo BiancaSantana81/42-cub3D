@@ -29,7 +29,6 @@ void		read_and_copy_map_content(t_data *data, char *temp, int fd);
 
 /* MAP */
 void		analyze_map_content(t_data *data, t_validate *valid);
-int			check_map_content(t_validate *valid);
 void		get_max_columns(t_data *data);
 void		get_max_lines(t_data *data);
 

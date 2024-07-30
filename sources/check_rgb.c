@@ -1,5 +1,7 @@
 #include "../includes/cub.h"
 
+static void	handle_error_rgb(char *rgb_color, char **rgb);
+
 void	check_rgb(uint32_t *color, char *rgb_color)
 {
 	char		**rgb;
@@ -14,19 +16,11 @@ void	check_rgb(uint32_t *color, char *rgb_color)
 		while (rgb[i][j])
 		{
 			if (!ft_isdigit(rgb[i][j]))
-			{
-				ft_free_matrix(rgb);
-				free(rgb_color);
-				handle_error("Error: invalid rgb color\n");
-			}
+				handle_error_rgb(rgb_color, rgb);
 			j++;
 		}
 		if (ft_atoi(rgb[i]) < 0 || ft_atoi(rgb[i]) > 255)
-		{
-			ft_free_matrix(rgb);
-			free(rgb_color);
-			handle_error("Error: invalid rgb color\n");
-		}
+			handle_error_rgb(rgb_color, rgb);
 		i++;
 	}
 	*color = convert_rgb(ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]));
@@ -55,14 +49,17 @@ void	split_rgb(char ***rgb, char *rgb_color)
 		i++;
 	}
 	if (i != 3)
-	{
-		ft_free_matrix(*rgb);
-		free(rgb_color);
-		handle_error("Error: invalid rgb color\n");
-	}
+		handle_error_rgb(rgb_color, *rgb);
 }
 
 uint32_t	convert_rgb(int r, int g, int b)
 {
 	return (((uint32_t)r << 16) | ((uint32_t)g << 8) | (uint32_t)b);
+}
+
+static void	handle_error_rgb(char *rgb_color, char **rgb)
+{
+	free(rgb_color);
+	ft_free_matrix(rgb);
+	handle_error("Error: invalid rgb color\n");
 }

@@ -1,5 +1,7 @@
 #include "../includes/cub.h"
 
+static int	check_map_content(t_validate *valid);
+
 void	count_map_size(t_data *data, char *temp, int fd)
 {
 	int	map_size;
@@ -57,8 +59,8 @@ static int	check_invalid_char(char c)
 
 void	analyze_map_content(t_data *data, t_validate *valid)
 {
-	int			i;
-	int			j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (data->map[i])
@@ -70,8 +72,7 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 		{
 			if (check_invalid_char(data->map[i][j]) == 1)
 				valid->invalid++;
-			else if (data->map[i][j] == 'N'
-				|| data->map[i][j] == 'S'
+			else if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
 				|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
 			{
 				valid->player++;
@@ -81,9 +82,10 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 		}
 		i++;
 	}
+	check_map_content(valid);
 }
 
-int	check_map_content(t_validate *valid)
+static int	check_map_content(t_validate *valid)
 {
 	if (valid->player != 1)
 		return (handle_error(WARNING_PLAYER), (EXIT_FAILURE));
