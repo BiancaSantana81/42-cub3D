@@ -62,7 +62,6 @@ void	found_tabs(t_data *data)
 		}
 		i++;
 	}
-	ft_print_matrix(data->map);
 }
 
 char	*replace_tabs(char *line, int tabs)

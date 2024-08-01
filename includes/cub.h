@@ -12,6 +12,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "structs.h"
 # include "validate.h"
+# include "graphic.h"
 # include <math.h>
 # include "../libft/src/libft.h"
 

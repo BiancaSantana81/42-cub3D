@@ -68,9 +68,6 @@ static void	read_textures_path_aux(t_data *data, char *temp)
 
 static void	copy_texture_path(char **texture, char *path)
 {
-	int	i;
-
-	i = 0;
 	if (*texture != NULL)
 		free(*texture);
 	while (ft_isspace(*path) || *path == 'N' || *path == 'O' || *path == 'S'

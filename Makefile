@@ -13,7 +13,8 @@ SRC_PATH 	:= sources
 OBJ_PATH	:= objects
 
 # SOURCES
-CFILES		:=  trash.c main.c validation.c check_rgb.c data_processing.c 1_map.c 2_map.c utils.c init.c wall.c\
+CFILES		:=  trash.c main.c validation.c check_rgb.c data_processing.c 1_map.c 2_map.c utils.c init.c wall.c \
+				hooks.c
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))
