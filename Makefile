@@ -13,7 +13,7 @@ SRC_PATH 	:= sources
 OBJ_PATH	:= objects
 
 # SOURCES
-CFILES		:=  main.c validation.c data_processing.c map.c utils.c init.c\
+CFILES		:=  trash.c main.c validation.c check_rgb.c data_processing.c 1_map.c 2_map.c utils.c init.c wall.c\
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))
@@ -68,9 +68,11 @@ $(NAME): $(LIBFT) $(OBJS)
 	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
 	@echo "$(WHITE) 🟧  The [$(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE)] has been compiled!  🟧"
 	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
+	@echo "                                     "
 
 clean:
 	@rm -rf $(OBJ_PATH)
+	@echo "                                     "
 	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
 	@echo " 🟧                                  🟧"
 	@echo " 🟨    $(WHITE)Objects - $(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) - cleaned     🟨"
@@ -85,6 +87,7 @@ fclean: clean
 	@echo " 🟥$(WHITE)   Cleaning - $(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) - complete!   🟥"
 	@echo " 🟧                                  🟧"
 	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
+	@echo "                                     "
 
 val: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all -q ./$(NAME)

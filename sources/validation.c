@@ -2,9 +2,14 @@
 
 int	validate_map(int argc, char **argv, t_data *data)
 {
+	t_validate	valid;
+
 	check_arguments(argc);
 	check_extension(argv[1]);
 	data_processing(argv[1], data);
+	init_variables_valid(&valid);
+	analyze_map_content(data, &valid);
+	surrounded_by_walls(data);
 	return (EXIT_SUCCESS);
 }
 
@@ -13,11 +18,13 @@ int	check_arguments(int argc)
 	if (argc < 2)
 	{
 		printf(WARNING_ARGS_1);
+		free_memory(get_game(NULL));
 		exit(EXIT_FAILURE);
 	}
 	else if (argc > 2)
 	{
 		printf(WARNING_ARGS_2);
+		free_memory(get_game(NULL));
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -42,5 +49,23 @@ int	check_extension(char *map_file)
 	if (dotcub[i] == '\0')
 		return (EXIT_SUCCESS);
 	printf(WARNING_EXT);
+	free_memory(get_game(NULL));
 	exit(EXIT_FAILURE);
 }
+
+// char	*check_path(char *path)
+// {
+// 	char	*path_copy;
+// 	int		fd;
+
+// 	printf("path: %s\n", path);
+// 	fd = open(path, O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		handle_error("Error: invalid texture path\n");
+// 		return (NULL);
+// 	}
+// 	close(fd);
+// 	path_copy = ft_strdup(path);
+// 	return (path_copy);
+// }
