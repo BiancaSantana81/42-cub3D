@@ -35,6 +35,7 @@ void	handle_mlx_actions(int action, t_cub *game);
 void	init_data(t_data *data);
 void	init_cub(t_cub *game);
 void	init_variables_valid(t_validate *valid);
+int		init_game(t_cub *game);
 
 /* TRASH */
 void	print_data(t_data data);

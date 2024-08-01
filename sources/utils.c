@@ -62,12 +62,10 @@ void	handle_mlx_actions(int action, t_cub *game)
 	}
 	else if (action == NEW_IMAGE)
 	{
-		// add funções MLX necessárias;
-		return ;
+		game->mlx_image = mlx_new_image(game->mlx, 10, 10);
 	}
 	else if (action == IMAGE_TO_WIDOW)
 	{
-		// add funções MLX necessárias;
-		return ;
+		mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
 	}
 }

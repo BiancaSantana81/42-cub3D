@@ -29,6 +29,7 @@ typedef struct s_validate
 typedef struct s_cub
 {
 	mlx_t			*mlx;
+	mlx_image_t		*mlx_image;
 	struct s_data	*data;
 
 }	t_cub;
