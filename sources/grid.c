@@ -18,9 +18,6 @@ void	draw_grid(t_cub *game)
 		draw_line(game->mlx_image, 0, line_pos, game->data->window_width, line_pos, 0xFF0000FF);
 		line++;
 	}
-    printf("width: %d\n", width);
-	printf("line: %d ", line);
-	printf("data_lines: %d\n", game->data->lines);
 	column = 0;
 	while (column < game->data->columns)
 	{
