@@ -54,18 +54,30 @@ int	open_file(char *filename)
 
 void	handle_mlx_actions(int action, t_cub *game)
 {
+	t_data	*data;
+	int		map_width;
+	int		map_height;
+
+	data = game->data;
+	map_width = BLOCK * data->columns;
+	map_height = BLOCK * data->lines;
+	calculate_window_size(data, &map_width, &map_height);
 	if (action == INIT)
 	{
-		game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3D", true);
+		game->mlx = mlx_init(map_width, map_height, "CUB3D", true);
 		if (!game->mlx)
 			puts(mlx_strerror(mlx_errno));
 	}
 	else if (action == NEW_IMAGE)
-	{
 		game->mlx_image = mlx_new_image(game->mlx, 128, 128);
-	}
 	else if (action == IMAGE_TO_WIDOW)
 	{
 		mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
 	}
+}
+
+void	calculate_window_size(t_data *data, int *map_width, int *map_height)
+{
+	*map_width = BLOCK * data->columns;
+	*map_height = BLOCK * data->lines;
 }

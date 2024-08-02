@@ -16,6 +16,8 @@ typedef struct s_data
 	char			**map;
 	int				lines;
 	int				columns;
+	int				map_width;
+	int				map_height;
 }	t_data;
 
 typedef struct s_validate
@@ -30,6 +32,7 @@ typedef struct s_cub
 {
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
+	mlx_image_t		*line_image;
 	struct s_data	*data;
 
 }	t_cub;

@@ -19,6 +19,8 @@ void	init_data(t_data *data)
 	data->floor = 0;
 	data->ceiling = 0;
 	data->map = NULL;
+	data->map_height = 0;
+	data->map_width = 0;
 }
 
 void	init_variables_valid(t_validate *valid)

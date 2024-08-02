@@ -16,8 +16,7 @@
 # include <math.h>
 # include "../libft/src/libft.h"
 
-# define WIDTH 800
-# define HEIGHT 600
+# define BLOCK 64
 # define PI 3.141592653589793
 # define PI_90 1.5707963267948966  // π/2
 # define PI_270 4.71238898038469   // 3π/2
