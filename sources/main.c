@@ -22,6 +22,5 @@ int	init_game(t_cub *game)
 	mlx_close_hook(game->mlx, hook_close, &game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	free_memory(game);
 	return (EXIT_SUCCESS);
 }

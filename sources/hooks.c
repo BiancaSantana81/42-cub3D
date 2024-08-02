@@ -31,7 +31,7 @@ void	hook_close(void *param)
 	t_cub	*game;
 
 	game = (t_cub *)param;
-	//free_memory(game);
+	free_memory(game);
 	//free_sprite(game, game->player);
 	mlx_close_window(game->mlx);
 }
