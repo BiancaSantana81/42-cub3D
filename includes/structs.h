@@ -54,7 +54,7 @@ typedef enum e_mlx_action
 {
 	INIT,
 	NEW_IMAGE,
-	IMAGE_TO_WIDOW,
+	IMAGE_TO_WINDOW,
 }	t_mlx_action;
 
 #endif
