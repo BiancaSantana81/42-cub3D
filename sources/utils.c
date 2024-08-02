@@ -62,7 +62,7 @@ void	handle_mlx_actions(int action, t_cub *game)
 	}
 	else if (action == NEW_IMAGE)
 	{
-		game->mlx_image = mlx_new_image(game->mlx, 10, 10);
+		game->mlx_image = mlx_new_image(game->mlx, 128, 128);
 	}
 	else if (action == IMAGE_TO_WIDOW)
 	{

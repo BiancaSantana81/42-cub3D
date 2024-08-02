@@ -34,28 +34,15 @@ void	free_and_close(void *param)
 	mlx_close_window(game->mlx);
 }
 
-static int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
+void	draw_example_pixel(t_cub *game)
 {
-    return (r << 24 | g << 16 | b << 8 | a);
-}
+	uint32_t	x;
+	uint32_t	y;
+	uint32_t	color;
 
-void ft_randomize(void* param)
-{
-	t_cub *game;
-	(void)param;
-
-	game = get_game(NULL);
-	for (uint32_t i = 0; i < game->mlx_image->width; ++i)
-	{
-		for (uint32_t y = 0; y < game->mlx_image->height; ++y)
-		{
-			uint32_t color = ft_pixel(
-				rand() % 0xFF, // R
-				rand() % 0xFF, // G
-				rand() % 0xFF, // B
-				rand() % 0xFF  // A
-			);
-			mlx_put_pixel(game->mlx_image, i, y, color);
-		}
-	}
+	x = 5;
+	y = 5;
+	color = 0xFF0000FF;
+	if (game->mlx_image)
+		mlx_put_pixel(game->mlx_image, x, y, color);
 }
