@@ -46,10 +46,13 @@ void	handle_mlx_actions(int action, t_cub *game)
 			puts(mlx_strerror(mlx_errno));
 	}
 	else if (action == NEW_IMAGE)
+	{
 		game->mlx_image = mlx_new_image(game->mlx, 20, 20);
+		game->map_image = mlx_new_image(game->mlx, data->columns * BLOCK, data->lines * BLOCK);
+	}
 	else if (action == IMAGE_TO_WINDOW)
 	{
-		mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
+		//mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
 	}
 }
 
