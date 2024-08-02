@@ -18,4 +18,8 @@ void		free_sprite(t_cub *game, t_images *image);
 void		load_textures(t_cub *game);
 void		draw_images(t_cub *game);
 
+
+void draw_player_square(t_cub *game);
+void draw_square(t_cub *game, int start_x, int start_y, int size, uint32_t color);
+
 #endif
