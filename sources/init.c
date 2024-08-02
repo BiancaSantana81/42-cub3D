@@ -4,23 +4,23 @@ void	init_cub(t_cub *game)
 {
 	game->mlx = NULL;
 	game->data = ft_calloc(1, sizeof(t_data));
-	init_data(game->data);
+	init_data(game);
 	get_game(game);
 }
 
-void	init_data(t_data *data)
+void	init_data(t_cub *game)
 {
-	data->size_textures = 0;
-	data->no = NULL;
-	data->so = NULL;
-	data->we = NULL;
-	data->ea = NULL;
-	data->colors = false;
-	data->floor = 0;
-	data->ceiling = 0;
-	data->map = NULL;
-	data->map_height = 0;
-	data->map_width = 0;
+	game->data->size_textures = 0;
+	game->data->no = NULL;
+	game->data->so = NULL;
+	game->data->we = NULL;
+	game->data->ea = NULL;
+	game->data->colors = false;
+	game->data->floor = 0;
+	game->data->ceiling = 0;
+	game->data->map = NULL;
+	game->data->map_height = 0;
+	game->data->map_width = 0;
 }
 
 void	init_variables_valid(t_validate *valid)

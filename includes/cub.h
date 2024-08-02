@@ -16,7 +16,7 @@
 # include <math.h>
 # include "../libft/src/libft.h"
 
-# define BLOCK 64
+# define BLOCK 32
 # define PI 3.141592653589793
 # define PI_90 1.5707963267948966  // π/2
 # define PI_270 4.71238898038469   // 3π/2
@@ -31,7 +31,7 @@ t_cub	*get_game(t_cub *game);
 void	handle_mlx_actions(int action, t_cub *game);
 
 /* INIT */
-void	init_data(t_data *data);
+void	init_data(t_cub *game);
 void	init_cub(t_cub *game);
 void	init_variables_valid(t_validate *valid);
 int		init_game(t_cub *game);

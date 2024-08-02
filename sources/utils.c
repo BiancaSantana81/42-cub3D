@@ -20,28 +20,6 @@ t_cub	*get_game(t_cub *game)
 	return (game_ptr);
 }
 
-void	free_data(t_data *data)
-{
-	if (data->no)
-		free(data->no);
-	if (data->so)
-		free(data->so);
-	if (data->we)
-		free(data->we);
-	if (data->ea)
-		free(data->ea);
-	if (data->map)
-		ft_free_matrix(data->map);
-	if (data)
-		free(data);
-}
-
-void	free_memory(t_cub *game)
-{
-	if (game)
-		free_data(game->data);
-}
-
 int	open_file(char *filename)
 {
 	int	fd;
@@ -75,8 +53,8 @@ void	handle_mlx_actions(int action, t_cub *game)
 	}
 }
 
-void	calculate_window_size(t_data *data)
+void	calculate_window_size(t_cub *game)
 {
-	data->map_width = BLOCK * data->columns;
-	data->map_height = BLOCK * data->lines;
+	game->data->map_width = BLOCK * game->data->columns;
+	game->data->map_height = BLOCK * game->data->lines;
 }

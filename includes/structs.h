@@ -28,11 +28,24 @@ typedef struct s_validate
 	char	pos_player;
 }	t_validate;
 
+typedef struct s_images
+{
+	mlx_texture_t	*texture;
+	mlx_image_t		*img;
+	int				x;
+	int				y;
+}	t_images;
+
 typedef struct s_cub
 {
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
 	mlx_image_t		*line_image;
+	t_images		*player;
+	t_images		*north;
+	t_images		*south;
+	t_images		*west;
+	t_images		*east;
 	struct s_data	*data;
 
 }	t_cub;
