@@ -6,7 +6,9 @@ int	main(int argc, char **argv)
 
 	init_cub(&game);
 	validate_map(argc, argv, game.data);
-	init_game(&game);
+	ft_print_matrix(game.data->map);
+	calculate_window_size(game.data);
+	//init_game(&game);
 	return (EXIT_SUCCESS);
 }
 

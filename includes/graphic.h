@@ -10,6 +10,6 @@ void	free_and_close(void *param);
 void	draw_example_pixel(t_cub *game);
 void	draw_grid(t_cub *game);
 void    draw_line(mlx_image_t *image, int x0, int y0, int x1, int y1, uint32_t color);
-void	calculate_window_size(t_data *data, int *map_width, int *map_height);
+void	calculate_window_size(t_data *data);
 
 #endif

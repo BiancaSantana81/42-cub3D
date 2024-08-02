@@ -61,7 +61,6 @@ void	handle_mlx_actions(int action, t_cub *game)
 	data = game->data;
 	map_width = BLOCK * data->columns;
 	map_height = BLOCK * data->lines;
-	calculate_window_size(data, &map_width, &map_height);
 	if (action == INIT)
 	{
 		game->mlx = mlx_init(map_width, map_height, "CUB3D", true);
@@ -76,8 +75,8 @@ void	handle_mlx_actions(int action, t_cub *game)
 	}
 }
 
-void	calculate_window_size(t_data *data, int *map_width, int *map_height)
+void	calculate_window_size(t_data *data)
 {
-	*map_width = BLOCK * data->columns;
-	*map_height = BLOCK * data->lines;
+	data->map_width = BLOCK * data->columns;
+	data->map_height = BLOCK * data->lines;
 }
