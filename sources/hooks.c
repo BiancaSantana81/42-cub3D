@@ -58,17 +58,17 @@ void	draw_grid(t_cub *game)
 	int	width;
 	int	height;
 
-	width = game->data->map_width / game->data->columns;
-	height = game->data->map_height / game->data->lines;
+	width = game->data->window_width / game->data->columns;
+	height = game->data->window_height / game->data->lines;
 	line = 0;
-	//printf("Map Width: %d, Map Height: %d\n", game->data->map_width, game->data->map_height);
+	printf("Map Width: %d, Map Height: %d\n", game->data->window_width, game->data->window_height);
 	//printf("Columns: %d, Lines: %d\n", game->data->columns, game->data->lines);
 	//printf("Width per cell: %d, Height per cell: %d\n", width, height);
 	while (line <= game->data->lines)
 	{
 		line_pos = line * width;
 		//printf("Line: %d, Line Position: %d\n", line, line_pos);
-		draw_line(game->mlx_image, 0, line_pos, game->data->map_width, line_pos, 0xFF0000FF);
+		draw_line(game->mlx_image, 0, line_pos, game->data->window_width, line_pos, 0xFF0000FF);
 		line++;
 	}
 	column = 0;
@@ -76,7 +76,7 @@ void	draw_grid(t_cub *game)
 	{
 		column_pos = column * height;
 		//printf("Column: %d, Column Position: %d\n", column, column_pos);
-		draw_line(game->mlx_image, column_pos, 0, column_pos, game->data->map_height, 0xFF0000FF);
+		draw_line(game->mlx_image, column_pos, 0, column_pos, game->data->window_height, 0xFF0000FF);
 		column++;
 	}
 }

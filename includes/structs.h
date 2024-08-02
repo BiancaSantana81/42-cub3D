@@ -16,8 +16,8 @@ typedef struct s_data
 	char			**map;
 	int				lines;
 	int				columns;
-	int				map_width;
-	int				map_height;
+	int				window_width;
+	int				window_height;
 }	t_data;
 
 typedef struct s_validate
