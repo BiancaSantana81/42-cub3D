@@ -45,10 +45,11 @@ void	draw_map(t_cub *game)
 	int	j;
 
 	i = 0;
+	j = 0;
 	while (i < game->data->lines)
 	{
 		j = 0;
-		while (j < game->data->columns)
+		while (j < game->data->columns && game->data->map[i][j])
 		{
 			if (game->data->map[i][j] == '1')
 				draw_map_square(game, j * BLOCK, i * BLOCK, 0x008A2BE2);
