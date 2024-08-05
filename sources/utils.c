@@ -5,6 +5,8 @@ void	handle_error(char *error)
 	t_cub	*game;
 
 	game = get_game(NULL);
+	if (game->player)
+		free(game->player);
 	if (game)
 		free_memory(game);
 	ft_putstr_fd(error, 2);

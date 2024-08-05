@@ -55,7 +55,6 @@ int	check_extension(char *map_file)
 	exit(EXIT_FAILURE);
 }
 
-
 // char	*check_path(char *path)
 // {
 // 	char	*path_copy;

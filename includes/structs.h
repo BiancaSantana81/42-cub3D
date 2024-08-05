@@ -18,7 +18,7 @@ typedef struct s_data
 	int				columns;
 	int				x_player;
 	int				y_player;
-	char			pos_player;
+	char			pov_player;
 }	t_data;
 
 typedef struct s_validate
@@ -36,19 +36,28 @@ typedef struct s_images
 	int				y;
 }	t_images;
 
+typedef struct s_player
+{
+	float			py; //player y pos
+	float			px; //player x pos
+	float			pdy; //player delta y pos
+	float			pdx; //player delta x pos
+	float			pa; //player angle
+}	t_player;
+
 typedef struct s_cub
 {
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
 	mlx_image_t		*map_image;
 	mlx_image_t		*line_image;
-	t_images		*player;
+	t_images		*pov;
 	t_images		*north;
 	t_images		*south;
 	t_images		*west;
 	t_images		*east;
-	struct s_data	*data;
-
+	t_data			*data;
+	t_player		*player;
 }	t_cub;
 
 typedef enum e_mlx_action
