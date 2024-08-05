@@ -16,8 +16,6 @@ typedef struct s_data
 	char			**map;
 	int				lines;
 	int				columns;
-	int				window_width;
-	int				window_height;
 }	t_data;
 
 typedef struct s_validate
@@ -40,7 +38,6 @@ typedef struct s_cub
 {
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
-	mlx_image_t		*line_image;
 	mlx_image_t		*map_image;
 	t_images		*player;
 	t_images		*north;

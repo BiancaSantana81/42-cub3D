@@ -19,8 +19,6 @@ void	init_data(t_cub *game)
 	game->data->floor = 0;
 	game->data->ceiling = 0;
 	game->data->map = NULL;
-	game->data->window_height = 0;
-	game->data->window_width = 0;
 }
 
 void	init_variables_valid(t_validate *valid)

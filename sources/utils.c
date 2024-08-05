@@ -55,9 +55,3 @@ void	handle_mlx_actions(int action, t_cub *game)
 		//mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
 	}
 }
-
-void	calculate_window_size(t_cub *game)
-{
-	game->data->window_width = BLOCK * game->data->columns;
-	game->data->window_height = BLOCK * game->data->lines;
-}

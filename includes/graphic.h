@@ -15,12 +15,15 @@ void		free_sprite(t_cub *game, t_images *image);
 void		load_textures(t_cub *game);
 void		draw_images(t_cub *game);
 
+/* DRAW */
+void		draw_player_square(t_cub *game);
+void		draw_square(t_cub *game,
+				int start_x, int start_y, int size, uint32_t color);
+void		draw_map(t_cub *game);
 
-void	draw_player_square(t_cub *game);
-void	draw_square(t_cub *game, int start_x, int start_y, int size, uint32_t color);
-void	draw_map(t_cub *game);
-
-void	draw_grid(t_cub *game);
-void draw_line(mlx_image_t *image, int x0, int y0, int x1, int y1, uint32_t color);
+/* GRID  - excluir ao final do projeto */
+void		draw_grid(t_cub *game);
+void		draw_line(mlx_image_t *image,
+				int x0, int y0, int x1, int y1, uint32_t color);
 
 #endif
