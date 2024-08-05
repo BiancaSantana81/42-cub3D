@@ -25,6 +25,9 @@ void		draw_map_square(t_cub *game, int start_x, int start_y,
 /* POSITION */
 void		assing_position(t_cub *game, int start_x, int start_y);
 
+/* BUTTONS */
+void	buttons(t_cub *game, unsigned char key);
+
 /* GRID  - excluir ao final do projeto */
 void		draw_grid(t_cub *game);
 void		draw_line(mlx_image_t *image,
