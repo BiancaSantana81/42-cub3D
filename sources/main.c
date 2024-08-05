@@ -17,7 +17,7 @@ int	init_game(t_cub *game)
 	draw_map(game);
 	draw_player_square(game);
 	mlx_key_hook(game->mlx, &hook_key_press, game);
-	mlx_close_hook(game->mlx, hook_close, &game);
+	mlx_close_hook(game->mlx, hook_close, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
 	return (EXIT_SUCCESS);
