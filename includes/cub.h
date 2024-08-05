@@ -8,12 +8,12 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <string.h>
+# include <math.h>
 //# include "../MLX42/include/MLX42/MLX42_Int.h"
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "structs.h"
 # include "validate.h"
 # include "graphic.h"
-# include <math.h>
 # include "../libft/src/libft.h"
 
 # define BLOCK 32
@@ -31,8 +31,9 @@ t_cub	*get_game(t_cub *game);
 void	handle_mlx_actions(int action, t_cub *game);
 
 /* INIT */
-void	init_data(t_cub *game);
 void	init_cub(t_cub *game);
+void	init_data(t_cub *game);
+void	init_player(t_cub *game);
 void	init_variables_valid(t_validate *valid);
 int		init_game(t_cub *game);
 

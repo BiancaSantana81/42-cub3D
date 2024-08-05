@@ -35,6 +35,7 @@ void	draw_player_square(t_cub *game)
 	offset = BLOCK / 2 - (size / 2);
 	start_x = game->data->x_player * BLOCK + offset;
 	start_y = game->data->y_player * BLOCK + offset;
+	assing_position(game, start_x, start_y);
 	if (game->mlx_image)
 		draw_square(game, start_x, start_y, size);
 }
