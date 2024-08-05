@@ -38,5 +38,6 @@ int		init_game(t_cub *game);
 
 /* TRASH */
 void	print_data(t_data data);
+void	generate_random_coordinates(int width, int height, int *x, int *y);
 
 #endif

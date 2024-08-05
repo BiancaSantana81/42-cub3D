@@ -23,8 +23,6 @@ void		draw_map_square(t_cub *game, int start_x, int start_y,
 				uint32_t color);
 
 /* GRID  - excluir ao final do projeto */
-void		draw_grid(t_cub *game);
-void		draw_line(mlx_image_t *image,
-				int x0, int y0, int x1, int y1, uint32_t color);
+void		draw_line(mlx_image_t *image, int x0, int y0, int x1, int y1);
 
 #endif

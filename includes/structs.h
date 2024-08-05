@@ -41,6 +41,7 @@ typedef struct s_cub
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
 	mlx_image_t		*map_image;
+	mlx_image_t		*line_image;
 	t_images		*player;
 	t_images		*north;
 	t_images		*south;

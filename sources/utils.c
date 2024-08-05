@@ -51,6 +51,8 @@ void	handle_mlx_actions(int action, t_cub *game)
 				data->lines * BLOCK);
 		game->map_image = mlx_new_image(game->mlx, data->columns * BLOCK,
 				data->lines * BLOCK);
+		game->line_image = mlx_new_image(game->mlx, data->columns * BLOCK,
+				data->lines * BLOCK);
 	}
 	else if (action == IMAGE_TO_WINDOW)
 	{
