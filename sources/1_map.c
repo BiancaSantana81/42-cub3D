@@ -1,7 +1,5 @@
 #include "../includes/cub.h"
 
-static int	check_map_content(t_validate *valid);
-
 void	count_map_size(t_data *data, char *temp, int fd)
 {
 	int	map_size;
@@ -62,7 +60,6 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 	int	j;
 
 	i = 0;
-	found_tabs(data);
 	while (data->map[i])
 	{
 		j = 0;
@@ -76,16 +73,17 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 				|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
 			{
 				valid->player++;
-				valid->pos_player = data->map[i][j];
+				data->pos_player = data->map[i][j];
+				data->y_player = i;
+				data->x_player = j;
 			}
 			j++;
 		}
 		i++;
 	}
-	check_map_content(valid);
 }
 
-static int	check_map_content(t_validate *valid)
+int	check_map_content(t_validate *valid)
 {
 	if (valid->player != 1)
 		return (handle_error(WARNING_PLAYER), (EXIT_FAILURE));

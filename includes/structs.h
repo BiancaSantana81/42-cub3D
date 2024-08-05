@@ -5,17 +5,20 @@
 
 typedef struct s_data
 {
-	int				size_textures;
 	char			*no;
 	char			*so;
 	char			*we;
 	char			*ea;
+	char			**map;
 	bool			colors;
 	uint32_t		floor;
 	uint32_t		ceiling;
-	char			**map;
+	int				size_textures;
 	int				lines;
 	int				columns;
+	int				x_player;
+	int				y_player;
+	char			pos_player;
 }	t_data;
 
 typedef struct s_validate
@@ -23,7 +26,6 @@ typedef struct s_validate
 	int		invalid;
 	int		player;
 	int		n;
-	char	pos_player;
 }	t_validate;
 
 typedef struct s_images

@@ -16,6 +16,7 @@
 int			validate_map(int argc, char **argv, t_data *data);
 int			check_arguments(int argc);
 int			check_extension(char *map_file);
+int			check_map_content(t_validate *valid);
 char		*check_path(char *path);
 void		check_rgb(uint32_t *color, char *rgb_color);
 void		split_rgb(char ***rgb, char *rgb_color);

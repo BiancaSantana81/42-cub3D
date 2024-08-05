@@ -8,7 +8,9 @@ int	validate_map(int argc, char **argv, t_data *data)
 	check_extension(argv[1]);
 	data_processing(argv[1], data);
 	init_variables_valid(&valid);
+	found_tabs(data);
 	analyze_map_content(data, &valid);
+	check_map_content(&valid);
 	surrounded_by_walls(data);
 	return (EXIT_SUCCESS);
 }
@@ -52,6 +54,7 @@ int	check_extension(char *map_file)
 	free_memory(get_game(NULL));
 	exit(EXIT_FAILURE);
 }
+
 
 // char	*check_path(char *path)
 // {

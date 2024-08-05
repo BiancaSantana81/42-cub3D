@@ -15,10 +15,12 @@ void	init_data(t_cub *game)
 	game->data->so = NULL;
 	game->data->we = NULL;
 	game->data->ea = NULL;
+	game->data->map = NULL;
+	game->data->y_player = 0;
+	game->data->x_player = 0;
 	game->data->colors = false;
 	game->data->floor = 0;
 	game->data->ceiling = 0;
-	game->data->map = NULL;
 }
 
 void	init_variables_valid(t_validate *valid)

@@ -1,22 +1,22 @@
 #include "../includes/cub.h"
 
-static void	draw_map_square(t_cub *game,
-				int start_x, int start_y, int size, uint32_t color);
-
-void	draw_square(t_cub *game,
-	int start_x, int start_y, int size, uint32_t color)
+void	draw_square(t_cub *game, int start_x, int start_y, int size)
 {
 	uint32_t	x;
 	uint32_t	y;
+	uint32_t	end_x;
+	uint32_t	end_y;
 
+	end_x = start_x + size;
+	end_y = start_y + size;
 	y = (uint32_t)start_y;
-	while (y < (uint32_t)start_y + size)
+	while (y < end_y)
 	{
 		x = (uint32_t)start_x;
-		while (x < (uint32_t)start_x + size)
+		while (x < end_x)
 		{
 			if (x < game->mlx_image->width && y < game->mlx_image->height)
-				mlx_put_pixel(game->mlx_image, x, y, color);
+				mlx_put_pixel(game->mlx_image, x, y, 0xFFFFFFFF);
 			x++;
 		}
 		y++;
@@ -26,17 +26,17 @@ void	draw_square(t_cub *game,
 
 void	draw_player_square(t_cub *game)
 {
-	int			start_x;
-	int			start_y;
-	int			size;
-	uint32_t	color;
+	int	start_x;
+	int	start_y;
+	int	size;
+	int	offset;
 
-	color = 0xFF0000FF;
-	start_x = 10; //x onde inicia
-	start_y = 10; // y onde inicia
-	size = 10; // tamanho do quadrado
+	size = 10;
+	offset = BLOCK / 2 - (size / 2);
+	start_x = game->data->x_player * BLOCK + offset;
+	start_y = game->data->y_player * BLOCK + offset;
 	if (game->mlx_image)
-		draw_square(game, start_x, start_y, size, color);
+		draw_square(game, start_x, start_y, size);
 }
 
 void	draw_map(t_cub *game)
@@ -51,9 +51,10 @@ void	draw_map(t_cub *game)
 		while (j < game->data->columns)
 		{
 			if (game->data->map[i][j] == '1')
-				draw_map_square(game, j * BLOCK, i * BLOCK, BLOCK, 0x00FFFFFF);
-			else if (game->data->map[i][j] == '0')
-				draw_map_square(game, j * BLOCK, i * BLOCK, BLOCK, 0x00000000);
+				draw_map_square(game, j * BLOCK, i * BLOCK, 0x008A2BE2);
+			else if (game->data->map[i][j] == '0'
+				|| ft_strchr("NSWE", game->data->map[i][j]))
+				draw_map_square(game, j * BLOCK, i * BLOCK, 0xFF9370DB);
 			j++;
 		}
 		i++;
@@ -61,17 +62,16 @@ void	draw_map(t_cub *game)
 	mlx_image_to_window(game->mlx, game->map_image, 0, 0);
 }
 
-static void	draw_map_square(t_cub *game,
-	int start_x, int start_y, int size, uint32_t color)
+void	draw_map_square(t_cub *game, int start_x, int start_y, uint32_t color)
 {
 	uint32_t	x;
 	uint32_t	y;
 
 	y = (uint32_t)start_y;
-	while (y < (uint32_t)start_y + size)
+	while (y < (uint32_t)start_y + BLOCK - 1)
 	{
 		x = (uint32_t)start_x;
-		while (x < (uint32_t)start_x + size)
+		while (x < (uint32_t)start_x + BLOCK - 1)
 		{
 			if (x < game->map_image->width && y < game->map_image->height)
 				mlx_put_pixel(game->map_image, x, y, color);
