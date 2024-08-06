@@ -22,6 +22,11 @@ void		draw_map(t_cub *game);
 void		draw_map_square(t_cub *game, int start_x, int start_y,
 				uint32_t color);
 
+/* DRAW LINE */
+void		draw_line(mlx_image_t *image, int x0, int y0);
+void		aux_draw_line(mlx_image_t *image, t_line *draw);
+
+
 /* POSITION */
 void		assing_position(t_cub *game, int start_x, int start_y);
 

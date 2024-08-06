@@ -38,7 +38,7 @@ void	draw_player_square(t_cub *game)
 	assing_position(game, start_x, start_y);
 	if (game->mlx_image)
 		draw_square(game, start_x, start_y, size);
-	bresenham_algorithm(game->line_image, start_x, start_y, 120, 120);
+	draw_line(game->line_image, start_x, start_y);
 	mlx_image_to_window(game->mlx, game->line_image, 5, 5);
 }
 
