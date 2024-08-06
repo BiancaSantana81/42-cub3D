@@ -11,7 +11,6 @@ void	bresenham_algorithm(mlx_image_t *image, int x0, int y0, int x1, int y1)
 	params.y0 = y0;
 	params.x1 = x1;
 	params.y1 = y1;
-	// determinam a inclinação da linha usando a substração de x1 - x0 (com valores absolutos)
 	params.dx = abs(x1 - x0);
 	params.dy = abs(y1 - y0);
 	color = 0xFFFFFFF;
@@ -25,7 +24,6 @@ void	bresenham_algorithm(mlx_image_t *image, int x0, int y0, int x1, int y1)
 		params.sy = 1;
 	else
 		params.sy = -1;
-	// ajuda a ajustar a posição do ponto na direção x ou y para manter a linha o mais próximo possível da trajetória incial
 	params.err = params.dx - params.dy;
 	aux_bresenham_algorithm(image, &params, color);
 }
@@ -42,7 +40,6 @@ static void	aux_bresenham_algorithm(mlx_image_t *image, t_line *params, uint32_t
 		if (params->x0 == params->x1 && params->y0 == params->y1)
 			break ;
 		e2 = params->err * 2;
-		// avalia qual a direção as coordenadas devem ser acumuladas de acordo com o valor de e2
 		if (e2 > -params->dy)
 		{
 			params->err -= params->dy;
