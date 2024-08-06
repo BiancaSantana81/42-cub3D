@@ -38,11 +38,13 @@ typedef struct s_images
 
 typedef struct s_player
 {
-	float			py; //player y pos
-	float			px; //player x pos
-	float			pdy; //player delta y pos
-	float			pdx; //player delta x pos
-	float			pa; //player angle
+	int		x;
+	int		y;
+	float	py;
+	float	px;
+	float	pdy;
+	float	pdx;
+	float	pa;
 }	t_player;
 
 typedef struct s_line

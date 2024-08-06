@@ -34,6 +34,8 @@ void	init_variables_valid(t_validate *valid)
 
 void	init_player(t_cub *game)
 {
+	game->player->x = 0;
+	game->player->y = 0;
 	game->player->py = 0;
 	game->player->px = 0;
 	game->player->pdy = 0;
