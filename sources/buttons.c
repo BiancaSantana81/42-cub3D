@@ -7,8 +7,8 @@ void	buttons(t_cub *game, unsigned char key)
 		game->player->pa -= 0.1;
 		if (game->player->pa < 0)
 			game->player->pa += 2 * PI;
-		game->player->pdx = cos(game->player->pa) * 5;
-		game->player->pdy = sin(game->player->pa) * 5;
+		// game->player->pdx = cos(game->player->pa) * 5;
+		// game->player->pdy = sin(game->player->pa) * 5;
 		draw_player_direction(game);
 	}
 	else if (key == 'r')
@@ -16,8 +16,8 @@ void	buttons(t_cub *game, unsigned char key)
 		game->player->pa += 0.1;
 		if (game->player->pa > 2 * PI)
 			game->player->pa -= 2 * PI;
-		game->player->pdx = cos(game->player->pa) * 5;
-		game->player->pdy = sin(game->player->pa) * 5;
+		// game->player->pdx = cos(game->player->pa) * 5;
+		// game->player->pdy = sin(game->player->pa) * 5;
 		draw_player_direction(game);
 	}
 }

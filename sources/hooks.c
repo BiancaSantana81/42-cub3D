@@ -17,13 +17,25 @@ void	hook_key_press(mlx_key_data_t keydata, void *param)
 		return ;
 	}
 	else if (key_pressed(keydata, MLX_KEY_W))
+	{
 		game->mlx_image->instances[0].y -= 5;
+		game->line_image->instances[0].y -=5;
+	}
 	else if (key_pressed(keydata, MLX_KEY_S))
+	{
 		game->mlx_image->instances[0].y += 5;
+		game->line_image->instances[0].y += 5;
+	}
 	else if (key_pressed(keydata, MLX_KEY_A))
+	{
 		game->mlx_image->instances[0].x -= 5;
+		game->line_image->instances[0].x -= 5;
+	}
 	else if (key_pressed(keydata, MLX_KEY_D))
+	{
 		game->mlx_image->instances[0].x += 5;
+		game->line_image->instances[0].x += 5;
+	}
 	else if (key_pressed(keydata, MLX_KEY_LEFT))
 		buttons(game, 'l');
 	else if (key_pressed(keydata, MLX_KEY_RIGHT))
