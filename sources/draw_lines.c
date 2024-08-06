@@ -11,7 +11,6 @@ void	draw_player_direction(t_cub *game)
 	offset = BLOCK / 2;
 	start_x = game->data->x_player * BLOCK + offset;
 	start_y = game->data->y_player * BLOCK + offset;
-
 	//mlx_image_clear(game->line_image, 0x00000000);
 	game->player->px = start_x - size / 2;
 	game->player->py = start_y - size / 2;
@@ -26,7 +25,7 @@ void	draw_line(t_cub *game, int length)
 	int	sx;
 	int	sy;
 	int	err;
-	int e2;
+	int	e2;
 
 	x1 = game->player->px + cos(game->player->pa) * length;
 	y1 = game->player->py + sin(game->player->pa) * length;

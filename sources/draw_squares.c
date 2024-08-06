@@ -1,6 +1,6 @@
 #include "../includes/cub.h"
 
-void	draw_square(t_cub *game, int start_x, int start_y, int size)
+void	draw_player_square(t_cub *game, int start_x, int start_y, int size)
 {
 	uint32_t	x;
 	uint32_t	y;
@@ -24,7 +24,7 @@ void	draw_square(t_cub *game, int start_x, int start_y, int size)
 	mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
 }
 
-void	draw_player_square(t_cub *game)
+void	draw_player(t_cub *game)
 {
 	int	start_x;
 	int	start_y;
@@ -35,9 +35,8 @@ void	draw_player_square(t_cub *game)
 	offset = BLOCK / 2 - (size / 2);
 	start_x = game->data->x_player * BLOCK + offset;
 	start_y = game->data->y_player * BLOCK + offset;
-	assing_position(game, start_x, start_y);
 	if (game->mlx_image)
-		draw_square(game, start_x, start_y, size);
+		draw_player_square(game, start_x, start_y, size);
 }
 
 void	draw_map(t_cub *game)

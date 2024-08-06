@@ -16,8 +16,8 @@ void		load_textures(t_cub *game);
 void		draw_images(t_cub *game);
 
 /* DRAW SQUARES */
-void		draw_player_square(t_cub *game);
-void		draw_square(t_cub *game, int start_x, int start_y, int size);
+void		draw_player(t_cub *game);
+void		draw_player_square(t_cub *game, int start_x, int start_y, int size);
 void		draw_map(t_cub *game);
 void		draw_map_square(t_cub *game, int start_x, int start_y,
 				uint32_t color);
