@@ -45,6 +45,19 @@ typedef struct s_player
 	float			pa; //player angle
 }	t_player;
 
+typedef struct s_line
+{
+	int	x0;
+	int	x1;
+	int	y0;
+	int	y1;
+	int	sx;
+	int	sy;
+	int	dx;
+	int	dy;
+	int	err;
+}	t_line;
+
 typedef struct s_cub
 {
 	mlx_t			*mlx;

@@ -26,10 +26,10 @@ void		draw_map_square(t_cub *game, int start_x, int start_y,
 void		assing_position(t_cub *game, int start_x, int start_y);
 
 /* BUTTONS */
-void	buttons(t_cub *game, unsigned char key);
+void		buttons(t_cub *game, unsigned char key);
 
-/* GRID  - excluir ao final do projeto */
-void		draw_line(mlx_image_t *image, int x0, int y0, int x1, int y1);
-
+/* BRESENHAM */
+void		bresenham_algorithm(mlx_image_t *image,
+				int x0, int y0, int x1, int y1);
 
 #endif
