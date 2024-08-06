@@ -23,6 +23,7 @@ void		draw_map_square(t_cub *game, int start_x, int start_y,
 				uint32_t color);
 
 /* DRAW LINE */
+void		update_pa(t_cub *game);
 void		draw_line(t_cub *game, int lenght);
 void		aux_draw_line(mlx_image_t *image, t_line *draw);
 void		draw_player_direction(t_cub *game);
