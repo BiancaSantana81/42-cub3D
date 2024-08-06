@@ -15,6 +15,7 @@ int	init_game(t_cub *game)
 	handle_mlx_actions(INIT, game);
 	handle_mlx_actions(NEW_IMAGE, game);
 	draw_map(game);
+	update_pa(game);
 	draw_player_square(game);
 	draw_player_direction(game);
 	mlx_key_hook(game->mlx, &hook_key_press, game);

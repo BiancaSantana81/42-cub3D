@@ -1,5 +1,17 @@
 #include "../includes/cub.h"
 
+void	update_pa(t_cub *game)
+{
+	if (game->data->pov_player == 'N')
+		game->player->pa = PI_270;
+	else if (game->data->pov_player == 'S')
+		game->player->pa = PI_90;
+	else if (game->data->pov_player == 'E')
+		game->player->pa = 0;
+	else if (game->data->pov_player == 'W')
+		game->player->pa = PI;
+}
+
 void	draw_player_direction(t_cub *game)
 {
 	int	start_x;
