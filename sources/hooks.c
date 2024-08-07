@@ -40,6 +40,11 @@ void	hook_key_press(mlx_key_data_t keydata, void *param)
 		buttons(game, 'l');
 	else if (key_pressed(keydata, MLX_KEY_RIGHT))
 		buttons(game, 'r');
+	game->player->x = game->mlx_image->instances[0].x;
+	game->player->y = game->mlx_image->instances[0].y;
+	printf("x: %d, y: %d\n", game->mlx_image->instances[0].x, game->mlx_image->instances[0].y);
+	printf("angle: %f\n", game->player->pa);
+	printf("x player: %d, y player: %d\n", game->player->x, game->player->y);
 }
 
 
