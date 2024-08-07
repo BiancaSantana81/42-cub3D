@@ -13,9 +13,9 @@ SRC_PATH 	:= sources
 OBJ_PATH	:= objects
 
 # SOURCES
-CFILES		:=  trash.c main.c init.c utils.c\
-				validation/validation.c validation/check_rgb.c validation/data_processing.c validation/map.c validation/map_utils.c validation/wall.c \
-				hooks.c free_memory.c images.c bresenham.c  \
+CFILES		:=  trash.c main.c init.c utils.c free_memory.c \
+				validation/validation.c validation/check_rgb.c validation/data_processing.c validation/map.c validation/map_utils.c validation/check_wall.c \
+				hooks.c images.c bresenham.c  \
 				draw.c draw_squares.c \
 				vector.c
 
