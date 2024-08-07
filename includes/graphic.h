@@ -25,7 +25,6 @@ void		draw_map_square(t_cub *game, int start_x, int start_y,
 /* DRAW LINE */
 void		update_pa(t_cub *game);
 void		draw_line(t_cub *game, int lenght);
-void		aux_draw_line(mlx_image_t *image, t_line *draw);
 void		draw_player_direction(t_cub *game);
 
 
@@ -38,5 +37,7 @@ void		buttons(t_cub *game, unsigned char key);
 /* BRESENHAM */
 void		bresenham_algorithm(mlx_image_t *image,
 				int x0, int y0, int x1, int y1);
+void		clear_line_image(t_cub *game);
+
 
 #endif

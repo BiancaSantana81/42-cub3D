@@ -61,3 +61,21 @@ void	handle_mlx_actions(int action, t_cub *game)
 		//mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
 	}
 }
+
+void	clear_line_image(t_cub *game)
+{
+	int	line;
+	int	column;
+
+	line = 0;
+	while (line < (int)game->line_image->height)
+	{
+		column = 0;
+		while (column < (int)game->line_image->width)
+		{
+			mlx_put_pixel(game->line_image, column, line, 0x00000000);
+			column++;
+		}
+		line++;
+	}
+}

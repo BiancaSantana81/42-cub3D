@@ -1,5 +1,8 @@
 #include "../includes/cub.h"
 
+static void	aux_draw_line(t_cub *game, t_line *line);
+static void	calculate_line_params(t_cub *game, int length, t_line *line);
+
 void	update_pa(t_cub *game)
 {
 	if (game->data->pov_player == 'N')
@@ -30,42 +33,50 @@ void	draw_player_direction(t_cub *game)
 
 void	draw_line(t_cub *game, int length)
 {
-	int	x1;
-	int	y1;
-	int	sx;
-	int	sy;
-	int	err;
+	t_line	line;
+
+	clear_line_image(game);
+	calculate_line_params(game, length, &line);
+	aux_draw_line(game, &line);
+}
+
+static void	aux_draw_line(t_cub *game, t_line *line)
+{
 	int	e2;
 
-	x1 = game->player->px + cos(game->player->pa) * length;
-	y1 = game->player->py + sin(game->player->pa) * length;
-	game->player->pdx = fabsf(x1 - game->player->px);
-	game->player->pdy = -fabsf(y1 - game->player->py);
-	if (game->player->px < x1)
-		sx = 1;
-	else
-		sx = -1;
-	if (game->player->py < y1)
-		sy = 1;
-	else
-		sy = -1;
-	err = game->player->pdx + game->player->pdy;
 	while (1)
 	{
 		mlx_put_pixel(game->line_image,
 			game->player->px, game->player->py, 0xFFFFFFFF);
-		if (game->player->px == x1 && game->player->py == y1)
+		if (game->player->px == line->x1 && game->player->py == line->y1)
 			break ;
-		e2 = 2 * err;
+		e2 = 2 * line->err;
 		if (e2 >= game->player->pdy)
 		{
-			err += game->player->pdy;
-			game->player->px += sx;
+			line->err += game->player->pdy;
+			game->player->px += line->sx;
 		}
 		if (e2 <= game->player->pdx)
 		{
-			err += game->player->pdx;
-			game->player->py += sy;
+			line->err += game->player->pdx;
+			game->player->py += line->sy;
 		}
 	}
+}
+
+static void	calculate_line_params(t_cub *game, int length, t_line *line)
+{
+	line->x1 = game->player->px + cos(game->player->pa) * length;
+	line->y1 = game->player->py + sin(game->player->pa) * length;
+	game->player->pdx = fabsf(line->x1 - game->player->px);
+	game->player->pdy = -fabsf(line->y1 - game->player->py);
+	if (game->player->px < line->x1)
+		line->sx = 1;
+	else
+		line->sx = -1;
+	if (game->player->py < line->y1)
+		line->sy = 1;
+	else
+		line->sy = -1;
+	line->err = game->player->pdx + game->player->pdy;
 }
