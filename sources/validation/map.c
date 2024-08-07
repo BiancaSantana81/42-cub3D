@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 void	count_map_size(t_data *data, char *temp, int fd)
 {

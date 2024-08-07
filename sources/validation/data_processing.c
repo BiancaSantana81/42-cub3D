@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 static void	read_textures_path_aux(t_data *data, char *temp);
 static void	copy_texture_path(char **texture, char *path);

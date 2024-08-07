@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 static void	handle_error_rgb(char *rgb_color, char **rgb);
 

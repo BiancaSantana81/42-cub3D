@@ -5,8 +5,6 @@ void	handle_error(char *error)
 	t_cub	*game;
 
 	game = get_game(NULL);
-	if (game->player)
-		free(game->player);
 	if (game)
 		free_memory(game);
 	ft_putstr_fd(error, 2);
@@ -34,27 +32,25 @@ int	open_file(char *filename)
 
 void	handle_mlx_actions(int action, t_cub *game)
 {
-	t_data	*data;
-	int		window_width;
-	int		window_height;
+	int	height;
+	int	width;
 
-	data = game->data;
-	window_width = BLOCK * data->columns;
-	window_height = BLOCK * data->lines;
+	height = game->data->lines * BLOCK;
+	width = game->data->columns * BLOCK;
 	if (action == INIT)
 	{
-		game->mlx = mlx_init(window_width, window_height, "CUB3D", true);
+		game->mlx = mlx_init(width, height, "CUB3D", true);
 		if (!game->mlx)
 			puts(mlx_strerror(mlx_errno));
 	}
 	else if (action == NEW_IMAGE)
 	{
-		game->mlx_image = mlx_new_image(game->mlx, data->columns * BLOCK,
-				data->lines * BLOCK);
-		game->map_image = mlx_new_image(game->mlx, data->columns * BLOCK,
-				data->lines * BLOCK);
-		game->line_image = mlx_new_image(game->mlx, data->columns * BLOCK,
-				data->lines * BLOCK);
+		game->mlx_image = mlx_new_image(game->mlx, game->data->columns * BLOCK,
+				game->data->lines * BLOCK);
+		game->map_image = mlx_new_image(game->mlx, game->data->columns * BLOCK,
+				game->data->lines * BLOCK);
+		game->line_image = mlx_new_image(game->mlx, game->data->columns * BLOCK,
+				game->data->lines * BLOCK);
 	}
 	else if (action == IMAGE_TO_WINDOW)
 	{

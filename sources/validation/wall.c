@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 static int	is_open(t_data *data, int line, int column)
 {

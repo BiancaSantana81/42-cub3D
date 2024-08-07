@@ -62,6 +62,8 @@ typedef struct s_line
 
 typedef struct s_cub
 {
+	int				window_width;
+	int				window_height;
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
 	mlx_image_t		*map_image;
@@ -72,7 +74,6 @@ typedef struct s_cub
 	t_images		*west;
 	t_images		*east;
 	t_data			*data;
-	t_player		*player;
 }	t_cub;
 
 typedef enum e_mlx_action

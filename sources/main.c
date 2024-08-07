@@ -5,7 +5,7 @@ int	main(int argc, char **argv)
 	t_cub	game;
 
 	init_cub(&game);
-	validate_map(argc, argv, game.data);
+	validate_map(argc, argv, &game);
 	init_game(&game);
 	return (EXIT_SUCCESS);
 }
@@ -14,13 +14,6 @@ int	init_game(t_cub *game)
 {
 	handle_mlx_actions(INIT, game);
 	handle_mlx_actions(NEW_IMAGE, game);
-	draw_map(game);
-	update_pa(game);
-	draw_player(game);
-	game->player->x = game->data->x_player;
-	game->player->y = game->data->y_player;
-	draw_player_direction(game);
-	mlx_image_to_window(game->mlx, game->line_image, 5, 5);
 	mlx_key_hook(game->mlx, &hook_key_press, game);
 	mlx_close_hook(game->mlx, hook_close, game);
 	mlx_loop(game->mlx);
