@@ -21,19 +21,19 @@ void		draw_player_square(t_cub *game, int start_x, int start_y, int size);
 void		draw_map(t_cub *game);
 void		draw_map_square(t_cub *game, int start_x, int start_y,
 				uint32_t color);
+void		draw_background(t_cub *game);
 
-/* DRAW LINE */
-void		update_pa(t_cub *game);
-void		draw_line(t_cub *game, int lenght);
-void		aux_draw_line(mlx_image_t *image, t_line *draw);
-void		draw_player_direction(t_cub *game);
+/* DRAW */
+void		draw(t_cub *game);
+void		draw_rays(t_cub *game);
+
+/* VECTORS */
+t_vector	create_vector(float x, float y);
+t_vector	mult_vector(t_vector v, double scalar);
+t_vector	add_vector(t_vector v1, t_vector v2);
+float		mag_vector(t_vector v);
 
 
-/* POSITION */
-void		assing_position(t_cub *game, int start_x, int start_y);
-
-/* BUTTONS */
-void		buttons(t_cub *game, unsigned char key);
 
 /* BRESENHAM */
 void		bresenham_algorithm(mlx_image_t *image,

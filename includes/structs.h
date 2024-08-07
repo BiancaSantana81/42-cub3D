@@ -36,17 +36,6 @@ typedef struct s_images
 	int				y;
 }	t_images;
 
-typedef struct s_player
-{
-	int		x;
-	int		y;
-	float	py;
-	float	px;
-	float	pdy;
-	float	pdx;
-	float	pa;
-}	t_player;
-
 typedef struct s_line
 {
 	int	x0;
@@ -60,19 +49,28 @@ typedef struct s_line
 	int	err;
 }	t_line;
 
+typedef struct s_vector
+{
+	float	x;
+	float	y;
+}	t_vector;
+
 typedef struct s_cub
 {
-	int				window_width;
-	int				window_height;
+	uint32_t		window_width;
+	uint32_t		window_height;
 	mlx_t			*mlx;
+	mlx_image_t		*background_image;
 	mlx_image_t		*mlx_image;
 	mlx_image_t		*map_image;
 	mlx_image_t		*line_image;
-	t_images		*pov;
-	t_images		*north;
-	t_images		*south;
-	t_images		*west;
-	t_images		*east;
+	t_vector		pos;
+	t_vector		dir;
+	t_vector		camera_plane;
+	t_vector		camera_pixel;
+	t_vector		ray_dir;
+	t_vector		delta_dist;
+	t_vector		map_pos;
 	t_data			*data;
 }	t_cub;
 

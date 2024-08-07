@@ -17,6 +17,10 @@
 # include "../libft/src/libft.h"
 
 # define BLOCK 32
+# define WALL 64
+# define FOV 60
+# define PLAYER 32
+# define WINDOW 320
 # define PI 3.141592653589793
 # define PI_90 1.5707963267948966  // π/2
 # define PI_270 4.71238898038469   // 3π/2

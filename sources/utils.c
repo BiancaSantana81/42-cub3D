@@ -29,31 +29,3 @@ int	open_file(char *filename)
 		handle_error("Error: open file\n");
 	return (fd);
 }
-
-void	handle_mlx_actions(int action, t_cub *game)
-{
-	int	height;
-	int	width;
-
-	height = game->data->lines * BLOCK;
-	width = game->data->columns * BLOCK;
-	if (action == INIT)
-	{
-		game->mlx = mlx_init(width, height, "CUB3D", true);
-		if (!game->mlx)
-			puts(mlx_strerror(mlx_errno));
-	}
-	else if (action == NEW_IMAGE)
-	{
-		game->mlx_image = mlx_new_image(game->mlx, game->data->columns * BLOCK,
-				game->data->lines * BLOCK);
-		game->map_image = mlx_new_image(game->mlx, game->data->columns * BLOCK,
-				game->data->lines * BLOCK);
-		game->line_image = mlx_new_image(game->mlx, game->data->columns * BLOCK,
-				game->data->lines * BLOCK);
-	}
-	else if (action == IMAGE_TO_WINDOW)
-	{
-		//mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
-	}
-}

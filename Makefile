@@ -16,7 +16,8 @@ OBJ_PATH	:= objects
 CFILES		:=  trash.c main.c init.c utils.c\
 				validation/validation.c validation/check_rgb.c validation/data_processing.c validation/map.c validation/map_utils.c validation/wall.c \
 				hooks.c free_memory.c images.c bresenham.c  \
-				draw_squares.c
+				draw.c draw_squares.c \
+				vector.c
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))
