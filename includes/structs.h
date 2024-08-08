@@ -74,6 +74,8 @@ typedef struct s_cub
 	t_vector		map_pos;
 	float			dist_to_side_x;
 	float			dist_to_side_y;
+	int				step_x;
+	int				step_y;
 	t_data			*data;
 }	t_cub;
 
