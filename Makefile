@@ -17,7 +17,6 @@ CFILES		:=  trash.c main.c init.c utils.c free_memory.c \
 				validation/validation.c validation/check_rgb.c validation/data_processing.c validation/map.c validation/map_utils.c validation/check_wall.c \
 				hooks.c images.c bresenham.c  \
 				draw.c draw_squares.c \
-				vector.c
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))

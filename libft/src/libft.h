@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 14:38:01 by bsantana          #+#    #+#             */
-/*   Updated: 2024/07/25 16:39:56 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:59:19 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <math.h>
 
 typedef struct s_gnl
 {
@@ -33,6 +34,12 @@ typedef struct s_find
 	int		pos;
 	int		bytes;
 }	t_find;
+
+typedef struct s_vector
+{
+	float	x;
+	float	y;
+}	t_vector;
 
 /*
 ********************************************************************************
@@ -138,5 +145,15 @@ void		ft_dealloc(t_gnl **root);
 int			ft_build_line(t_find *file, t_gnl **root, int bytes);
 int			ft_read_file(int fd, t_find *file, t_gnl **root);
 int			ft_lstchr(t_gnl *root);
+
+/*
+*******************************************************************************
+								VECTOR
+*/
+
+t_vector	create_vector(float x, float y);
+t_vector	add_vector(t_vector v1, t_vector v2);
+t_vector	mult_vector(t_vector v, double scalar);
+float		mag_vector(t_vector v);
 
 #endif
