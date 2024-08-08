@@ -2,6 +2,7 @@
 # define STRUCTS_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
+# include "../libft/src/libft.h"
 
 typedef struct s_data
 {
@@ -49,11 +50,11 @@ typedef struct s_line
 	int	err;
 }	t_line;
 
-typedef struct s_vector
-{
-	float	x;
-	float	y;
-}	t_vector;
+// typedef struct s_vector
+// {
+// 	float	x;
+// 	float	y;
+// }	t_vector;
 
 typedef struct s_cub
 {
