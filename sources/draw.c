@@ -1,6 +1,7 @@
 #include "../includes/cub.h"
 
 static void	setup(t_cub *game);
+static void	calculate_dist_to_side(t_cub *game);
 
 void	draw(t_cub *game)
 {
@@ -31,6 +32,23 @@ void	draw_rays(t_cub *game)
 		game->delta_dist.x = mag_vector(game->ray_dir) / game->ray_dir.x;
 		game->delta_dist.y = mag_vector(game->ray_dir) / game->ray_dir.y;
 		game->map_pos = create_vector(floor(game->pos.x), floor(game->pos.y));
+		calculate_dist_to_side(game);
 		pixel++;
 	}
+}
+
+static void	calculate_dist_to_side(t_cub *game)
+{
+	if (game->ray_dir.x < 0)
+		game->dist_to_side_x = (game->pos.x - game->map_pos.x)
+			* game->delta_dist.x;
+	else
+		game->dist_to_side_x = (game->map_pos.x + 1 - game->pos.x)
+			* game->delta_dist.x;
+	if (game->ray_dir.y < 0)
+		game->dist_to_side_y = (game->pos.y - game->map_pos.y)
+			* game->delta_dist.y;
+	else
+		game->dist_to_side_y = (game->map_pos.y + 1 - game->pos.y)
+			* game->delta_dist.y;
 }
