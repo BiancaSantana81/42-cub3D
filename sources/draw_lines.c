@@ -29,7 +29,7 @@ void	draw_player_direction(t_cub *game)
 	game->player->px = start_x;
 	game->player->py = start_y;
 	draw_line(game, BLOCK * 1);
-	draw_plane_line(game, BLOCK *1);
+	draw_plane_line(game, BLOCK * 1);
 }
 
 void	draw_line(t_cub *game, int length)
