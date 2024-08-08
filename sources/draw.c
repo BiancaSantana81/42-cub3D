@@ -40,7 +40,6 @@ void	draw_rays(t_cub *game)
 		pixel++;
 	}
 }
-<<<<<<< HEAD
 
 static void	calculate_dist_to_side(t_cub *game)
 {
@@ -57,5 +56,3 @@ static void	calculate_dist_to_side(t_cub *game)
 		game->dist_to_side_y = (game->map_pos.y + 1 - game->pos.y)
 			* game->delta_dist.y;
 }
-=======
->>>>>>> f48fe49fad90e7e12cf5da2a79f50ce43ae753b9
