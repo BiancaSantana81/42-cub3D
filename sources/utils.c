@@ -55,6 +55,8 @@ void	handle_mlx_actions(int action, t_cub *game)
 				data->lines * BLOCK);
 		game->line_image = mlx_new_image(game->mlx, data->columns * BLOCK,
 				data->lines * BLOCK);
+		game->plane_line = mlx_new_image(game->mlx, data->columns * BLOCK,
+				data->lines * BLOCK);
 	}
 	else if (action == IMAGE_TO_WINDOW)
 	{
@@ -62,7 +64,7 @@ void	handle_mlx_actions(int action, t_cub *game)
 	}
 }
 
-void	clear_line_image(t_cub *game)
+void	clear_line_image(t_cub *game, mlx_image_t *image)
 {
 	int	line;
 	int	column;
@@ -73,7 +75,7 @@ void	clear_line_image(t_cub *game)
 		column = 0;
 		while (column < (int)game->line_image->width)
 		{
-			mlx_put_pixel(game->line_image, column, line, 0x00000000);
+			mlx_put_pixel(image, column, line, 0x00000000);
 			column++;
 		}
 		line++;

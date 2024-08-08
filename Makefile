@@ -14,7 +14,7 @@ OBJ_PATH	:= objects
 
 # SOURCES
 CFILES		:=  trash.c main.c validation.c check_rgb.c data_processing.c 1_map.c 2_map.c utils.c init.c wall.c \
-				hooks.c free_memory.c images.c buttons.c position.c bresenham.c  \
+				hooks.c free_memory.c images.c buttons.c position.c bresenham.c  draw_plane_line.c \
 				draw_rays.c draw_lines.c draw_squares.c
 
 #PATH_FILES

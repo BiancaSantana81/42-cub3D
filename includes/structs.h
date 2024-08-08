@@ -66,6 +66,7 @@ typedef struct s_cub
 	mlx_image_t		*mlx_image;
 	mlx_image_t		*map_image;
 	mlx_image_t		*line_image;
+	mlx_image_t		*plane_line;
 	t_images		*pov;
 	t_images		*north;
 	t_images		*south;

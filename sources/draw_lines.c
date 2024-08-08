@@ -28,14 +28,15 @@ void	draw_player_direction(t_cub *game)
 	start_y = game->data->y_player * BLOCK + offset;
 	game->player->px = start_x;
 	game->player->py = start_y;
-	draw_line(game, 20);
+	draw_line(game, BLOCK * 1);
+	draw_plane_line(game, BLOCK *1);
 }
 
 void	draw_line(t_cub *game, int length)
 {
 	t_line	line;
 
-	clear_line_image(game);
+	clear_line_image(game, game->line_image);
 	calculate_line_params(game, length, &line);
 	aux_draw_line(game, &line);
 }
