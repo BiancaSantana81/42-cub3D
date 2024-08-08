@@ -33,6 +33,7 @@ void	handle_mlx_actions(int action, t_cub *game)
 	//width = game->data->columns * BLOCK;
 	if (action == INIT)
 	{
+		mlx_set_setting(MLX_STRETCH_IMAGE, true);
 		game->mlx = mlx_init(WIDHT, HEIGTH, "CUB3D", true);
 		if (!game->mlx)
 			puts(mlx_strerror(mlx_errno));
