@@ -12,11 +12,11 @@ void	draw_plane_line(t_cub *game, int length)
 	int		perp_y2;
 
 	// ponto final da linha de direção do jogador.
-	end_x = game->player->px + cos(game->player->pa) * length;
-	end_y = game->player->py + sin(game->player->pa) * length;
+	end_x = game->player->px + cos(game->player->pa) * length / 16;
+	end_y = game->player->py + sin(game->player->pa) * length / 16;
 	// vetor perpendicular.
-	perp_dx = -sin(game->player->pa) * length;
-	perp_dy = cos(game->player->pa) * length;
+	perp_dx = -sin(game->player->pa) * length / 2;
+	perp_dy = cos(game->player->pa) * length / 2;
 	// calcula os pontos finais da linha perpendicular.
 	perp_x1 = end_x + perp_dx;
 	perp_y1 = end_y + perp_dy;
