@@ -24,7 +24,11 @@ void	draw_rays(t_cub *game)
 	double	mult;
 
 	pixel = 0;
+<<<<<<< HEAD
 	while ((uint32_t)pixel < game->window_width)
+=======
+	while (pixel < WIDHT)
+>>>>>>> f48fe49fad90e7e12cf5da2a79f50ce43ae753b9
 	{
 		mult = 2 *(pixel / (double)game->window_width) - 1;
 		game->camera_pixel = mult_vector(game->camera_plane, mult);
@@ -36,6 +40,7 @@ void	draw_rays(t_cub *game)
 		pixel++;
 	}
 }
+<<<<<<< HEAD
 
 static void	calculate_dist_to_side(t_cub *game)
 {
@@ -52,3 +57,5 @@ static void	calculate_dist_to_side(t_cub *game)
 		game->dist_to_side_y = (game->map_pos.y + 1 - game->pos.y)
 			* game->delta_dist.y;
 }
+=======
+>>>>>>> f48fe49fad90e7e12cf5da2a79f50ce43ae753b9
