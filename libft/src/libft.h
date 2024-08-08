@@ -154,6 +154,8 @@ int			ft_lstchr(t_gnl *root);
 t_vector	create_vector(float x, float y);
 t_vector	add_vector(t_vector v1, t_vector v2);
 t_vector	mult_vector(t_vector v, double scalar);
+t_vector	copy_vector(t_vector v);
 float		mag_vector(t_vector v);
+
 
 #endif
