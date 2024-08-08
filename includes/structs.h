@@ -70,6 +70,7 @@ typedef struct s_cub
 	t_vector		camera_pixel;
 	t_vector		ray_dir;
 	t_vector		delta_dist;
+	t_vector		dist_to_side_x;
 	t_vector		map_pos;
 	t_data			*data;
 }	t_cub;
