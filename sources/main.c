@@ -26,20 +26,20 @@ int	init_game(t_cub *game)
 
 void	handle_mlx_actions(int action, t_cub *game)
 {
-	int	height;
-	int	width;
+	//int	height;
+	//int	width;
 
-	height = game->data->lines * BLOCK;
-	width = game->data->columns * BLOCK;
+	//height = game->data->lines * BLOCK;
+	//width = game->data->columns * BLOCK;
 	if (action == INIT)
 	{
-		game->mlx = mlx_init(width, height, "CUB3D", true);
+		game->mlx = mlx_init(WIDHT, HEIGTH, "CUB3D", true);
 		if (!game->mlx)
 			puts(mlx_strerror(mlx_errno));
 	}
 	else if (action == NEW_IMAGE)
 	{
-		game->mlx_image = mlx_new_image(game->mlx, width, height);
+		game->mlx_image = mlx_new_image(game->mlx, WIDHT, HEIGTH);
 	}
 	else if (action == IMAGE_TO_WINDOW)
 	{

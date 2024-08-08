@@ -12,7 +12,7 @@ void	draw(t_cub *game)
 static void	setup(t_cub *game)
 {
 	game->pos = create_vector(game->data->x_player * (BLOCK / 2),
-		game->data->y_player * (BLOCK / 2));
+			game->data->y_player * (BLOCK / 2));
 	game->dir = create_vector(-1, 0);
 	game->camera_plane = create_vector(0, 0.66);
 }
@@ -23,7 +23,7 @@ void	draw_rays(t_cub *game)
 	double	mult;
 
 	pixel = 0;
-	while (pixel < game->window_width)
+	while (pixel < WIDHT)
 	{
 		mult = 2 *(pixel / (double)game->window_width) - 1;
 		game->camera_pixel = mult_vector(game->camera_plane, mult);
