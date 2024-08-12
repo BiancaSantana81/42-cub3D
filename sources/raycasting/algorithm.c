@@ -93,6 +93,12 @@ static void	dda_algorithm(t_cub *game)
 
 static void	calculate_perpendicular_dist(t_cub *game)
 {
+	//float	euclidean_dist_x;
+	//float	euclidean_dist_y;
+
+	//euclidean_dist_x =  fabsf(game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2));
+	//euclidean_dist_y =  fabsf(game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2));
+
 	if (game->hit_side == 0)
 		game->perp_dist = fabsf(game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2)) / game->ray_dir.x;
 	else
