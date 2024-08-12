@@ -42,7 +42,7 @@ void	handle_mlx_actions(int action, t_cub *game)
 	else if (action == NEW_IMAGE)
 	{
 		game->mlx_image = mlx_new_image(game->mlx, WIDTH, HEIGHT);
-		game->walls_image = mlx_new_image(game->mlx, WALL, HEIGHT);
+		game->walls_image = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	}
 	else if (action == IMAGE_TO_WINDOW)
 	{

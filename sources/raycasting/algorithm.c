@@ -108,7 +108,7 @@ void	calculate_perpendicular_distance(t_cub *game)
 	//euclidean_dist_y =  fabsf(game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2));
 
 	if (game->hit_side == 0)
-		game->perp_dist = fabsf((int)game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2)) / game->ray_dir.x;
+		game->perp_dist = fabsf(game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2)) / game->ray_dir.x;
 	else
-		game->perp_dist = fabsf((int)game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2)) / game->ray_dir.y;
+		game->perp_dist = fabsf(game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2)) / game->ray_dir.y;
 }
