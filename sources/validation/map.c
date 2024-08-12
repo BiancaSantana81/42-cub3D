@@ -48,8 +48,9 @@ void	read_and_copy_map_content(t_data *data, char *temp, int fd)
 
 static int	check_invalid_char(char c)
 {
-	if (c == 'N' || c == 'S' || c == 'E' || c == 'W' || c == '0' || c == '1'
-		|| c == '\0' || c == '\n' || (c >= 9 && c <= 13))
+	if (c == ' ' || c == 'N' || c == 'S' || c == 'E' || c == 'W'
+		|| c == '0' || c == '1' || c == '\0'
+		|| c == '\n' || (c >= 9 && c <= 13))
 		return (1);
 	return (0);
 }
