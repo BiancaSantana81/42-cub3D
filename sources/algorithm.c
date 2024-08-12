@@ -1,7 +1,7 @@
 #include "../includes/cub.h"
 
-static void	setup(t_cub *game);
 static void	calculate_dist_to_side(t_cub *game);
+static void	calculate_perpendicular_dist(t_cub *game);
 
 //loop principal para desenhar o jogo
 void	draw(t_cub *game)
@@ -10,29 +10,6 @@ void	draw(t_cub *game)
 	setup(game);
 	draw_rays(game);
 }
-
-static void	define_dir_vector(t_cub *game)
-{
-	if (game->data->pov_player == 'N')
-		game->dir = create_vector(-1, 0);
-	else if (game->data->pov_player == 'S')
-		game->dir = create_vector(1, 0);
-	else if (game->data->pov_player == 'L')
-		game->dir = create_vector(0, 1);
-	else if (game->data->pov_player == 'E')
-		game->dir = create_vector(0, -1);
-}
-
-//inicializar a posição do player e a direção inicial
-static void	setup(t_cub *game)
-{
-	game->pos = create_vector(game->data->x_player * (BLOCK / 2),
-			game->data->y_player * (BLOCK / 2));
-	//criar função para decidir a dir inicial do player for do loop principal
-	game->dir = create_vector(0, -1);
-	game->camera_plane = create_vector(0.66, 0);
-}
-
 
 static void	calculate_dist_to_side(t_cub *game)
 {
@@ -110,4 +87,14 @@ static void	dda_algorithm(t_cub *game)
 			[(int)game->wall_map_pos.x] == '1')
 			game->hit = true;
 	}
+	calculate_perpendicular_dist(game);
+	
+}
+
+static void	calculate_perpendicular_dist(t_cub *game)
+{
+	if (game->hit_side == 0)
+		game->perp_dist = fabsf(game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2)) / game->ray_dir.x;
+	else
+		game->perp_dist = fabsf(game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2)) / game->ray_dir.y;
 }

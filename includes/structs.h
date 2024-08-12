@@ -50,12 +50,6 @@ typedef struct s_line
 	int	err;
 }	t_line;
 
-// typedef struct s_vector
-// {
-// 	float	x;
-// 	float	y;
-// }	t_vector;
-
 typedef struct s_cub
 {
 	uint32_t		window_width;
@@ -72,7 +66,7 @@ typedef struct s_cub
 	t_vector		ray_dir; // raio que sai do player
 	t_vector		delta_dist; //depois de dist_to_side_x e dist_to_side_y até o próximo encontro com x ou y
 	t_vector		map_pos; //posicao no mapa
-	t_vector		wall_map_pos; //posicao da parede no mapa conforme o algoritmo vai calculando se bateu na parede
+	t_vector		wall_map_pos; //posicao (y,x) da parede no mapa conforme o algoritmo vai calculando se bateu na parede
 	float			dist_to_side_x; //distancia para o proximo lado em x
 	float			dist_to_side_y; //distancia para o proximo lado em y
 	int				step_x; //passos dados em x
@@ -80,6 +74,8 @@ typedef struct s_cub
 	int				dda_line_side_x; //tamanho da coluna formada durante o dda
 	int				dda_line_side_y; //tamanho da linha formada durante o dda
 	int				hit_side; //lado que bateu
+	float			euclid_dist; //distancia do player ate a parede
+	float			perp_dist; //distancia do plano de camera ate a parede
 	bool			hit; //se bateu na parede
 	t_data			*data;
 }	t_cub;
