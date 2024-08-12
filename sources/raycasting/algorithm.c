@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 static void	calculate_dist_to_side(t_cub *game);
 static void	calculate_perpendicular_dist(t_cub *game);
