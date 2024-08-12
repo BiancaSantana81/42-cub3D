@@ -19,7 +19,7 @@
 
 # define BLOCK 32
 # define WIDHT 800
-# define HEIGTH 600
+# define HEIGHT 600
 # define WALL 64
 # define FOV 60
 # define PLAYER 32

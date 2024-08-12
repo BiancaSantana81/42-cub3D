@@ -59,6 +59,7 @@ typedef struct s_cub
 	mlx_image_t		*mlx_image;
 	mlx_image_t		*map_image;
 	mlx_image_t		*line_image;
+	mlx_image_t		*walls_image;
 	t_vector		pos; //posicao do player
 	t_vector		dir; //direcao do player
 	t_vector		camera_plane; //plano da camera
@@ -74,8 +75,9 @@ typedef struct s_cub
 	int				dda_line_side_x; //tamanho da coluna formada durante o dda
 	int				dda_line_side_y; //tamanho da linha formada durante o dda
 	int				hit_side; //lado que bateu
-	float			perp_dist; //distancia do plano de camera ate a parede
 	bool			hit; //se bateu na parede
+	float			perp_dist; //distancia do plano de camera ate a parede
+	int				wall_height; //altura da parede
 	t_data			*data;
 }	t_cub;
 

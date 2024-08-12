@@ -34,16 +34,18 @@ void	handle_mlx_actions(int action, t_cub *game)
 	if (action == INIT)
 	{
 		mlx_set_setting(MLX_STRETCH_IMAGE, true);
-		game->mlx = mlx_init(WIDHT, HEIGTH, "CUB3D", true);
+		game->mlx = mlx_init(WIDHT, HEIGHT, "CUB3D", true);
 		if (!game->mlx)
 			puts(mlx_strerror(mlx_errno));
 	}
 	else if (action == NEW_IMAGE)
 	{
-		game->mlx_image = mlx_new_image(game->mlx, WIDHT, HEIGTH);
+		game->mlx_image = mlx_new_image(game->mlx, WIDHT, HEIGHT);
+		game->walls_image = mlx_new_image(game->mlx, WALL, HEIGHT);
 	}
 	else if (action == IMAGE_TO_WINDOW)
 	{
 		mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
+		mlx_image_to_window(game->mlx, game->walls_image, WIDHT - WALL, 0);
 	}
 }

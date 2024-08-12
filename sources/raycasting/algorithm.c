@@ -1,17 +1,46 @@
 #include "../../includes/cub.h"
 
-static void	calculate_dist_to_side(t_cub *game);
-static void	calculate_perpendicular_dist(t_cub *game);
-
-//loop principal para desenhar o jogo
-void	draw(t_cub *game)
+void	draw_rays(t_cub *game)
 {
-	draw_background(game);
-	setup(game);
-	draw_rays(game);
+	int		pixel;
+	double	mult;
+
+	pixel = 0;
+	while (pixel < WIDHT)
+	{
+		mult = 2 *(pixel / (double)game->window_width) - 1;
+		game->camera_pixel = mult_vector(game->camera_plane, mult);
+		game->ray_dir = add_vector(game->dir, game->camera_pixel);
+		calculate_delta_distance(game);
+		game->map_pos = create_vector(floor(game->pos.x), floor(game->pos.y));
+		calculate_distance_to_side(game);
+		game->wall_map_pos = copy_vector(game->map_pos);
+		game->hit = false;
+		dda_algorithm(game);
+		draw_wall(game, pixel);
+		pixel++;
+	}
 }
 
-static void	calculate_dist_to_side(t_cub *game)
+void	calculate_delta_distance(t_cub *game)
+{
+	if (game->ray_dir.x == 0)
+	{
+		game->delta_dist.x = 1;
+		game->delta_dist.y = 0;
+	}
+	else
+		game->delta_dist.x = fabsf(1 / game->ray_dir.x);
+	if (game->ray_dir.y == 0)
+	{
+		game->delta_dist.x = 0;
+		game->delta_dist.y = 1;
+	}
+	else
+		game->delta_dist.y = fabsf(1 / game->ray_dir.y);
+}
+
+void	calculate_distance_to_side(t_cub *game)
 {
 	if (game->ray_dir.x < 0)
 	{
@@ -40,30 +69,9 @@ static void	calculate_dist_to_side(t_cub *game)
 	}
 }
 
-void	draw_rays(t_cub *game)
-{
-	int		pixel;
-	double	mult;
-
-	pixel = 0;
-	while (pixel < WIDHT)
-	{
-		mult = 2 *(pixel / (double)game->window_width) - 1;
-		game->camera_pixel = mult_vector(game->camera_plane, mult);
-		game->ray_dir = add_vector(game->dir, game->camera_pixel);
-		game->delta_dist.x = fabsf(mag_vector(game->ray_dir) / game->ray_dir.x);
-		game->delta_dist.y = fabsf(mag_vector(game->ray_dir) / game->ray_dir.y);
-		game->map_pos = create_vector(floor(game->pos.x), floor(game->pos.y));
-		calculate_dist_to_side(game);
-		game->hit = false;
-		game->wall_map_pos = copy_vector(game->map_pos);
-		pixel++;
-	}
-}
-
 // se hitside = 0, bateu na parede na vertical
 // se hitside = 1, bateu na parede na horizontal
-static void	dda_algorithm(t_cub *game)
+void	dda_algorithm(t_cub *game)
 {
 	game->dda_line_side_x = game->dist_to_side_x;
 	game->dda_line_side_y = game->dist_to_side_y;
@@ -87,11 +95,11 @@ static void	dda_algorithm(t_cub *game)
 			[(int)game->wall_map_pos.x] == '1')
 			game->hit = true;
 	}
-	calculate_perpendicular_dist(game);
+	calculate_perpendicular_distance(game);
 	
 }
 
-static void	calculate_perpendicular_dist(t_cub *game)
+void	calculate_perpendicular_distance(t_cub *game)
 {
 	//float	euclidean_dist_x;
 	//float	euclidean_dist_y;
