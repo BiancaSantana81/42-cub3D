@@ -3,13 +3,13 @@
 void	define_dir_vector(t_cub *game)
 {
 	if (game->data->pov_player == 'N')
-		game->dir = create_vector(-1, 0);
-	else if (game->data->pov_player == 'S')
-		game->dir = create_vector(1, 0);
-	else if (game->data->pov_player == 'L')
-		game->dir = create_vector(0, 1);
-	else if (game->data->pov_player == 'E')
 		game->dir = create_vector(0, -1);
+	else if (game->data->pov_player == 'S')
+		game->dir = create_vector(0, 1);
+	else if (game->data->pov_player == 'L')
+		game->dir = create_vector(1, 0);
+	else if (game->data->pov_player == 'E')
+		game->dir = create_vector(-1, 0);
 }
 
 //inicializar a posição do player e a direção inicial
