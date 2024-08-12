@@ -15,8 +15,8 @@ void	define_dir_vector(t_cub *game)
 //inicializar a posição do player e a direção inicial
 void	setup(t_cub *game)
 {
-	game->pos = create_vector(game->data->x_player * (BLOCK / 2),
-			game->data->y_player * (BLOCK / 2));
+	game->pos = create_vector(game->data->x_player,
+			game->data->y_player);
 	//criar função para decidir a dir inicial do player for do loop principal
 	game->dir = create_vector(0, -1);
 	game->camera_plane = create_vector(0.66, 0);

@@ -76,7 +76,7 @@ typedef struct s_cub
 	int				dda_line_side_y; //tamanho da linha formada durante o dda
 	int				hit_side; //lado que bateu
 	bool			hit; //se bateu na parede
-	float			perp_dist; //distancia do plano de camera ate a parede
+	int				perp_dist; //distancia do plano de camera ate a parede
 	int				wall_height; //altura da parede
 	t_data			*data;
 }	t_cub;

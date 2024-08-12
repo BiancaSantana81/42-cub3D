@@ -3,14 +3,14 @@
 void	draw(t_cub *game)
 {
 	draw_background(game);
-	setup(game);
+	//setup(game);
 	draw_rays(game);
 }
 
 void	draw_wall(t_cub *game, int pixel)
 {
-	int	line_start_y;
-	int	line_end_y;
+	float	line_start_y;
+	float	line_end_y;
 
 	game->wall_height = (int)(HEIGHT / game->perp_dist);
 	line_start_y = (int)(HEIGHT / 2 - game->wall_height / 2);
