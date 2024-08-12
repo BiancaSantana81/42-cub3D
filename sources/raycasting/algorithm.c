@@ -1,6 +1,5 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
-static void	setup(t_cub *game);
 static void	calculate_dist_to_side(t_cub *game);
 
 //loop principal para desenhar o jogo
@@ -10,29 +9,6 @@ void	draw(t_cub *game)
 	setup(game);
 	draw_rays(game);
 }
-
-static void	define_dir_vector(t_cub *game)
-{
-	if (game->data->pov_player == 'N')
-		game->dir = create_vector(-1, 0);
-	else if (game->data->pov_player == 'S')
-		game->dir = create_vector(1, 0);
-	else if (game->data->pov_player == 'L')
-		game->dir = create_vector(0, 1);
-	else if (game->data->pov_player == 'E')
-		game->dir = create_vector(0, -1);
-}
-
-//inicializar a posição do player e a direção inicial
-static void	setup(t_cub *game)
-{
-	game->pos = create_vector(game->data->x_player * (BLOCK / 2),
-			game->data->y_player * (BLOCK / 2));
-	//criar função para decidir a dir inicial do player for do loop principal
-	game->dir = create_vector(0, -1);
-	game->camera_plane = create_vector(0.66, 0);
-}
-
 
 static void	calculate_dist_to_side(t_cub *game)
 {

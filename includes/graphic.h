@@ -23,18 +23,6 @@ void		draw_map_square(t_cub *game, int start_x, int start_y,
 				uint32_t color);
 void		draw_background(t_cub *game);
 
-/* DRAW */
-void		draw(t_cub *game);
-void		draw_rays(t_cub *game);
-
-/* VECTORS */
-t_vector	create_vector(float x, float y);
-t_vector	mult_vector(t_vector v, double scalar);
-t_vector	add_vector(t_vector v1, t_vector v2);
-float		mag_vector(t_vector v);
-
-
-
 /* BRESENHAM */
 void		bresenham_algorithm(mlx_image_t *image,
 				int x0, int y0, int x1, int y1);
