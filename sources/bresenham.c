@@ -14,7 +14,7 @@ void	bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1)
 	params.dx = abs(x1 - x0);
 	params.dy = abs(y1 - y0);
 	if (game->hit_side == 0)
-		color = 0x800000FF;
+		color = 0x80000098;
 	else
 		color = 0xFF0000FF;
 	params.dx = abs(params.x1 - params.x0);
@@ -28,7 +28,7 @@ void	bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1)
 	else
 		params.sy = -1;
 	params.err = params.dx - params.dy;
-	aux_bresenham_algorithm(game->walls_image, &params, color);
+	aux_bresenham_algorithm(game->mlx_image, &params, color);
 }
 
 static void	aux_bresenham_algorithm(mlx_image_t *image, t_line *params, uint32_t color)

@@ -37,6 +37,12 @@ typedef struct s_images
 	int				y;
 }	t_images;
 
+typedef struct s_coord
+{
+	int	x;
+	int	y;
+}	t_coord;
+
 typedef struct s_line
 {
 	int	x0;
@@ -49,6 +55,19 @@ typedef struct s_line
 	int	dy;
 	int	err;
 }	t_line;
+
+typedef struct s_dda
+{
+	float		plane_multiplier;
+	t_vector	dir; //raio que sai do player
+	t_vector	camera_pixel; //distancia de dir para raydir
+	t_vector	delta_dist; //depois de dist_to_side_x e dist_to_side_y até o próximo encontro com x ou y
+	t_vector	dist_side; //distancia ate o proximo lado em x ou y
+	t_coord		map; //posicao no mapa
+	t_coord		step; //passos dados em x e y
+	int			hit_side; //lado que bateu
+	float		perp_dist; //distancia do plano de camera ate a parede
+}	t_dda;
 
 typedef struct s_cub
 {
@@ -63,21 +82,7 @@ typedef struct s_cub
 	t_vector		pos; //posicao do player
 	t_vector		dir; //direcao do player
 	t_vector		camera_plane; //plano da camera
-	t_vector		camera_pixel;//vetor que liga ray_dir e dir (conecta a ponta dos dois vetores)
-	t_vector		ray_dir; // raio que sai do player
-	t_vector		delta_dist; //depois de dist_to_side_x e dist_to_side_y até o próximo encontro com x ou y
-	t_vector		map_pos; //posicao no mapa
-	t_vector		wall_map_pos; //posicao (y,x) da parede no mapa conforme o algoritmo vai calculando se bateu na parede
-	float			dist_to_side_x; //distancia para o proximo lado em x
-	float			dist_to_side_y; //distancia para o proximo lado em y
-	int				step_x; //passos dados em x
-	int				step_y; //passos dados em y
-	int				dda_line_side_x; //tamanho da coluna formada durante o dda
-	int				dda_line_side_y; //tamanho da linha formada durante o dda
 	int				hit_side; //lado que bateu
-	bool			hit; //se bateu na parede
-	int				perp_dist; //distancia do plano de camera ate a parede
-	int				wall_height; //altura da parede
 	t_data			*data;
 }	t_cub;
 
