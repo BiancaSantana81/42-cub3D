@@ -6,7 +6,7 @@ void	draw_rays(t_cub *game)
 	double	mult;
 
 	pixel = 0;
-	while (pixel < WIDHT)
+	while (pixel < WIDTH)
 	{
 		mult = 2 *(pixel / (double)game->window_width) - 1;
 		game->camera_pixel = mult_vector(game->camera_plane, mult);
@@ -91,8 +91,8 @@ void	dda_algorithm(t_cub *game)
 		}
 		//verifica se bateu na parede
 		//verificar se esta usando x e y corretamente para acessar a matriz
-		if (game->data->map[(int)game->wall_map_pos.y]
-			[(int)game->wall_map_pos.x] == '1')
+		if (game->data->map[(int)game->wall_map_pos.y / BLOCK]
+			[(int)game->wall_map_pos.x / BLOCK] == '1')
 			game->hit = true;
 	}
 	calculate_perpendicular_distance(game);
@@ -108,7 +108,7 @@ void	calculate_perpendicular_distance(t_cub *game)
 	//euclidean_dist_y =  fabsf(game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2));
 
 	if (game->hit_side == 0)
-		game->perp_dist = fabsf(game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2)) / game->ray_dir.x;
+		game->perp_dist = fabsf((int)game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2)) / game->ray_dir.x;
 	else
-		game->perp_dist = fabsf(game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2)) / game->ray_dir.y;
+		game->perp_dist = fabsf((int)game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2)) / game->ray_dir.y;
 }

@@ -18,7 +18,7 @@
 # include "../libft/src/libft.h"
 
 # define BLOCK 32
-# define WIDHT 800
+# define WIDTH 800
 # define HEIGHT 600
 # define WALL 64
 # define FOV 60

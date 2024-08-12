@@ -13,6 +13,8 @@ void	init_cub(t_cub *game)
 	game->dda_line_side_y = 0;
 	game->hit = false;
 	game->hit_side = 0;
+	game->wall_height = 0;
+	game->perp_dist = 0;
 	game->data = ft_calloc(1, sizeof(t_data));
 	init_data(game);
 	get_game(game);
