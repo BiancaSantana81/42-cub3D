@@ -14,7 +14,7 @@ int	init_game(t_cub *game)
 {
 	handle_mlx_actions(INIT, game);
 	handle_mlx_actions(NEW_IMAGE, game);
-	load_textures(game);
+	//load_textures(game);
 	setup(game);
 	mlx_key_hook(game->mlx, hook_key_press, game);
 	mlx_loop_hook(game->mlx, draw_playerview, game);

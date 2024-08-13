@@ -31,17 +31,11 @@ void	draw_rays(t_cub *game)
 void	calculate_delta_distance(t_dda *ray)
 {
 	if (ray->dir.x == 0)
-	{
-		ray->delta_dist.x = 1;
-		ray->delta_dist.y = 0;
-	}
+		ray->delta_dist.x = HUGE_VALF;
 	else
 		ray->delta_dist.x = fabsf(1 / ray->dir.x);
 	if (ray->dir.y == 0)
-	{
-		ray->delta_dist.x = 0;
-		ray->delta_dist.y = 1;
-	}
+		ray->delta_dist.y = HUGE_VALF;
 	else
 		ray->delta_dist.y = fabsf(1 / ray->dir.y);
 }

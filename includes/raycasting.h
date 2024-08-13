@@ -5,7 +5,6 @@
 
 /* VECTORS */
 void	setup(t_cub *game);
-void	define_dir_vector(t_cub *game);
 
 /* ALGORITHM */
 void	draw_rays(t_cub *game);
