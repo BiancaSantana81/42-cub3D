@@ -5,6 +5,8 @@ void	draw_playerview(void *param)
 	t_cub	*game;
 
 	game = (t_cub *)param;
+	//game->dir = rotate_vector(game->dir, 0.5);
+	//game->camera_plane = rotate_vector(game->camera_plane, 0.5);
 	draw_background(game);
 	draw_rays(game);
 }

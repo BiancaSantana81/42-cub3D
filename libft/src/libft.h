@@ -17,6 +17,7 @@
 #  define BUFFER_SIZE 22
 # endif
 
+# define PI 3.141592653589793
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -155,7 +156,7 @@ t_vector	create_vector(float x, float y);
 t_vector	add_vector(t_vector v1, t_vector v2);
 t_vector	mult_vector(t_vector v, double scalar);
 t_vector	copy_vector(t_vector v);
+t_vector	rotate_vector(t_vector v, float angle);
 float		mag_vector(t_vector v);
-
 
 #endif
