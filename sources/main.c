@@ -23,7 +23,6 @@ int	init_game(t_cub *game)
 	return (EXIT_SUCCESS);
 }
 
-
 void	handle_mlx_actions(int action, t_cub *game)
 {
 	if (action == INIT)

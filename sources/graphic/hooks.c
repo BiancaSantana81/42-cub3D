@@ -9,42 +9,18 @@ int32_t	key_pressed(mlx_key_data_t keydata, keys_t key)
 void	hook_key_press(mlx_key_data_t keydata, void *param)
 {
 	t_cub	*game;
+	float	move_speed;
 
 	game = (t_cub *)param;
+	move_speed = 0.1;
 	if (key_pressed(keydata, MLX_KEY_ESCAPE))
 	{
 		hook_close(game);
 		return ;
 	}
-	else if (key_pressed(keydata, MLX_KEY_W))
-	{
-		//game->mlx_image->instances[0].y -= 5;
-		//game->line_image->instances[0].y -=5;
-	}
-	else if (key_pressed(keydata, MLX_KEY_S))
-	{
-		//game->mlx_image->instances[0].y += 5;
-		//game->line_image->instances[0].y += 5;
-	}
-	else if (key_pressed(keydata, MLX_KEY_A))
-	{
-		//game->mlx_image->instances[0].x -= 5;
-		//game->line_image->instances[0].x -= 5;
-	}
-	else if (key_pressed(keydata, MLX_KEY_D))
-	{
-		//game->mlx_image->instances[0].x += 5;
-		//game->line_image->instances[0].x += 5;
-	}
-	else if (key_pressed(keydata, MLX_KEY_LEFT))
-	{
-	}
-	else if (key_pressed(keydata, MLX_KEY_RIGHT))
-	{
-
-	}
+	handle_player_movement(game, keydata, move_speed);
+	handle_player_rotate(keydata);
 }
-
 
 void	hook_close(void *param)
 {

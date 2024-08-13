@@ -8,6 +8,12 @@ int32_t		key_pressed(mlx_key_data_t keydata, keys_t key);
 void		hook_key_press(mlx_key_data_t keydata, void *param);
 void		hook_close(void *param);
 
+/* HOOKS */
+void		handle_player_movement(t_cub *game,
+				mlx_key_data_t keydata, float move_speed);
+void		handle_player_rotate(mlx_key_data_t keydata);
+void		player_rotate(void);
+
 /* IMAGES */
 t_images	*init_images(t_cub *game, char *path);
 void		free_sprite(t_cub *game, t_images *image);
