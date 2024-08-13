@@ -2,7 +2,7 @@
 # define GRAPHIC_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
-# define MOVE_SPEED 0.1
+# define MOVE_SPEED game->frame_time * 6
 
 /* HOOKS */
 int32_t		key_pressed(mlx_key_data_t keydata, keys_t key);

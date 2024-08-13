@@ -6,6 +6,7 @@ void	draw_playerview(void *param)
 
 	game = (t_cub *)param;
 	draw_background(game);
+	update_fps(game);
 	draw_rays(game);
 }
 

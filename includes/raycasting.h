@@ -12,6 +12,8 @@ void	draw_rays(t_cub *game);
 void	calculate_delta_distance(t_dda *ray);
 void	calculate_distance_to_side(t_dda *ray, t_cub *game);
 void	dda_algorithm(t_dda *ray, t_cub *game);
+void	update_fps(t_cub *game);
+
 
 /* DRAW LOOP */
 void	draw_playerview(void *param);

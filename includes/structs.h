@@ -83,6 +83,7 @@ typedef struct s_cub
 	t_vector		dir; //direcao do player
 	t_vector		camera_plane; //plano da camera
 	int				hit_side; //lado que bateu
+	float			frame_time;
 	t_data			*data;
 }	t_cub;
 
