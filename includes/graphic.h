@@ -3,6 +3,8 @@
 
 # include "../MLX42/include/MLX42/MLX42.h"
 # define MOVE_SPEED game->frame_time * 6
+# define TEXTURE_WIDTH 64
+# define TEXTURE_HEIGHT 64
 
 /* HOOKS */
 int32_t		key_pressed(mlx_key_data_t keydata, keys_t key);
@@ -31,6 +33,9 @@ void		draw_map(t_cub *game);
 void		draw_map_square(t_cub *game, int start_x, int start_y,
 				uint32_t color);
 void		draw_background(t_cub *game);
+
+/* SET_WALLS */
+void		set_wall(t_dda *ray, t_cub*game);
 
 /* BRESENHAM */
 void	bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1);

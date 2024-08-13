@@ -2,6 +2,7 @@
 
 static void	read_textures_path_aux(t_data *data, char *temp);
 static void	copy_texture_path(char **texture, char *path);
+static void	trim_newline(char *str);
 
 int	data_processing(char *map_file, t_data *data)
 {
@@ -71,7 +72,19 @@ static void	copy_texture_path(char **texture, char *path)
 	if (*texture != NULL)
 		free(*texture);
 	while (ft_isspace(*path) || *path == 'N' || *path == 'O' || *path == 'S'
-		|| *path == 'E' || *path == 'W')
+		|| *path == 'E' || *path == 'W' || *path == 'A')
 		path++;
+	trim_newline(path);
+	if (*texture != NULL)
+		free(*texture);
 	*texture = ft_strdup(path);
+}
+
+static void	trim_newline(char *str)
+{
+	size_t	len;
+
+	len = strlen(str);
+	if (len > 0 && str[len - 1] == '\n')
+		str[len - 1] = '\0';
 }

@@ -6,6 +6,10 @@ void	init_cub(t_cub *game)
 	game->window_height = 0;
 	game->window_width = 0;
 	game->frame_time = 0;
+	game->north = NULL;
+	game->south = NULL;
+	game->west = NULL;
+	game->east = NULL;
 	game->data = ft_calloc(1, sizeof(t_data));
 	init_data(game);
 	get_game(game);

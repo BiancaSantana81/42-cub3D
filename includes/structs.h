@@ -79,6 +79,10 @@ typedef struct s_cub
 	mlx_image_t		*map_image;
 	mlx_image_t		*line_image;
 	mlx_image_t		*walls_image;
+	t_images		*north;
+	t_images		*south;
+	t_images		*west;
+	t_images		*east;
 	t_vector		pos; //posicao do player
 	t_vector		dir; //direcao do player
 	t_vector		camera_plane; //plano da camera
