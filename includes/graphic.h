@@ -29,8 +29,8 @@ void		draw_map_square(t_cub *game, int start_x, int start_y,
 				uint32_t color);
 void		draw_background(t_cub *game);
 
-/* SET_WALLS */
-void		set_wall(t_dda *ray, t_cub*game);
+/* SET_WALL */
+void	set_wall(t_cub*game, t_images **wall);
 
 /* BRESENHAM */
 void	bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1);
