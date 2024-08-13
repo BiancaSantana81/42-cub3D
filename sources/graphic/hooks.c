@@ -19,7 +19,7 @@ void	hook_key_press(mlx_key_data_t keydata, void *param)
 		return ;
 	}
 	handle_player_movement(game, keydata, move_speed);
-	handle_player_rotate(keydata);
+	handle_player_rotate(game, keydata);
 }
 
 void	hook_close(void *param)

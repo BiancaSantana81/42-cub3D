@@ -14,7 +14,7 @@ void		calculate_new_position(mlx_key_data_t keydata,
 				float move_speed, float *new_x, float *new_y);
 void		handle_player_movement(t_cub *game,
 				mlx_key_data_t keydata, float move_speed);
-void		handle_player_rotate(mlx_key_data_t keydata);
+void		handle_player_rotate(t_cub *game, mlx_key_data_t keydata);
 void		rotate_player(void);
 
 /* IMAGES */

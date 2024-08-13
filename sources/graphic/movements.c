@@ -49,17 +49,20 @@ void	handle_player_movement(t_cub *game,
 	}
 }
 
-void	handle_player_rotate(mlx_key_data_t keydata)
+void	handle_player_rotate(t_cub *game, mlx_key_data_t keydata)
 {
 	if (key_pressed(keydata, MLX_KEY_LEFT))
 	{
-		// Rotacionar para a esquerda
+		game->dir = rotate_vector(game->dir, -0.5);
+		game->camera_plane = rotate_vector(game->camera_plane, -0.5);
 	}
-	else if (key_pressed(keydata, MLX_KEY_RIGHT))
+	if (key_pressed(keydata, MLX_KEY_RIGHT))
 	{
-		// Rotacionar para a direita
+		game->dir = rotate_vector(game->dir, 0.5);
+		game->camera_plane = rotate_vector(game->camera_plane, 0.5);
 	}
 }
+
 
 void	rotate_player(void)
 {

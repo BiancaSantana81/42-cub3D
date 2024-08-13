@@ -19,10 +19,8 @@
 # define BLOCK 32
 # define WIDTH 800
 # define HEIGHT 600
-# define WALL 64
-# define FOV 60
-# define PLAYER 32
-# define WINDOW 320
+# define ROTATE_LEFT -0.5
+# define ROTATE_RIGHT 0.5
 
 /* MAIN */
 int		init_game(t_cub *game);
