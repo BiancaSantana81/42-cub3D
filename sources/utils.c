@@ -1,14 +1,13 @@
 #include "../includes/cub.h"
 
-void	handle_error(char *error)
+int	open_file(char *filename)
 {
-	t_cub	*game;
+	int	fd;
 
-	game = get_game(NULL);
-	if (game)
-		free_memory(game);
-	ft_putstr_fd(error, 2);
-	exit(1);
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		handle_error("Error: open file\n");
+	return (fd);
 }
 
 t_cub	*get_game(t_cub *game)
@@ -20,12 +19,25 @@ t_cub	*get_game(t_cub *game)
 	return (game_ptr);
 }
 
-int	open_file(char *filename)
+void	handle_error(char *error)
 {
-	int	fd;
+	t_cub	*game;
 
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		handle_error("Error: open file\n");
-	return (fd);
+	game = get_game(NULL);
+	if (game)
+		free_memory(game);
+	ft_putstr_fd(error, 2);
+	exit(1);
+}
+
+void	handle_mlx_error(char *error)
+{
+	t_cub	*game;
+
+	game = get_game(NULL);
+	if (game)
+		free_memory(game);
+	mlx_close_window(game->mlx);
+	ft_putstr_fd(error, 2);
+	exit(1);
 }

@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 int32_t	key_pressed(mlx_key_data_t keydata, keys_t key)
 {

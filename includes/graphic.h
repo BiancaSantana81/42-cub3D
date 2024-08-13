@@ -7,7 +7,6 @@
 int32_t		key_pressed(mlx_key_data_t keydata, keys_t key);
 void		hook_key_press(mlx_key_data_t keydata, void *param);
 void		hook_close(void *param);
-void		calculate_window_size(t_cub *game);
 
 /* IMAGES */
 t_images	*init_images(t_cub *game, char *path);
