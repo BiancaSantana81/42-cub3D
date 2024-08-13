@@ -7,18 +7,13 @@
 # define TEXTURE_HEIGHT 64
 
 /* HOOKS */
-int32_t		key_pressed(mlx_key_data_t keydata, keys_t key);
 void		hook_key_press(mlx_key_data_t keydata, void *param);
 void		hook_close(void *param);
 
 /* MOVEMENTS */
+void		process_input(t_cub *game);
 bool		can_move_to(t_cub *game, float new_x, float new_y);
-void		calculate_new_position(mlx_key_data_t keydata,
-				float *new_x, float *new_y);
-void		handle_player_movement(t_cub *game,
-				mlx_key_data_t keydata);
-void		handle_player_rotate(t_cub *game, mlx_key_data_t keydata);
-void		rotate_player(void);
+void		calculate_new_position(t_cub *game, float *new_x, float *new_y);
 
 /* IMAGES */
 t_images	*init_images(t_cub *game, char *path);

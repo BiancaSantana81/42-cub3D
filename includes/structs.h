@@ -22,6 +22,16 @@ typedef struct s_data
 	char			pov_player;
 }	t_data;
 
+typedef struct s_keys
+{
+    bool w;
+    bool s;
+    bool a;
+    bool d;
+    bool left;
+    bool right;
+} t_keys;
+
 typedef struct s_validate
 {
 	int		invalid;
@@ -83,6 +93,7 @@ typedef struct s_cub
 	t_images		*south;
 	t_images		*west;
 	t_images		*east;
+	t_keys			keys;
 	t_vector		pos; //posicao do player
 	t_vector		dir; //direcao do player
 	t_vector		camera_plane; //plano da camera
