@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 static void	aux_bresenham_algorithm(mlx_image_t *image, t_line *params, uint32_t color);
 

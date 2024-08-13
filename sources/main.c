@@ -23,7 +23,6 @@ int	init_game(t_cub *game)
 	return (EXIT_SUCCESS);
 }
 
-
 void	handle_mlx_actions(int action, t_cub *game)
 {
 	if (action == INIT)
@@ -37,8 +36,8 @@ void	handle_mlx_actions(int action, t_cub *game)
 	{
 		game->mlx_image = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 		if (!game->mlx_image)
-			puts(mlx_strerror(mlx_errno)); // tratar para dar free em tudo 
+			handle_mlx_error("Error open window.\n");
 		if (mlx_image_to_window(game->mlx, game->mlx_image, 0, 0) < 0)
-			puts(mlx_strerror(mlx_errno)); // tratar para dar free em tudo
+			handle_mlx_error("Error mlx_image_to_window.\n");
 	}
 }
