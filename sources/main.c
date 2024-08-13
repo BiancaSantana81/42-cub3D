@@ -14,6 +14,7 @@ int	init_game(t_cub *game)
 {
 	handle_mlx_actions(INIT, game);
 	handle_mlx_actions(NEW_IMAGE, game);
+	load_textures(game);
 	setup(game);
 	mlx_key_hook(game->mlx, hook_key_press, game);
 	mlx_loop_hook(game->mlx, draw_playerview, game);
@@ -30,7 +31,7 @@ void	handle_mlx_actions(int action, t_cub *game)
 		mlx_set_setting(MLX_STRETCH_IMAGE, true);
 		game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3D", true);
 		if (!game->mlx)
-			puts(mlx_strerror(mlx_errno));
+			handle_mlx_error("Error: mlx_init failed");
 	}
 	else if (action == NEW_IMAGE)
 	{

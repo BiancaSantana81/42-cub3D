@@ -55,12 +55,12 @@ void	handle_player_rotate(t_cub *game, mlx_key_data_t keydata)
 {
 	if (key_pressed(keydata, MLX_KEY_LEFT))
 	{
-		game->dir = rotate_vector(game->dir, -0.5);
-		game->camera_plane = rotate_vector(game->camera_plane, -0.5);
+		game->dir = rotate_vector(game->dir, 1);
+		game->camera_plane = rotate_vector(game->camera_plane, 1);
 	}
 	if (key_pressed(keydata, MLX_KEY_RIGHT))
 	{
-		game->dir = rotate_vector(game->dir, 0.5);
-		game->camera_plane = rotate_vector(game->camera_plane, 0.5);
+		game->dir = rotate_vector(game->dir, 1);
+		game->camera_plane = rotate_vector(game->camera_plane, 1);
 	}
 }
