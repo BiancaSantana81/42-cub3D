@@ -5,16 +5,6 @@ void	init_cub(t_cub *game)
 	game->mlx = NULL;
 	game->window_height = 0;
 	game->window_width = 0;
-	game->dist_to_side_x = 0;
-	game->dist_to_side_y = 0;
-	game->step_x = 0;
-	game->step_y = 0;
-	game->dda_line_side_x = 0;
-	game->dda_line_side_y = 0;
-	game->hit = false;
-	game->hit_side = 0;
-	game->wall_height = 0;
-	game->perp_dist = 0;
 	game->data = ft_calloc(1, sizeof(t_data));
 	init_data(game);
 	get_game(game);

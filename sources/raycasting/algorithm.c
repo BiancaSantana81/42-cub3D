@@ -1,114 +1,93 @@
 #include "../../includes/cub.h"
 
+int	set_direction(float dir)
+{
+	if (dir < 0)
+		return (-1);
+	return (1);
+}
+
 void	draw_rays(t_cub *game)
 {
+	t_dda	ray;
 	int		pixel;
-	double	mult;
 
 	pixel = 0;
 	while (pixel < WIDTH)
 	{
-		mult = 2 *(pixel / (double)game->window_width) - 1;
-		game->camera_pixel = mult_vector(game->camera_plane, mult);
-		game->ray_dir = add_vector(game->dir, game->camera_pixel);
-		calculate_delta_distance(game);
-		game->map_pos = create_vector(floor(game->pos.x), floor(game->pos.y));
-		calculate_distance_to_side(game);
-		game->wall_map_pos = copy_vector(game->map_pos);
-		game->hit = false;
-		dda_algorithm(game);
-		draw_wall(game, pixel);
+		ray.plane_multiplier = 2 * pixel / (float)WIDTH - 1;
+		ray.camera_pixel = mult_vector(game->camera_plane, ray.plane_multiplier);
+		ray.dir = add_vector(game->dir, ray.camera_pixel);
+		ray.step.x = set_direction(ray.dir.x);
+		ray.step.y = set_direction(ray.dir.y);
+		calculate_delta_distance(&ray);
+		calculate_distance_to_side(&ray, game);
+		dda_algorithm(&ray, game);
+		draw_wall(&ray, game, pixel);
 		pixel++;
 	}
 }
 
-void	calculate_delta_distance(t_cub *game)
+void	calculate_delta_distance(t_dda *ray)
 {
-	if (game->ray_dir.x == 0)
+	if (ray->dir.x == 0)
 	{
-		game->delta_dist.x = 1;
-		game->delta_dist.y = 0;
+		ray->delta_dist.x = 1;
+		ray->delta_dist.y = 0;
 	}
 	else
-		game->delta_dist.x = fabsf(1 / game->ray_dir.x);
-	if (game->ray_dir.y == 0)
+		ray->delta_dist.x = fabsf(1 / ray->dir.x);
+	if (ray->dir.y == 0)
 	{
-		game->delta_dist.x = 0;
-		game->delta_dist.y = 1;
+		ray->delta_dist.x = 0;
+		ray->delta_dist.y = 1;
 	}
 	else
-		game->delta_dist.y = fabsf(1 / game->ray_dir.y);
+		ray->delta_dist.y = fabsf(1 / ray->dir.y);
 }
 
-void	calculate_distance_to_side(t_cub *game)
+void	calculate_distance_to_side(t_dda *ray, t_cub *game)
 {
-	if (game->ray_dir.x < 0)
-	{
-		game->dist_to_side_x = (game->pos.x - game->map_pos.x)
-			* game->delta_dist.x;
-		game->step_x = -1;
-	}
-	else
-	{
-		game->dist_to_side_x = (game->map_pos.x + 1 - game->pos.x)
-			* game->delta_dist.x;
-		game->step_x = 1;
-	}
-	if (game->ray_dir.y < 0)
-	{
-		game->dist_to_side_y = (game->pos.y - game->map_pos.y)
-			* game->delta_dist.y;
-		game->step_y = -1;
+	ray->map.x = game->pos.x;
+	ray->map.y = game->pos.y;
 
-	}
+	if (ray->dir.x < 0)
+		ray->dist_side.x = (game->pos.x - ray->map.x) * ray->delta_dist.x;
 	else
 	{
-		game->dist_to_side_y = (game->map_pos.y + 1 - game->pos.y)
-			* game->delta_dist.y;
-		game->step_y = 1;
+		ray->dist_side.x = (ray->map.x + 1.0 - game->pos.x)
+			* ray->delta_dist.x;
+	}
+	if (ray->dir.y < 0)
+		ray->dist_side.y = (game->pos.y - ray->map.y) * ray->delta_dist.y;
+	else
+	{
+		ray->dist_side.y = (ray->map.y + 1.0 - game->pos.y)
+			* ray->delta_dist.y;
 	}
 }
 
-// se hitside = 0, bateu na parede na vertical
-// se hitside = 1, bateu na parede na horizontal
-void	dda_algorithm(t_cub *game)
+void	dda_algorithm(t_dda *ray, t_cub *game)
 {
-	game->dda_line_side_x = game->dist_to_side_x;
-	game->dda_line_side_y = game->dist_to_side_y;
-	while (game->hit == false)
+	while (game->data->map[ray->map.y][ray->map.x] != '1')
 	{
-		if (game->dda_line_side_x < game->dda_line_side_y)
+		if (ray->dist_side.x < ray->dist_side.y)
 		{
-			game->wall_map_pos.x += game->step_x;
-			game->dda_line_side_x += game->delta_dist.x;
+			ray->dist_side.x += ray->delta_dist.x;
+			ray->map.x += ray->step.x;
+			ray->hit_side = 0;
 			game->hit_side = 0;
 		}
 		else
 		{
-			game->wall_map_pos.y += game->step_y;
-			game->dda_line_side_y += game->delta_dist.y;
+			ray->dist_side.y += ray->delta_dist.y;
+			ray->map.y += ray->step.y;
+			ray->hit_side = 1;
 			game->hit_side = 1;
 		}
-		//verifica se bateu na parede
-		//verificar se esta usando x e y corretamente para acessar a matriz
-		if (game->data->map[(int)game->wall_map_pos.y / BLOCK]
-			[(int)game->wall_map_pos.x / BLOCK] == '1')
-			game->hit = true;
 	}
-	calculate_perpendicular_distance(game);
-	
-}
-
-void	calculate_perpendicular_distance(t_cub *game)
-{
-	//float	euclidean_dist_x;
-	//float	euclidean_dist_y;
-
-	//euclidean_dist_x =  fabsf(game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2));
-	//euclidean_dist_y =  fabsf(game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2));
-
-	if (game->hit_side == 0)
-		game->perp_dist = fabsf((int)game->wall_map_pos.x - game->pos.x + ((1 - game->step_x) / 2)) / game->ray_dir.x;
+	if (ray->hit_side == 0)
+		ray->perp_dist = ray->dist_side.x - ray->delta_dist.x; 
 	else
-		game->perp_dist = fabsf((int)game->wall_map_pos.y - game->pos.y + ((1 - game->step_y) / 2)) / game->ray_dir.y;
+		ray->perp_dist = ray->dist_side.y - ray->delta_dist.y;
 }

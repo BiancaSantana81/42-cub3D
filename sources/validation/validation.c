@@ -12,8 +12,6 @@ int	validate_map(int argc, char **argv, t_cub *game)
 	analyze_map_content(game->data, &valid);
 	check_map_content(&valid);
 	surrounded_by_walls(game->data);
-	//game->window_width = BLOCK * game->data->columns;
-	//game->window_height = BLOCK * game->data->lines;
 	return (EXIT_SUCCESS);
 }
 

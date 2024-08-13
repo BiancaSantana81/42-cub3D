@@ -15,9 +15,8 @@ int	init_game(t_cub *game)
 	handle_mlx_actions(INIT, game);
 	handle_mlx_actions(NEW_IMAGE, game);
 	setup(game);
-	draw(game);
-	handle_mlx_actions(IMAGE_TO_WINDOW, game);
-	mlx_key_hook(game->mlx, &hook_key_press, game);
+	mlx_key_hook(game->mlx, hook_key_press, game);
+	mlx_loop_hook(game->mlx, draw_playerview, game);
 	mlx_close_hook(game->mlx, hook_close, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
@@ -27,11 +26,6 @@ int	init_game(t_cub *game)
 
 void	handle_mlx_actions(int action, t_cub *game)
 {
-	//int	height;
-	//int	width;
-
-	//height = game->data->lines * BLOCK;
-	//width = game->data->columns * BLOCK;
 	if (action == INIT)
 	{
 		mlx_set_setting(MLX_STRETCH_IMAGE, true);
@@ -42,11 +36,9 @@ void	handle_mlx_actions(int action, t_cub *game)
 	else if (action == NEW_IMAGE)
 	{
 		game->mlx_image = mlx_new_image(game->mlx, WIDTH, HEIGHT);
-		game->walls_image = mlx_new_image(game->mlx, WALL, HEIGHT);
-	}
-	else if (action == IMAGE_TO_WINDOW)
-	{
-		mlx_image_to_window(game->mlx, game->mlx_image, 0, 0);
-		mlx_image_to_window(game->mlx, game->walls_image, 0, 0);
+		if (!game->mlx_image)
+			puts(mlx_strerror(mlx_errno)); // tratar para dar free em tudo 
+		if (mlx_image_to_window(game->mlx, game->mlx_image, 0, 0) < 0)
+			puts(mlx_strerror(mlx_errno)); // tratar para dar free em tudo
 	}
 }

@@ -24,6 +24,6 @@ void		draw_map_square(t_cub *game, int start_x, int start_y,
 void		draw_background(t_cub *game);
 
 /* BRESENHAM */
-void		bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1);
+void	bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1);
 
 #endif
