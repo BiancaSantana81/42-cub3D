@@ -8,40 +8,42 @@ bool	can_move_to(t_cub *game, float new_x, float new_y)
 }
 
 void	calculate_new_position(mlx_key_data_t keydata,
-								float move_speed, float *new_x, float *new_y)
+		float *new_x, float *new_y)
 {
 	t_cub	*game;
 
 	game = get_game(NULL);
+	*new_x = game->pos.x;
+	*new_y = game->pos.y;
 	if (key_pressed(keydata, MLX_KEY_W))
 	{
-		*new_x = game->pos.x + game->dir.x * move_speed;
-		*new_y = game->pos.y + game->dir.y * move_speed;
+		*new_x = game->pos.x + game->dir.x * MOVE_SPEED;
+		*new_y = game->pos.y + game->dir.y * MOVE_SPEED;
 	}
 	else if (key_pressed(keydata, MLX_KEY_S))
 	{
-		*new_x = game->pos.x - game->dir.x * move_speed;
-		*new_y = game->pos.y - game->dir.y * move_speed;
+		*new_x = game->pos.x - game->dir.x * MOVE_SPEED;
+		*new_y = game->pos.y - game->dir.y * MOVE_SPEED;
 	}
 	else if (key_pressed(keydata, MLX_KEY_A))
 	{
-		*new_x = game->pos.x - game->camera_plane.x * move_speed;
-		*new_y = game->pos.y - game->camera_plane.y * move_speed;
+		*new_x = game->pos.x - game->camera_plane.x * MOVE_SPEED;
+		*new_y = game->pos.y - game->camera_plane.y * MOVE_SPEED;
 	}
 	else if (key_pressed(keydata, MLX_KEY_D))
 	{
-		*new_x = game->pos.x + game->camera_plane.x * move_speed;
-		*new_y = game->pos.y + game->camera_plane.y * move_speed;
+		*new_x = game->pos.x + game->camera_plane.x * MOVE_SPEED;
+		*new_y = game->pos.y + game->camera_plane.y * MOVE_SPEED;
 	}
 }
 
 void	handle_player_movement(t_cub *game,
-	mlx_key_data_t keydata, float move_speed)
+	mlx_key_data_t keydata)
 {
 	float	new_x;
 	float	new_y;
 
-	calculate_new_position(keydata, move_speed, &new_x, &new_y);
+	calculate_new_position(keydata, &new_x, &new_y);
 	if (can_move_to(game, new_x, new_y))
 	{
 		game->pos.x = new_x;
@@ -61,11 +63,4 @@ void	handle_player_rotate(t_cub *game, mlx_key_data_t keydata)
 		game->dir = rotate_vector(game->dir, 0.5);
 		game->camera_plane = rotate_vector(game->camera_plane, 0.5);
 	}
-}
-
-
-void	rotate_player(void)
-{
-	// rotacionar player;
-    return ;
 }

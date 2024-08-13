@@ -2,6 +2,7 @@
 # define GRAPHIC_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
+# define MOVE_SPEED 0.1
 
 /* HOOKS */
 int32_t		key_pressed(mlx_key_data_t keydata, keys_t key);
@@ -11,9 +12,9 @@ void		hook_close(void *param);
 /* MOVEMENTS */
 bool		can_move_to(t_cub *game, float new_x, float new_y);
 void		calculate_new_position(mlx_key_data_t keydata,
-				float move_speed, float *new_x, float *new_y);
+				float *new_x, float *new_y);
 void		handle_player_movement(t_cub *game,
-				mlx_key_data_t keydata, float move_speed);
+				mlx_key_data_t keydata);
 void		handle_player_rotate(t_cub *game, mlx_key_data_t keydata);
 void		rotate_player(void);
 
