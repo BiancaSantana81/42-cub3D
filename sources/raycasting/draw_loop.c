@@ -16,9 +16,6 @@ void	draw_wall(t_dda *ray, t_cub *game, int pixel)
 	int			wall_height;
 	float		line_start_y;
 	float		line_end_y;
-	t_images	*wall_texture;
-
-	set_wall(game, &wall_texture);
 
 	wall_height = (HEIGHT / ray->perp_dist);
 	line_start_y = (HEIGHT / 2 - wall_height / 2);

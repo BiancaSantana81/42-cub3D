@@ -24,7 +24,7 @@ void	free_memory(t_cub *game)
 
 void	free_sprite(t_cub *game, t_images *image)
 {
-	mlx_delete_image(game->mlx, image->img);
+	(void)game;
 	mlx_delete_texture(image->texture);
 	free(image);
 }
