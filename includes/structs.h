@@ -42,7 +42,6 @@ typedef struct s_validate
 typedef struct s_images
 {
 	mlx_texture_t	*texture;
-	mlx_image_t		*img;
 	int				x;
 	int				y;
 }	t_images;
@@ -89,10 +88,10 @@ typedef struct s_cub
 	mlx_image_t		*map_image;
 	mlx_image_t		*line_image;
 	mlx_image_t		*walls_image;
-	t_images		*north;
-	t_images		*south;
-	t_images		*west;
-	t_images		*east;
+	mlx_texture_t	*north;
+	mlx_texture_t	*south;
+	mlx_texture_t	*west;
+	mlx_texture_t	*east;
 	t_keys			keys;
 	t_vector		pos; //posicao do player
 	t_vector		dir; //direcao do player

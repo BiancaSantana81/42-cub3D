@@ -1,6 +1,6 @@
 #include "../../includes/cub.h"
 
-void	set_wall(t_cub*game, t_images **wall)
+void	set_wall(t_cub*game, mlx_texture_t **wall)
 {
 	if (game->hit_side == 0)
 	{

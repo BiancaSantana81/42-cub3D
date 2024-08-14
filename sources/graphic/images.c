@@ -2,25 +2,22 @@
 
 void	load_textures(t_cub *game)
 {
-	game->north = init_images(game, game->data->no);
-	game->south = init_images(game, game->data->so);
-	game->west = init_images(game, game->data->we);
-	game->east = init_images(game, game->data->ea);
+	game->north = init_images(game->data->no);
+	game->south = init_images(game->data->so);
+	game->west = init_images(game->data->we);
+	game->east = init_images(game->data->ea);
 }
 
-t_images	*init_images(t_cub *game, char *path)
+mlx_texture_t	*init_images(char *path)
 {
-	t_images	*images;
+	mlx_texture_t	*images;
 
 	images = ft_calloc(sizeof(t_images), 1);
 	if (!images)
 		handle_error("Error: malloc failed");
-	images->texture = mlx_load_png(path);
-	if (!images->texture)
+	images = mlx_load_png(path);
+	if (!images)
 		handle_error("Error: mlx_load_png failed");
-	images->img = mlx_texture_to_image(game->mlx, images->texture);
-	if (!images->img)
-		handle_error("Error: mlx_texture_to_image failed");
 	return (images);
 }
 
