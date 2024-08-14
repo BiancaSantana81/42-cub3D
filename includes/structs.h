@@ -39,13 +39,6 @@ typedef struct s_validate
 	int		n;
 }	t_validate;
 
-typedef struct s_images
-{
-	mlx_texture_t	*texture;
-	int				x;
-	int				y;
-}	t_images;
-
 typedef struct s_coord
 {
 	int	x;
