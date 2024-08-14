@@ -19,6 +19,7 @@ void		calculate_new_position(t_cub *game, float *new_x, float *new_y);
 t_images	*init_images(t_cub *game, char *path);
 void		free_sprite(t_cub *game, t_images *image);
 void		load_textures(t_cub *game);
+uint32_t	get_texture_color(mlx_texture_t *texture, int x, int y);
 void		draw_images(t_cub *game);
 
 /* DRAW SQUARES */
@@ -34,5 +35,9 @@ void	set_wall(t_cub*game, t_images **wall);
 
 /* BRESENHAM */
 void	bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1);
+
+
+
+void test_get_texture_color_with_mlx(t_cub *game);
 
 #endif
