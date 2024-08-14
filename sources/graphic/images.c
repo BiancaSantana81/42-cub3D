@@ -24,6 +24,17 @@ t_images	*init_images(t_cub *game, char *path)
 	return (images);
 }
 
+uint32_t	get_texture_color(mlx_texture_t *texture, int x, int y)
+{
+	int		texture_pos;
+	uint8_t	*pixel;
+
+	texture_pos = y * texture->width + x;
+	texture_pos *= texture->bytes_per_pixel;
+	pixel = &texture->pixels[texture_pos];
+	return (pixel[0] << 24 | pixel[1] << 16 | pixel[2] << 8 | pixel[3]);
+}
+
 void	draw_images(t_cub *game)
 {
 	(void)game;
