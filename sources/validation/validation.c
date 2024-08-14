@@ -55,19 +55,13 @@ int	check_extension(char *map_file)
 	exit(EXIT_FAILURE);
 }
 
-// char	*check_path(char *path)
-// {
-// 	char	*path_copy;
-// 	int		fd;
+int	check_path(char *path)
+ {
+ 	int		fd;
 
-// 	printf("path: %s\n", path);
-// 	fd = open(path, O_RDONLY);
-// 	if (fd == -1)
-// 	{
-// 		handle_error("Error: invalid texture path\n");
-// 		return (NULL);
-// 	}
-// 	close(fd);
-// 	path_copy = ft_strdup(path);
-// 	return (path_copy);
-// }
+ 	fd = open(path, O_RDONLY);
+ 	if (fd == -1)
+ 		return (0);
+ 	close(fd);
+ 	return (1);
+ }

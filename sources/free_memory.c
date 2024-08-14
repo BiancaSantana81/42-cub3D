@@ -22,9 +22,4 @@ void	free_memory(t_cub *game)
 		free_data(game->data);
 }
 
-void	free_sprite(t_cub *game, t_images *image)
-{
-	(void)game;
-	mlx_delete_texture(image->texture);
-	free(image);
-}
+
