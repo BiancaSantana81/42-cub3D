@@ -12,7 +12,7 @@ mlx_texture_t	*init_images(char *path)
 {
 	mlx_texture_t	*images;
 
-	images = ft_calloc(sizeof(t_images), 1);
+	images = ft_calloc(sizeof(mlx_texture_t), 1);
 	if (!images)
 		handle_error("Error: malloc failed");
 	images = mlx_load_png(path);
