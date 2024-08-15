@@ -30,7 +30,7 @@ void	hook_close(void *param)
 
 static void	pressed(mlx_key_data_t keydata, t_cub *game)
 {
-if (keydata.key == MLX_KEY_W)
+	if (keydata.key == MLX_KEY_W)
 		game->keys.w = true;
 	else if (keydata.key == MLX_KEY_S)
 		game->keys.s = true;

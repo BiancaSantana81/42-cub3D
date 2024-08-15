@@ -2,16 +2,16 @@
 
 mlx_texture_t	*set_wall(t_cub *game, t_dda *ray)
 {
-	if (game->hit_side == 0)
+	if (ray->hit_side == 1)
 	{
-		if (ray->dir.y < 0)
+		if (ray->step.y < 0)
 			return (game->north);
 		else
 			return (game->south);
 	}
 	else
 	{
-		if (ray->dir.x < 0)
+		if (ray->step.x < 0)
 			return (game->west);
 		else
 			return (game->east);

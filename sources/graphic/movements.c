@@ -5,11 +5,11 @@ void	process_input(t_cub *game)
 	float	new_x;
 	float	new_y;
 
+	new_x = 0;
+	new_y = 0;
 	calculate_new_position(game, &new_x, &new_y);
-	// acho que os valores setados como true tem que ser dentro de calculate new_postion n? já que são eles que fazem o calculo de quanto aumentar na mov
-	if (can_move_to(game, new_x, new_y))
+	if (can_move_to(game, new_x, new_y) && (new_x != 0 && new_y != 0))
 	{
-		printf("oi\n");
 		game->pos.x = new_x;
 		game->pos.y = new_y;
 	}
@@ -36,22 +36,22 @@ void	calculate_new_position(t_cub *game, float *new_x, float *new_y)
 {
 	*new_x = game->pos.x;
 	*new_y = game->pos.y;
-	if (game->keys.w)
+	if (game->keys.w == true)
 	{
 		*new_x += game->dir.x * MOVE_SPEED;
 		*new_y += game->dir.y * MOVE_SPEED;
 	}
-	if (game->keys.s)
+	if (game->keys.s == true)
 	{
 		*new_x -= game->dir.x * MOVE_SPEED;
 		*new_y -= game->dir.y * MOVE_SPEED;
 	}
-	if (game->keys.a)
+	if (game->keys.a == true)
 	{
 		*new_x -= game->camera_plane.x * MOVE_SPEED;
 		*new_y -= game->camera_plane.y * MOVE_SPEED;
 	}
-	if (game->keys.d)
+	if (game->keys.d == true)
 	{
 		*new_x += game->camera_plane.x * MOVE_SPEED;
 		*new_y += game->camera_plane.y * MOVE_SPEED;
