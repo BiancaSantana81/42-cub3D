@@ -69,6 +69,7 @@ typedef struct s_dda
 	t_coord		step; //passos dados em x e y
 	int			hit_side; //lado que bateu
 	float		perp_dist; //distancia do plano de camera ate a parede
+	float		wall_hit_x; //onde o raio bateu
 }	t_dda;
 
 typedef struct s_cub
@@ -77,7 +78,7 @@ typedef struct s_cub
 	uint32_t		window_height;
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
-	//mlx_image_t		*map_image;
+	mlx_texture_t	*texture;
 	mlx_texture_t	*north;
 	mlx_texture_t	*south;
 	mlx_texture_t	*west;

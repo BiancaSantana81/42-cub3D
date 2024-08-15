@@ -6,8 +6,10 @@ void	process_input(t_cub *game)
 	float	new_y;
 
 	calculate_new_position(game, &new_x, &new_y);
+	// acho que os valores setados como true tem que ser dentro de calculate new_postion n? já que são eles que fazem o calculo de quanto aumentar na mov
 	if (can_move_to(game, new_x, new_y))
 	{
+		printf("oi\n");
 		game->pos.x = new_x;
 		game->pos.y = new_y;
 	}

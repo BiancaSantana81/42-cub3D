@@ -1,19 +1,20 @@
 #include "../../includes/cub.h"
 
-void	set_wall(t_cub*game, mlx_texture_t **wall)
+mlx_texture_t	*set_wall(t_cub *game, t_dda *ray)
 {
 	if (game->hit_side == 0)
 	{
-		if (game->dir.y < 0)
-			*wall = game->north;
-		else if (game->dir.y > 0)
-			*wall = game->south;
+		if (ray->dir.y < 0)
+			return (game->north);
+		else
+			return (game->south);
 	}
 	else
 	{
-		if (game->dir.x < 0)
-			*wall = game->west;
-		else if (game->dir.x > 0)
-			*wall = game->east;
+		if (ray->dir.x < 0)
+			return (game->west);
+		else
+			return (game->east);
 	}
+	return (NULL);
 }

@@ -30,7 +30,7 @@ uint32_t		get_texture_color(mlx_texture_t *texture, int y, int x);
 void			draw_background(t_cub *game);
 
 /* SET_WALL */
-void			set_wall(t_cub*game, mlx_texture_t **wall);
+mlx_texture_t	*set_wall(t_cub *game, t_dda *ray);
 
 /* BRESENHAM */
 void			bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1);
