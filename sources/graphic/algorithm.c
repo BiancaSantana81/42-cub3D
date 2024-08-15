@@ -16,7 +16,8 @@ void	draw_rays(t_cub *game)
 	while (pixel < WIDTH)
 	{
 		ray.plane_multiplier = 2 * pixel / (float)WIDTH - 1;
-		ray.camera_pixel = mult_vector(game->camera_plane, ray.plane_multiplier);
+		ray.camera_pixel = mult_vector(game->camera_plane,
+				ray.plane_multiplier);
 		ray.dir = add_vector(game->dir, ray.camera_pixel);
 		ray.step.x = set_direction(ray.dir.x);
 		ray.step.y = set_direction(ray.dir.y);
@@ -44,7 +45,6 @@ void	calculate_distance_to_side(t_dda *ray, t_cub *game)
 {
 	ray->map.x = game->pos.x;
 	ray->map.y = game->pos.y;
-
 	if (ray->dir.x < 0)
 		ray->dist_side.x = (game->pos.x - ray->map.x) * ray->delta_dist.x;
 	else

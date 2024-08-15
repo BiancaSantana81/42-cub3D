@@ -15,7 +15,6 @@
 # include "graphic.h"
 # include "../libft/src/libft.h"
 
-# define BLOCK 32
 # define WIDTH 800
 # define HEIGHT 600
 # define ROTATE_LEFT -0.5

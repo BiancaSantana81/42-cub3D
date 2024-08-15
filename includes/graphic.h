@@ -21,32 +21,30 @@ void			load_textures(t_cub *game);
 uint32_t		get_texture_color(mlx_texture_t *texture, int y, int x);
 
 /* DRAW SQUARES */
-//void			draw_player(t_cub *game);
-//void			draw_player_square(t_cub *game,
-//					int start_x, int start_y, int size);
-//void			draw_map(t_cub *game);
-//void			draw_map_square(t_cub *game, int start_x, int start_y,
-//					uint32_t color);
 void			draw_background(t_cub *game);
 
-/* SET_WALL */
+/* WALL */
 mlx_texture_t	*set_wall(t_cub *game, t_dda *ray);
-
-/* BRESENHAM */
-void			bresenham_algorithm(t_cub *game, int x0, int y0, int x1, int y1);
+void			draw_wall(t_dda *ray, t_cub *game, int pixel);
 
 /* SETUP */
-void	setup(t_cub *game);
-void	update_fps(t_cub *game);
+void			setup(t_cub *game);
+void			update_fps(t_cub *game);
 
 /* ALGORITHM */
-void	draw_rays(t_cub *game);
-void	calculate_delta_distance(t_dda *ray);
-void	calculate_distance_to_side(t_dda *ray, t_cub *game);
-void	dda_algorithm(t_dda *ray, t_cub *game);
+void			draw_rays(t_cub *game);
+void			calculate_delta_distance(t_dda *ray);
+void			calculate_distance_to_side(t_dda *ray, t_cub *game);
+void			dda_algorithm(t_dda *ray, t_cub *game);
 
 /* DRAW LOOP */
-void	draw_playerview(void *param);
-void	draw_wall(t_dda *ray, t_cub *game, int pixel);
+void			draw_playerview(void *param);
+
+//void  draw_player(t_cub *game);
+//void  draw_player_square(t_cub *game,
+//					int start_x, int start_y, int size);
+//void  draw_map(t_cub *game);
+//void  draw_map_square(t_cub *game, int start_x, int start_y,
+//					uint32_t color);
 
 #endif
