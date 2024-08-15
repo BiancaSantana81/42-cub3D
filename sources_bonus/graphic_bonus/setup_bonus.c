@@ -1,4 +1,4 @@
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 static void	define_initial_plane(t_cub *game)
 {

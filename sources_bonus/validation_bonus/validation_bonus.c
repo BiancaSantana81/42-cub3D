@@ -1,4 +1,4 @@
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 int	validate_map(int argc, char **argv, t_cub *game)
 {

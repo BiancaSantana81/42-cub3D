@@ -1,4 +1,4 @@
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 static void	pressed(mlx_key_data_t keydata, t_cub *game);
 static void	release(mlx_key_data_t keydata, t_cub *game);

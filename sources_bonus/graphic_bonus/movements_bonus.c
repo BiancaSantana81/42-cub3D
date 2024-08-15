@@ -1,4 +1,4 @@
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 void	process_input(t_cub *game)
 {

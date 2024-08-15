@@ -1,4 +1,4 @@
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 //void	draw_player_square(t_cub *game, int start_x, int start_y, int size)
 //{

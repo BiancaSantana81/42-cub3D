@@ -1,4 +1,4 @@
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 static void	intersection_point(t_dda *ray, t_cub *game, t_wall *wall);
 static void	find_texture_position_x(t_dda *ray, t_cub *game, t_wall *wall);
