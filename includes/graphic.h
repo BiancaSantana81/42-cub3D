@@ -2,7 +2,6 @@
 # define GRAPHIC_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
-# define MOVE_SPEED game->frame_time * 6
 # define TEXTURE_WIDTH 64
 # define TEXTURE_HEIGHT 64
 

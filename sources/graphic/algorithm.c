@@ -81,7 +81,7 @@ void	dda_algorithm(t_dda *ray, t_cub *game)
 		}
 	}
 	if (ray->hit_side == 0)
-		ray->perp_dist = ray->dist_side.x - ray->delta_dist.x; 
+		ray->perp_dist = ray->dist_side.x - ray->delta_dist.x;
 	else
 		ray->perp_dist = ray->dist_side.y - ray->delta_dist.y;
 }

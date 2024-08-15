@@ -56,12 +56,12 @@ int	check_extension(char *map_file)
 }
 
 int	check_path(char *path)
- {
- 	int		fd;
+{
+	int	fd;
 
- 	fd = open(path, O_RDONLY);
- 	if (fd == -1)
- 		return (0);
- 	close(fd);
- 	return (1);
- }
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	close(fd);
+	return (1);
+}

@@ -34,26 +34,29 @@ bool	can_move_to(t_cub *game, float new_x, float new_y)
 
 void	calculate_new_position(t_cub *game, float *new_x, float *new_y)
 {
+	float	move_speed;
+
+	move_speed = game->frame_time * 6;
 	*new_x = game->pos.x;
 	*new_y = game->pos.y;
 	if (game->keys.w == true)
 	{
-		*new_x += game->dir.x * MOVE_SPEED;
-		*new_y += game->dir.y * MOVE_SPEED;
+		*new_x += game->dir.x * move_speed ;
+		*new_y += game->dir.y * move_speed ;
 	}
 	if (game->keys.s == true)
 	{
-		*new_x -= game->dir.x * MOVE_SPEED;
-		*new_y -= game->dir.y * MOVE_SPEED;
+		*new_x -= game->dir.x * move_speed ;
+		*new_y -= game->dir.y * move_speed ;
 	}
 	if (game->keys.a == true)
 	{
-		*new_x -= game->camera_plane.x * MOVE_SPEED;
-		*new_y -= game->camera_plane.y * MOVE_SPEED;
+		*new_x -= game->camera_plane.x * move_speed;
+		*new_y -= game->camera_plane.y * move_speed;
 	}
 	if (game->keys.d == true)
 	{
-		*new_x += game->camera_plane.x * MOVE_SPEED;
-		*new_y += game->camera_plane.y * MOVE_SPEED;
+		*new_x += game->camera_plane.x * move_speed;
+		*new_y += game->camera_plane.y * move_speed;
 	}
 }
