@@ -20,6 +20,12 @@ void	free_memory(t_cub *game)
 {
 	if (game)
 		free_data(game->data);
+	if (game->north)
+		mlx_delete_texture(game->north);
+	if (game->south)
+		mlx_delete_texture(game->south);
+	if (game->west)
+		mlx_delete_texture(game->west);
+	if (game->east)
+		mlx_delete_texture(game->east);
 }
-
-
