@@ -1,10 +1,10 @@
-NO ./textures/north.png
+NO ./textures/north_256.png
 
-SO ./textures/south.png
+SO ./textures/south_256.png
 
-WE ./textures/west.png
+WE ./textures/west_256.png
 
-EA ./textures/east.png
+EA ./textures/east_256.png
 
 F 139,69,1
 C 100,149,237
