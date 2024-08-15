@@ -1,13 +1,13 @@
-NO       ./textures/north_256.png
+NO       ./textures/north.png
 
-SO ./textures/south_256.png
+SO ./textures/south.png
 
-WE ./textures/west_256.png
+WE ./textures/west.png
 
-EA ./textures/east_256.png
+EA ./textures/east.png
 
-F 139,69,1
-C 100,149,237
+F 28,28,28
+C 105,105,105
 
 111111111111111111111111
 1S0000000001000000000001
