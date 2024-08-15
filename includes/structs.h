@@ -76,15 +76,13 @@ typedef struct s_cub
 	uint32_t		window_width;
 	uint32_t		window_height;
 	mlx_t			*mlx;
-	mlx_image_t		*background_image;
 	mlx_image_t		*mlx_image;
-	mlx_image_t		*map_image;
-	mlx_image_t		*line_image;
-	mlx_image_t		*walls_image;
+	//mlx_image_t		*map_image;
 	mlx_texture_t	*north;
 	mlx_texture_t	*south;
 	mlx_texture_t	*west;
 	mlx_texture_t	*east;
+	int				*texture_buffer[4];
 	t_keys			keys;
 	t_vector		pos; //posicao do player
 	t_vector		dir; //direcao do player

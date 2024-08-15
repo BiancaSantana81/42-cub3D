@@ -13,7 +13,6 @@
 # include "structs.h"
 # include "validate.h"
 # include "graphic.h"
-# include "raycasting.h"
 # include "../libft/src/libft.h"
 
 # define BLOCK 32

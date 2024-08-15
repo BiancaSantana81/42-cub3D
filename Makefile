@@ -16,8 +16,7 @@ OBJ_PATH	:= objects
 CFILES		:=  main.c init.c utils.c free_memory.c \
 				validation/validation.c validation/check_rgb.c validation/data_processing.c validation/map.c validation/map_utils.c validation/check_wall.c \
 				graphic/hooks.c graphic/movements.c graphic/images.c graphic/bresenham.c  graphic/draw_squares.c graphic/set_wall.c\
-				raycasting/algorithm.c raycasting/vectors.c raycasting/draw_loop.c raycasting/fps.c \
-
+				graphic/algorithm.c graphic/setup.c graphic/draw_loop.c  \
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))

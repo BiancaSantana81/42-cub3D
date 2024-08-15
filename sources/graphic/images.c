@@ -6,6 +6,10 @@ void	load_textures(t_cub *game)
 	game->south = init_images(game->data->so);
 	game->west = init_images(game->data->we);
 	game->east = init_images(game->data->ea);
+	game->texture_buffer[0] = game->east;
+	game->texture_buffer[1] = game->north;
+	game->texture_buffer[2] = game->south;
+	game->texture_buffer[3] = game->west;
 }
 
 mlx_texture_t	*init_images(char *path)
@@ -21,7 +25,7 @@ mlx_texture_t	*init_images(char *path)
 	return (images);
 }
 
-uint32_t	get_texture_color(mlx_texture_t *texture, int x, int y)
+uint32_t	get_texture_color(mlx_texture_t *texture, int y, int x)
 {
 	int		texture_pos;
 	uint8_t	*pixel;
@@ -32,17 +36,26 @@ uint32_t	get_texture_color(mlx_texture_t *texture, int x, int y)
 	return (pixel[0] << 24 | pixel[1] << 16 | pixel[2] << 8 | pixel[3]);
 }
 
-void	draw_images(t_cub *game)
+void	read_texture_on_the_map(t_cub *game, t_dda *ray)
 {
-	(void)game;
-	//if (mlx_image_to_window(game->mlx, game->north->img, 0, 0))
-	//	handle_error("Error: mlx_image_to_window failed");
-	//if (mlx_image_to_window(game->mlx, game->south->img, 0, 64))
-	//	handle_error("Error: mlx_image_to_window failed");
-	//if (mlx_image_to_window(game->mlx, game->west->img, 64, 0))
-	//	handle_error("Error: mlx_image_to_window failed");
-	//if (mlx_image_to_window(game->mlx, game->east->img, 64, 64))
-	//	handle_error("Error: mlx_image_to_window failed");
-	//if (mlx_image_to_window(game->mlx, game->player->img, 64, 64))
-	//	handle_error("Error: mlx_image_to_window failed");
+	int	i;
+	int	x;
+	int	y;
+
+	i = 0;
+	x = 0;
+	y = 0;
+	while (i < game->texture_buffer)
+	{
+		while (y < TEXTURE_HEIGHT)
+		{
+			while (x < TEXTURE_WIDTH)
+			{
+				print_texture(get_texture_color(game->texture_buffer[i], y, x));
+				x++;
+			}
+			y++;
+		}
+		i++;
+	}
 }
