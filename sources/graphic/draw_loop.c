@@ -1,5 +1,8 @@
 #include "../../includes/cub.h"
 
+static void	calculate_wall_params(t_dda *ray, t_cub *game, t_wall *wall);
+static void	render_wall(t_cub *game, int pixel, t_wall *wall);
+
 void	draw_playerview(void *param)
 {
 	t_cub	*game;
@@ -11,59 +14,54 @@ void	draw_playerview(void *param)
 	draw_rays(game);
 }
 
-void	draw_wall(t_dda *ray, t_cub *game, int pixel)
+static void	calculate_wall_params(t_dda *ray, t_cub *game, t_wall *wall)
 {
-	int			y;
-	int			wall_height;
-	float		line_start_y;
-	float		line_end_y;
-	float		tex_step;
-	float		tex_pos;
-	int			texture_x;
-	int			texture_y;
-	uint32_t	color;
-	float		wall_hit_x;
+	int		wall_height;
+	float	wall_hit_x;
 
 	wall_height = (HEIGHT / ray->perp_dist);
-	line_start_y = (HEIGHT / 2 - wall_height / 2);
-	line_end_y = (HEIGHT / 2 + wall_height / 2);
-	if (line_start_y < 0)
-		line_start_y = 0;
-	if (line_end_y >= HEIGHT)
-		line_end_y = HEIGHT - 1;
-	game->texture = set_wall(game, ray);
-	// Calcular a posição de interseção da parede no mundo
+	wall->line_start_y = (HEIGHT / 2 - wall_height / 2);
+	wall->line_end_y = (HEIGHT / 2 + wall_height / 2);
+	if (wall->line_start_y < 0)
+		wall->line_start_y = 0;
+	if (wall->line_end_y >= HEIGHT)
+		wall->line_end_y = HEIGHT - 1;
 	if (ray->hit_side == 0)
 		wall_hit_x = game->pos.y + ray->perp_dist * ray->dir.y;
 	else
 		wall_hit_x = game->pos.x + ray->perp_dist * ray->dir.x;
-	wall_hit_x -= floor(wall_hit_x); // Ajuste para o intervalo de 0 a 1
-
-	// Calcular a posição x na textura
-	texture_x = (int)(wall_hit_x * game->texture->width);
-	// Ajustes para direções específicas
+	wall_hit_x -= floor(wall_hit_x);
+	wall->texture_x = (int)(wall_hit_x * game->texture->width);
 	if ((ray->hit_side == 0 && ray->dir.x > 0)
 		|| (ray->hit_side == 1 && ray->dir.y < 0))
-		texture_x = game->texture->width - texture_x - 1;
-	// Calcular o passo da textura (quanto subir/descer na textura a cada pixel da parede)
-	tex_step = 1.0 * game->texture->height / wall_height;
+		wall->texture_x = game->texture->width - wall->texture_x - 1;
+	wall->tex_step = 1.0 * game->texture->height / wall_height;
+	wall->tex_pos = (wall->line_start_y
+			- HEIGHT / 2 + wall_height / 2) * wall->tex_step;
+}
 
-	// Calcular a posição inicial na textura
-	tex_pos = (line_start_y - HEIGHT / 2 + wall_height / 2) * tex_step;
+static void	render_wall(t_cub *game, int pixel, t_wall *wall)
+{
+	int			y;
+	int			texture_y;
+	uint32_t	color;
 
-	// Loop para desenhar cada pixel da parede
-	y = line_start_y;
-	while (y < line_end_y)
+	y = wall->line_start_y;
+	while (y < wall->line_end_y)
 	{
-		// Calcular a coordenada y na textura
-		texture_y = (int)tex_pos & (game->texture->height - 1);
-		tex_pos += tex_step;
-
-		// Obter a cor do pixel da textura
-		color = get_texture_color(game->texture, texture_x, texture_y);
-
-		// Desenhar o pixel na tela
+		texture_y = (int)wall->tex_pos & (game->texture->height - 1);
+		wall->tex_pos += wall->tex_step;
+		color = get_texture_color(game->texture, wall->texture_x, texture_y);
 		mlx_put_pixel(game->mlx_image, pixel, y, color);
 		y++;
 	}
+}
+
+void	draw_wall(t_dda *ray, t_cub *game, int pixel)
+{
+	t_wall	wall;
+
+	game->texture = set_wall(game, ray);
+	calculate_wall_params(ray, game, &wall);
+	render_wall(game, pixel, &wall);
 }

@@ -72,6 +72,15 @@ typedef struct s_dda
 	float		wall_hit_x; //onde o raio bateu
 }	t_dda;
 
+typedef struct s_wall
+{
+	int		line_start_y;
+	int		line_end_y;
+	int		texture_x;
+	float	tex_step;
+	float	tex_pos;
+}	t_wall;
+
 typedef struct s_cub
 {
 	uint32_t		window_width;
