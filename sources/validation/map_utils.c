@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 void	get_max_lines(t_data *data)
 {
@@ -62,7 +62,6 @@ void	found_tabs(t_data *data)
 		}
 		i++;
 	}
-	ft_print_matrix(data->map);
 }
 
 char	*replace_tabs(char *line, int tabs)

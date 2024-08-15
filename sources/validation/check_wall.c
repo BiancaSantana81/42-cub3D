@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 static int	is_open(t_data *data, int line, int column)
 {
@@ -9,7 +9,7 @@ static int	is_open(t_data *data, int line, int column)
 	{
 		if (line == 0 || line == data->lines)
 			return (0);
-		else if (column == 0 || column == data->columns)
+		else if (column == 0 || column == data->columns - 1)
 			return (0);
 		else if (map[line - 1][column] == ' ' || map[line + 1][column] == ' ')
 			return (0);

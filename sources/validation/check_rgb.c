@@ -1,4 +1,4 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
 static void	handle_error_rgb(char *rgb_color, char **rgb);
 
@@ -54,7 +54,7 @@ void	split_rgb(char ***rgb, char *rgb_color)
 
 uint32_t	convert_rgb(int r, int g, int b)
 {
-	return (((uint32_t)r << 16) | ((uint32_t)g << 8) | (uint32_t)b);
+	return (r << 24 | g << 16 | b << 8 | 255);
 }
 
 static void	handle_error_rgb(char *rgb_color, char **rgb)

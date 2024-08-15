@@ -13,13 +13,14 @@
 # define WARNING_OPEN_MAP "Error: map is open.\n"
 
 /* VALIDATION */
-int			validate_map(int argc, char **argv, t_data *data);
+int			validate_map(int argc, char **argv, t_cub *game);
 int			check_arguments(int argc);
 int			check_extension(char *map_file);
-char		*check_path(char *path);
+int			check_map_content(t_validate *valid);
 void		check_rgb(uint32_t *color, char *rgb_color);
 void		split_rgb(char ***rgb, char *rgb_color);
 uint32_t	convert_rgb(int r, int g, int b);
+int			check_path(char *path);	
 
 /* DATA PROCESSING */
 int			data_processing(char *map_file, t_data *data);

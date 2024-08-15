@@ -1,15 +1,17 @@
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
-int	validate_map(int argc, char **argv, t_data *data)
+int	validate_map(int argc, char **argv, t_cub *game)
 {
 	t_validate	valid;
 
 	check_arguments(argc);
 	check_extension(argv[1]);
-	data_processing(argv[1], data);
+	data_processing(argv[1], game->data);
 	init_variables_valid(&valid);
-	analyze_map_content(data, &valid);
-	surrounded_by_walls(data);
+	found_tabs(game->data);
+	analyze_map_content(game->data, &valid);
+	check_map_content(&valid);
+	surrounded_by_walls(game->data);
 	return (EXIT_SUCCESS);
 }
 
@@ -53,19 +55,13 @@ int	check_extension(char *map_file)
 	exit(EXIT_FAILURE);
 }
 
-// char	*check_path(char *path)
-// {
-// 	char	*path_copy;
-// 	int		fd;
+int	check_path(char *path)
+{
+	int	fd;
 
-// 	printf("path: %s\n", path);
-// 	fd = open(path, O_RDONLY);
-// 	if (fd == -1)
-// 	{
-// 		handle_error("Error: invalid texture path\n");
-// 		return (NULL);
-// 	}
-// 	close(fd);
-// 	path_copy = ft_strdup(path);
-// 	return (path_copy);
-// }
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (0);
+	close(fd);
+	return (1);
+}

@@ -13,7 +13,10 @@ SRC_PATH 	:= sources
 OBJ_PATH	:= objects
 
 # SOURCES
-CFILES		:=  trash.c main.c validation.c check_rgb.c data_processing.c 1_map.c 2_map.c utils.c init.c wall.c\
+CFILES		:=  main.c init.c utils.c free_memory.c \
+				validation/validation.c validation/check_rgb.c validation/data_processing.c validation/map.c validation/map_utils.c validation/check_wall.c \
+				graphic/hooks.c graphic/movements.c graphic/images.c graphic/draw_squares.c graphic/wall.c\
+				graphic/algorithm.c graphic/setup.c graphic/draw_loop.c  \
 
 #PATH_FILES
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))
@@ -63,7 +66,7 @@ $(OBJ_PATH):
 	@mkdir -p $(OBJ_PATH)
 
 $(NAME): $(LIBFT) $(OBJS)
-	@$(CC) $(OBJS) $(LIBS_MLX) $(LIBFT) $(LFLAGS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBS_MLX) $(LIBFT) $(LFLAGS) $(HEADERS) -o $(NAME) -lm
 	@echo "                                     "
 	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
 	@echo "$(WHITE) 🟧  The [$(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE)] has been compiled!  🟧"

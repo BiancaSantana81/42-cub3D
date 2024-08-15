@@ -1,6 +1,4 @@
-#include "../includes/cub.h"
-
-static int	check_map_content(t_validate *valid);
+#include "../../includes/cub.h"
 
 void	count_map_size(t_data *data, char *temp, int fd)
 {
@@ -50,8 +48,9 @@ void	read_and_copy_map_content(t_data *data, char *temp, int fd)
 
 static int	check_invalid_char(char c)
 {
-	if (c != 'N' && c != 'S' && c != 'E' && c != 'W' && c != '0' && c != '1'
-		&& c != '\0' && c != '\n' && (c >= 9 && c <= 13))
+	if (c == ' ' || c == 'N' || c == 'S' || c == 'E' || c == 'W'
+		|| c == '0' || c == '1' || c == '\0'
+		|| c == '\n' || (c >= 9 && c <= 13))
 		return (1);
 	return (0);
 }
@@ -62,7 +61,6 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 	int	j;
 
 	i = 0;
-	found_tabs(data);
 	while (data->map[i])
 	{
 		j = 0;
@@ -70,22 +68,23 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 			valid->n++;
 		while (data->map[i][j])
 		{
-			if (check_invalid_char(data->map[i][j]) == 1)
+			if (check_invalid_char(data->map[i][j]) == 0)
 				valid->invalid++;
 			else if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
 				|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
 			{
 				valid->player++;
-				valid->pos_player = data->map[i][j];
+				data->pov_player = data->map[i][j];
+				data->y_player = i;
+				data->x_player = j;
 			}
 			j++;
 		}
 		i++;
 	}
-	check_map_content(valid);
 }
 
-static int	check_map_content(t_validate *valid)
+int	check_map_content(t_validate *valid)
 {
 	if (valid->player != 1)
 		return (handle_error(WARNING_PLAYER), (EXIT_FAILURE));

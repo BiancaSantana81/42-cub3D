@@ -1,0 +1,64 @@
+{
+   <MLX_CODAM>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:_dl_catch_exception
+   ...
+}
+{
+ <MLX_CODAM>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:mlx_init
+   ...
+}
+{
+ <MLX_CODAM>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:XrmGetStringDatabase
+   ...
+}
+{
+ <MLX_CODAM>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:_XrmInitParseInfo
+   ...
+}
+{
+ <MLX_CODAM>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:__tls_get_addr
+   ...
+}
+{
+ <MLX_CODAM>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:__pthread_once_slow
+   ...
+}
+{
+ <MLX_CODAM>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:glfwInit
+   ...
+}
+{
+ <MLX_CODAM>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:_dl_init
+   ...
+}
