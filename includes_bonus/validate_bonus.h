@@ -2,7 +2,7 @@
 # define VALIDATE_BONUS_H
 
 # include "../libft/src/libft.h"
-# include "structs.h"
+# include "structs_bonus.h"
 
 # define WARNING_ARGS_1 "Error: No map file\n"
 # define WARNING_ARGS_2 "Error: too many arguments\n"
