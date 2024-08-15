@@ -26,8 +26,8 @@ static void	define_initial_plane(t_cub *game)
 
 void	setup(t_cub *game)
 {
-	game->pos = create_vector(game->data->x_player,
-			game->data->y_player);
+	game->pos = create_vector(game->data->x_player + 0.5,
+			game->data->y_player + 0.5);
 	define_initial_plane(game);
 }
 
