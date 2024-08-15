@@ -74,11 +74,14 @@ typedef struct s_dda
 
 typedef struct s_wall
 {
+	int		height;
 	int		line_start_y;
 	int		line_end_y;
 	int		texture_x;
-	float	tex_step;
-	float	tex_pos;
+	int		texture_y;
+	float	point_x;
+	float	texture_step;
+	float	texture_pos;
 }	t_wall;
 
 typedef struct s_cub

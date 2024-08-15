@@ -1,11 +1,11 @@
 
-        NO       ./textures/air_wall.png
+        NO       ./textures/air_256.png
 
-SO ./textures/south.png
+SO ./textures/fire_256.png
 
-WE ./textures/west.png
+WE ./textures/water_256.png
 
-EA ./textures/east.png
+EA ./textures/earth_256.png
 
 F 139,69,1
 C 100,149,237
