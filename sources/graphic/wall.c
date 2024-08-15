@@ -34,7 +34,6 @@ static void	intersection_point(t_dda *ray, t_cub *game, t_wall *wall)
 
 static void	find_texture_position_x(t_dda *ray, t_cub *game, t_wall *wall)
 {
-	(void)ray;
 	wall->texture_x = (int)(wall->point_x * game->texture->width);
 	if ((ray->hit_side == 0 && ray->dir.x < 0)
 		|| (ray->hit_side == 1 && ray->dir.y > 0))
