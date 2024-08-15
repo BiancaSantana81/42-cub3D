@@ -29,15 +29,3 @@ void	handle_error(char *error)
 	ft_putstr_fd(error, 2);
 	exit(1);
 }
-
-void	handle_mlx_error(char *error)
-{
-	t_cub	*game;
-
-	game = get_game(NULL);
-	if (game)
-		free_memory(game);
-	mlx_close_window(game->mlx);
-	ft_putstr_fd(error, 2);
-	exit(1);
-}

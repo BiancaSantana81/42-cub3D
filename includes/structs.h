@@ -24,13 +24,13 @@ typedef struct s_data
 
 typedef struct s_keys
 {
-    bool w;
-    bool s;
-    bool a;
-    bool d;
-    bool left;
-    bool right;
-} t_keys;
+	bool	w;
+	bool	s;
+	bool	a;
+	bool	d;
+	bool	left;
+	bool	right;
+}	t_keys;
 
 typedef struct s_validate
 {
@@ -61,15 +61,15 @@ typedef struct s_line
 typedef struct s_dda
 {
 	float		plane_multiplier;
-	t_vector	dir; //raio que sai do player
-	t_vector	camera_pixel; //distancia de dir para raydir
-	t_vector	delta_dist; //depois de dist_to_side_x e dist_to_side_y até o próximo encontro com x ou y
-	t_vector	dist_side; //distancia ate o proximo lado em x ou y
-	t_coord		map; //posicao no mapa
-	t_coord		step; //passos dados em x e y
-	int			hit_side; //lado que bateu
-	float		perp_dist; //distancia do plano de camera ate a parede
-	float		wall_hit_x; //onde o raio bateu
+	t_vector	dir;
+	t_vector	camera_pixel;
+	t_vector	delta_dist;
+	t_vector	dist_side;
+	t_coord		map;
+	t_coord		step;
+	int			hit_side;
+	float		perp_dist;
+	float		wall_hit_x;
 }	t_dda;
 
 typedef struct s_wall
@@ -94,10 +94,10 @@ typedef struct s_cub
 	mlx_texture_t	*east;
 	int				*texture_buffer[4];
 	t_keys			keys;
-	t_vector		pos; //posicao do player
-	t_vector		dir; //direcao do player
-	t_vector		camera_plane; //plano da camera
-	int				hit_side; //lado que bateu
+	t_vector		pos;
+	t_vector		dir;
+	t_vector		camera_plane;
+	int				hit_side;
 	float			frame_time;
 	t_data			*data;
 }	t_cub;

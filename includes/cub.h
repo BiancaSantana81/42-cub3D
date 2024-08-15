@@ -34,7 +34,6 @@ void	init_variables_valid(t_validate *valid);
 int		open_file(char *filename);
 t_cub	*get_game(t_cub *game);
 void	handle_error(char *error);
-void	handle_mlx_error(char *error);
 
 /* FREE_MEMORY */
 void	free_data(t_data *data);
