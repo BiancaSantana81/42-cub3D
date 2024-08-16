@@ -45,19 +45,6 @@ typedef struct s_coord
 	int	y;
 }	t_coord;
 
-typedef struct s_line
-{
-	int	x0;
-	int	x1;
-	int	y0;
-	int	y1;
-	int	sx;
-	int	sy;
-	int	dx;
-	int	dy;
-	int	err;
-}	t_line;
-
 typedef struct s_dda
 {
 	float		plane_multiplier;
@@ -83,6 +70,15 @@ typedef struct s_wall
 	float	texture_step;
 	float	texture_pos;
 }	t_wall;
+
+typedef struct s_square_params
+{
+	uint32_t	start_x;
+	uint32_t	start_y;
+	uint32_t	end_x;
+	uint32_t	end_y;
+	uint32_t	color;
+}	t_square_params;
 
 typedef struct s_cub
 {
