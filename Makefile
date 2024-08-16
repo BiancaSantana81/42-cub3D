@@ -117,7 +117,7 @@ fclean: clean
 	@rm -rf $(NAME) $(NAME_BONUS)
 	@rm -rf $(LIBMLX)/build
 	@make fclean -C $(LIBFT_PATH)
-	@echo " 🟥$(WHITE)   Cleaning - $(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) & BONUS complete! 🟥"
+	@echo " 🟥$(WHITE) Cleaning -$(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) & BONUS complete! 🟥"
 	@echo " 🟧                                  🟧"
 	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
 	@echo "                                     "
