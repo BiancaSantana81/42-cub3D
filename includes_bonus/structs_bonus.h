@@ -22,6 +22,14 @@ typedef struct s_data
 	char			pov_player;
 }	t_data;
 
+typedef struct s_sprite
+{
+	mlx_texture_t	*texture;
+	mlx_image_t		*img;
+	//int32_t			x;
+	//int32_t			y;
+}	t_sprite;
+
 typedef struct s_keys
 {
 	bool	w;
@@ -86,10 +94,11 @@ typedef struct s_wall
 
 typedef struct s_cub
 {
-	uint32_t		window_width;
-	uint32_t		window_height;
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
+	mlx_image_t		*map_image;
+	t_sprite		*mini_wall;
+	t_sprite		*mini_floor;
 	mlx_texture_t	*texture;
 	mlx_texture_t	*north;
 	mlx_texture_t	*south;

@@ -17,6 +17,9 @@
 
 # define WIDTH 800
 # define HEIGHT 600
+# define BLOCK 8
+# define MINI_WIDTH 200
+# define MINI_HEIGHT 100
 # define ROTATE_LEFT -0.5
 # define ROTATE_RIGHT 0.5
 

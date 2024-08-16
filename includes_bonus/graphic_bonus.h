@@ -39,11 +39,21 @@ void			dda_algorithm(t_dda *ray, t_cub *game);
 /* DRAW LOOP */
 void			draw_playerview(void *param);
 
-//void  draw_player(t_cub *game);
-//void  draw_player_square(t_cub *game,
-//					int start_x, int start_y, int size);
-//void  draw_map(t_cub *game);
-//void  draw_map_square(t_cub *game, int start_x, int start_y,
-//					uint32_t color);
+/* MINIMAP */
 
+void			draw_minimap(void *param);
+void			draw_player(t_cub *game);
+void			draw_player_square(t_cub *game,
+					int start_x, int start_y, int size);
+// void			draw_map(t_cub *game);
+// void			draw_map_square(t_cub *game, int start_x, int start_y,
+// 					uint32_t color);
+
+void	draw_map_square(t_cub *game, int start_x, int start_y, int scale, uint32_t color);
+void	draw_map(t_cub *game, int scale);
+
+
+int	draw_mini_wall(t_cub *game, int x, int y);
+t_sprite	*load_images(t_cub	*game, char *path);
+void	images_minimap(t_cub *game);
 #endif
