@@ -3,6 +3,10 @@
 		"cub.h": "c",
 		"random": "c",
 		"mlx42_int.h": "c",
-		"mlx42.h": "c"
+		"mlx42.h": "c",
+		"array": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"utility": "c"
 	}
 }

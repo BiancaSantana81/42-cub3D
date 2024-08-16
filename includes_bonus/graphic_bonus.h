@@ -44,14 +44,10 @@ void			draw_playerview(void *param);
 void			draw_minimap(void *param);
 void			draw_map(t_cub *game, int scale);
 
-/* MINIMAP IMAGES */
-t_sprite		*load_images(t_cub	*game, char *path);
-void			images_minimap(t_cub *game);
-int				draw_mini_wall(t_cub *game, int x, int y);
-int				draw_mini_floor(t_cub *game, int x, int y);
-
-void			draw_map_square(t_cub *game, int start_x, int start_y, int scale, uint32_t color);
-void			draw_player(t_cub *game);
+/* MINIMAP PLAYER */
+void			draw_player(t_cub *game, int scale);
 void			draw_player_square(t_cub *game,
 					int start_x, int start_y, int size);
+
+void			draw_map_square(t_cub *game, int start_x, int start_y, int scale, uint32_t color);
 #endif

@@ -11,6 +11,8 @@ void	draw_minimap(void *param)
 	else
 		scale = MINI_WIDTH / game->data->columns;
 	draw_map(game, scale);
+	draw_player(game, scale);
+	mlx_image_to_window(game->mlx, game->map_image, 0, 0);
 }
 
 void	draw_map(t_cub *game, int scale)
@@ -29,10 +31,10 @@ void	draw_map(t_cub *game, int scale)
 			start_x = j * scale;
 			start_y = i * scale;
 			if (game->data->map[i][j] == '1')
-				draw_mini_wall(game, start_x, start_y);
+				draw_map_square(game, start_x, start_y, scale, 0xFF0000FF);
 			else if (game->data->map[i][j] == '0'
 				|| ft_strchr("NSWE", game->data->map[i][j]))
-				draw_mini_floor(game, start_x, start_y);
+				draw_map_square(game, start_x, start_y, scale, 0x00FF00FF);
 			else if (game->data->map[i][j] == ' ')
 				draw_map_square(game, start_x, start_y, scale, 0x000000FF);
 			j++;
@@ -41,6 +43,7 @@ void	draw_map(t_cub *game, int scale)
 	}
 	mlx_image_to_window(game->mlx, game->map_image, 0, 0);
 }
+
 
 void	draw_map_square(t_cub *game,
 	int start_x, int start_y, int scale, uint32_t color)
