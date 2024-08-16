@@ -63,7 +63,7 @@ void	images_minimap(t_cub *game)
 int	draw_mini_wall(t_cub *game, int x, int y)
 {
 	if (mlx_image_to_window(game->mlx,
-			game->mini_wall->img, x * BLOCK, y * BLOCK) < 0)
+			game->mini_wall->img, x, y) < 0)
 	{
 		handle_error("Erro ao desenhar a imagem da parede no minimapa.\n");
 		return (-1);
