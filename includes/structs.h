@@ -45,19 +45,6 @@ typedef struct s_coord
 	int	y;
 }	t_coord;
 
-typedef struct s_line
-{
-	int	x0;
-	int	x1;
-	int	y0;
-	int	y1;
-	int	sx;
-	int	sy;
-	int	dx;
-	int	dy;
-	int	err;
-}	t_line;
-
 typedef struct s_dda
 {
 	float		plane_multiplier;
@@ -86,8 +73,6 @@ typedef struct s_wall
 
 typedef struct s_cub
 {
-	uint32_t		window_width;
-	uint32_t		window_height;
 	mlx_t			*mlx;
 	mlx_image_t		*mlx_image;
 	mlx_texture_t	*texture;

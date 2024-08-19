@@ -39,11 +39,4 @@ void			dda_algorithm(t_dda *ray, t_cub *game);
 /* DRAW LOOP */
 void			draw_playerview(void *param);
 
-//void  draw_player(t_cub *game);
-//void  draw_player_square(t_cub *game,
-//					int start_x, int start_y, int size);
-//void  draw_map(t_cub *game);
-//void  draw_map_square(t_cub *game, int start_x, int start_y,
-//					uint32_t color);
-
 #endif

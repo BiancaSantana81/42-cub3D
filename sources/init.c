@@ -3,8 +3,6 @@
 void	init_cub(t_cub *game)
 {
 	game->mlx = NULL;
-	game->window_height = 0;
-	game->window_width = 0;
 	game->frame_time = 0;
 	game->keys.w = false;
 	game->keys.s = false;
