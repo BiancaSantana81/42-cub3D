@@ -46,8 +46,7 @@ void	update_fps(t_cub *game)
 		fps_nbr = ft_itoa(1 / game->mlx->delta_time);
 		fps_txt = ft_strjoin("FPS: ", fps_nbr);
 		free(fps_nbr);
-		fps_image = mlx_put_string(game->mlx, fps_txt,
-				WIDTH - 80, HEIGHT - 590);
+		fps_image = mlx_put_string(game->mlx, fps_txt, WIDTH - 80, HEIGHT - 590);
 		free(fps_txt);
 	}
 }

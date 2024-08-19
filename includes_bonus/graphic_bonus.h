@@ -40,7 +40,7 @@ void			dda_algorithm(t_dda *ray, t_cub *game);
 void			draw_playerview(void *param);
 
 /* MINIMAP */
-
+void			update_minimap(t_cub *game);
 void			draw_minimap(void *param);
 void			draw_map(t_cub *game, int scale);
 void			draw_map_square(t_cub *game, t_square_params params);

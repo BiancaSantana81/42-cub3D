@@ -2,6 +2,14 @@
 
 static	uint32_t	get_color_for_map_char(char map_char);
 
+void	update_minimap(t_cub *game)
+{
+	if (game->keys.minimap)
+		game->map_image->enabled = true;
+	else
+		game->map_image->enabled = false;
+}
+
 void	draw_minimap(void *param)
 {
 	t_cub	*game;
@@ -14,7 +22,8 @@ void	draw_minimap(void *param)
 		scale = MINI_WIDTH / game->data->columns;
 	draw_map(game, scale);
 	draw_player(game, scale);
-	mlx_image_to_window(game->mlx, game->map_image, 0, 0);
+	if (game->keys.minimap)
+		mlx_image_to_window(game->mlx, game->map_image, 0, 0);
 }
 
 void	draw_map(t_cub *game, int scale)
@@ -47,7 +56,7 @@ static uint32_t	get_color_for_map_char(char map_char)
 	if (map_char == '1')
 		return (0xFF0000FF);
 	else if (map_char == '0' || ft_strchr("NSWE", map_char))
-		return (0x00FF00FF);
+		return (0x00FF0000);
 	else if (map_char == ' ')
 		return (0x000000FF);
 	return (0);

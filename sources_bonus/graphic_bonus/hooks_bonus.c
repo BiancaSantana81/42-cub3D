@@ -13,10 +13,13 @@ void	hook_key_press(mlx_key_data_t keydata, void *param)
 		hook_close(game);
 		return ;
 	}
-	if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
+	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
+		game->keys.minimap = !game->keys.minimap;
+	else if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
 		pressed(keydata, game);
 	else if (keydata.action == MLX_RELEASE)
 		release(keydata, game);
+
 }
 
 void	hook_close(void *param)
