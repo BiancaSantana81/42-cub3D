@@ -25,15 +25,22 @@ void	draw_player_square(t_cub *game, int start_x, int start_y, int size)
 
 void	draw_player(t_cub *game, int scale)
 {
-	int	start_x;
-	int	start_y;
-	int	size;
-	int	offset;
+	float	start_x;
+	float	start_y;
+	int		player_scale;
 
-	size = scale / 2;
-	offset = (scale - size) / 2;
-	start_x = game->pos.x * scale + offset;
-	start_y = game->pos.y * scale + offset;
+	player_scale = (int)(scale * 0.5);
+	start_x = game->pos.x * scale - player_scale / 2;
+	start_y = game->pos.y * scale - player_scale / 2;
+
+	if (start_x < 0)
+		start_x = 0;
+	else if (start_y < 0)
+		start_y = 0;
+	else if (start_x + player_scale > game->map_image->width)
+		start_x = game->map_image->width - player_scale;
+	else if (start_y + player_scale > game->map_image->height)
+		start_y = game->map_image->height + player_scale;
 	if (game->map_image)
-		draw_player_square(game, start_x, start_y, size);
+		draw_player_square(game, start_x, start_y, player_scale);
 }
