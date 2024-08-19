@@ -37,3 +37,4 @@ void	draw_player(t_cub *game, int scale)
 	if (game->map_image)
 		draw_player_square(game, start_x, start_y, size);
 }
+

@@ -14,6 +14,7 @@ void	draw_minimap(void *param)
 		scale = MINI_WIDTH / game->data->columns;
 	draw_map(game, scale);
 	draw_player(game, scale);
+	move_player_on_minimap(game, scale);
 	mlx_image_to_window(game->mlx, game->map_image, 0, 0);
 }
 
@@ -69,5 +70,30 @@ void	draw_map_square(t_cub *game, t_square_params params)
 			x++;
 		}
 		y++;
+	}
+}
+
+void	move_player_on_minimap(t_cub *game, int scale)
+{
+	int	new_x;
+	int	new_y;
+	int	move_speed;
+
+	(void)scale;
+	new_x = game->data->x_player;
+	new_y = game->data->y_player;
+	move_speed = 1;
+	if (game->keys.w)
+		new_y -= move_speed;
+	else if (game->keys.s)
+		new_y += move_speed;
+	else if (game->keys.a)
+		new_x -= move_speed;
+	else if (game->keys.d)
+		new_x += move_speed;
+	if (can_move_to(game, new_x, new_y))
+	{
+		game->data->x_player = new_x;
+		game->data->y_player = new_y;
 	}
 }
