@@ -98,9 +98,9 @@ $(NAME): $(LIBFT) $(OBJS)
 $(NAME_BONUS): $(LIBFT) $(OBJS_BONUS)
 	@$(CC) $(OBJS_BONUS) $(LIBS_MLX) $(LIBFT) $(LFLAGS) $(HEADERS_BONUS) -o $(NAME_BONUS) -lm
 	@echo "                                     "
-	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
-	@echo "$(WHITE) 🟧  The [$(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D BONUS$(WHITE)] has been compiled!  🟧"
-	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥"
+	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩"
+	@echo "$(WHITE) 🟧   The [$(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D BONUS$(WHITE)] has been compiled! 🟧"
+	@echo "$(GREEN) 🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩🟦🟪🟥🟧🟨🟩"
 	@echo "                                     "
 
 clean:
@@ -118,7 +118,7 @@ fclean: clean
 	@rm -rf $(NAME) $(NAME_BONUS)
 	@rm -rf $(LIBMLX)/build
 	@make fclean -C $(LIBFT_PATH)
-	@echo " 🟥$(WHITE) Cleaning -$(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) & BONUS complete! 🟥"
+	@echo " 🟥$(WHITE) Cleaning - $(RED)C$(ORANGE)U$(YELLOW)B$(CYAN)3$(GREEN)D$(WHITE) BONUS complete! 🟥"
 	@echo " 🟧                                  🟧"
 	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
 	@echo "                                     "

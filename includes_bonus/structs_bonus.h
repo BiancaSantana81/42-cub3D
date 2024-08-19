@@ -30,6 +30,7 @@ typedef struct s_keys
 	bool	d;
 	bool	left;
 	bool	right;
+	bool	minimap;
 }	t_keys;
 
 typedef struct s_validate

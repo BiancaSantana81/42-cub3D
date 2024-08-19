@@ -16,11 +16,7 @@ int	init_game(t_cub *game)
 	handle_mlx_actions(NEW_IMAGE, game);
 	load_textures(game);
 	setup(game);
-	game->map_image = mlx_new_image(game->mlx, MINI_WIDTH, MINI_HEIGHT);
-	if (!game->map_image)
-		return (EXIT_FAILURE);
 	mlx_key_hook(game->mlx, hook_key_press, game);
-	mlx_loop_hook(game->mlx, draw_minimap, game);
 	mlx_loop_hook(game->mlx, draw_playerview, game);
 	mlx_close_hook(game->mlx, hook_close, game);
 	mlx_loop(game->mlx);
@@ -40,8 +36,11 @@ void	handle_mlx_actions(int action, t_cub *game)
 	else if (action == NEW_IMAGE)
 	{
 		game->mlx_image = mlx_new_image(game->mlx, WIDTH, HEIGHT);
+		game->map_image = mlx_new_image(game->mlx, MINI_WIDTH, MINI_HEIGHT);
 		if (!game->mlx_image)
 			handle_error("Error open window.\n");
+		if (!game->map_image)
+			handle_error("Error open minimap.\n");
 		if (mlx_image_to_window(game->mlx, game->mlx_image, 0, 0) < 0)
 			handle_error("Error mlx_image_to_window.\n");
 	}
