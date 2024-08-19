@@ -41,13 +41,13 @@ void	calculate_new_position(t_cub *game, float *new_x, float *new_y)
 	*new_y = game->pos.y;
 	if (game->keys.w == true)
 	{
-		*new_x += game->dir.x * move_speed ;
-		*new_y += game->dir.y * move_speed ;
+		*new_x += game->dir.x * move_speed;
+		*new_y += game->dir.y * move_speed;
 	}
 	if (game->keys.s == true)
 	{
-		*new_x -= game->dir.x * move_speed ;
-		*new_y -= game->dir.y * move_speed ;
+		*new_x -= game->dir.x * move_speed;
+		*new_y -= game->dir.y * move_speed;
 	}
 	if (game->keys.a == true)
 	{

@@ -49,6 +49,5 @@ void			draw_map_square(t_cub *game, t_square_params params);
 void			draw_player(t_cub *game, int scale);
 void			draw_player_square(t_cub *game,
 					int start_x, int start_y, int size);
-void			move_player_on_minimap(t_cub *game, int scale);
 
 #endif

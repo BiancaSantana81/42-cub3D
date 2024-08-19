@@ -32,33 +32,8 @@ void	draw_player(t_cub *game, int scale)
 
 	size = scale / 2;
 	offset = (scale - size) / 2;
-	start_x = game->data->x_player * scale + offset;
-	start_y = game->data->y_player * scale + offset;
+	start_x = game->pos.x * scale + offset;
+	start_y = game->pos.y * scale + offset;
 	if (game->map_image)
 		draw_player_square(game, start_x, start_y, size);
-}
-
-void	move_player_on_minimap(t_cub *game, int scale)
-{
-	int	new_x;
-	int	new_y;
-	int	move_speed;
-
-	(void)scale;
-	new_x = game->data->x_player;
-	new_y = game->data->y_player;
-	move_speed = 1;
-	if (game->keys.w)
-		new_y -= move_speed;
-	else if (game->keys.s)
-		new_y += move_speed;
-	else if (game->keys.a)
-		new_x -= move_speed;
-	else if (game->keys.d)
-		new_x += move_speed;
-	if (can_move_to(game, new_x, new_y))
-	{
-		game->data->x_player = new_x;
-		game->data->y_player = new_y;
-	}
 }

@@ -24,7 +24,6 @@ void	draw_minimap(void *param)
 	draw_player(game, scale);
 	if (game->keys.minimap)
 		mlx_image_to_window(game->mlx, game->map_image, 0, 0);
-	move_player_on_minimap(game, scale);
 	mlx_image_to_window(game->mlx, game->map_image, 0, 0);
 }
 
