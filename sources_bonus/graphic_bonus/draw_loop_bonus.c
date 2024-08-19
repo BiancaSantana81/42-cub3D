@@ -14,5 +14,4 @@ void	draw_playerview(void *param)
 	process_input(game, x);
 	draw_background(game);
 	draw_rays(game);
-	//mlx_set_mouse_pos(game->mlx, WIDTH / 2, HEIGHT / 2);
 }

@@ -13,12 +13,12 @@ void	process_input(t_cub *game, int32_t x)
 		game->pos.x = new_x;
 		game->pos.y = new_y;
 	}
-	if (game->keys.left || x < 300)
+	if (game->keys.left || (x >= 0 && x < 300))
 	{
 		game->dir = rotate_vector(game->dir, -1.5);
 		game->camera_plane = rotate_vector(game->camera_plane, -1.5);
 	}
-	if (game->keys.right || x > 500)
+	if (game->keys.right || (x > 500 && x <= WIDTH - 1))
 	{
 		game->dir = rotate_vector(game->dir, 1.5);
 		game->camera_plane = rotate_vector(game->camera_plane, 1.5);
