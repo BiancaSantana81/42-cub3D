@@ -52,7 +52,7 @@ MAGENT      := \033[1;35m
 CYAN        := \033[1;36m
 RESET       := \033[0m
 
-# LOADING BAR
+# LOADING BAR 
 TOTAL_FILES = $(words $(CFILES))
 CURRENT_CFILES = 0
 
@@ -60,6 +60,16 @@ define print_progress
     $(eval CURRENT_FILES=$(shell echo $$(($(CURRENT_FILES)+1))))
     @echo -n "\r$(YELLOW)Progress: $(MAGENT)$(CURRENT_FILES) / $(TOTAL_FILES) [$$((($(CURRENT_FILES) * 100) / $(TOTAL_FILES)))%] $(RESET) : $(CYAN)$(1)$(RESET) "
 endef
+
+# LOADING BAR - BONUS
+TOTAL_FILES_BONUS = $(words $(CFILES_BONUS))
+CURRENT_CFILES_BONUS = 0
+
+define print_progress_bonus
+    $(eval CURRENT_FILES_BONUS=$(shell echo $$(($(CURRENT_FILES_BONUS)+1))))
+    @echo -n "\r$(YELLOW)Progress: $(MAGENT)$(CURRENT_FILES_BONUS) / $(TOTAL_FILES_BONUS) [$$((($(CURRENT_FILES_BONUS) * 100) / $(TOTAL_FILES_BONUS)))%] $(RESET) : $(CYAN)$(1)$(RESET) "
+endef
+
 
 all: libmlx $(OBJ_PATH) $(NAME)
 
@@ -78,7 +88,7 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER_FILE) | $(OBJ_PATH)
 $(OBJ_BONUS_PATH)/%.o: $(SRC_BONUS_PATH)/%.c $(HEADER_FILE) | $(OBJ_BONUS_PATH)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS_BONUS)
-	$(call print_progress, $(BLUE_B)Compiling:$(RESET) $<)
+	$(call print_progress_bonus, $(BLUE_B)Compiling:$(RESET) $<)
 	@echo "                                     "
 
 $(OBJ_PATH):

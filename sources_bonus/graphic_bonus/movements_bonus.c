@@ -1,24 +1,24 @@
 #include "../../includes_bonus/cub_bonus.h"
 
-void	process_input(t_cub *game)
+void	process_input(t_cub *game, int32_t x)
 {
 	float	new_x;
 	float	new_y;
-
+	
 	new_x = 0;
 	new_y = 0;
 	calculate_new_position(game, &new_x, &new_y);
-	if (can_move_to(game, new_x, new_y) && (new_x != 0 && new_y != 0))
+	if (can_move_to(game, new_x, new_y))
 	{
 		game->pos.x = new_x;
 		game->pos.y = new_y;
 	}
-	if (game->keys.left)
+	if (game->keys.left || x < 300)
 	{
 		game->dir = rotate_vector(game->dir, -1.5);
 		game->camera_plane = rotate_vector(game->camera_plane, -1.5);
 	}
-	if (game->keys.right)
+	if (game->keys.right || x > 500)
 	{
 		game->dir = rotate_vector(game->dir, 1.5);
 		game->camera_plane = rotate_vector(game->camera_plane, 1.5);

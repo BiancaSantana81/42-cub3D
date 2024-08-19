@@ -10,7 +10,7 @@ void			hook_key_press(mlx_key_data_t keydata, void *param);
 void			hook_close(void *param);
 
 /* MOVEMENTS */
-void			process_input(t_cub *game);
+void			process_input(t_cub *game, int32_t x);
 bool			can_move_to(t_cub *game, float new_x, float new_y);
 void			calculate_new_position(t_cub *game, float *new_x, float *new_y);
 

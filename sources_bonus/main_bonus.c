@@ -1,5 +1,7 @@
 #include "../includes_bonus/cub_bonus.h"
 
+//static void	cursor_movement(double xpos, double ypos, void *param);
+
 int	main(int argc, char **argv)
 {
 	t_cub	game;
@@ -45,3 +47,9 @@ void	handle_mlx_actions(int action, t_cub *game)
 			handle_error("Error mlx_image_to_window.\n");
 	}
 }
+
+//static void cursor_movement(double xpos, double ypos, void *param)
+//{
+//    printf("Mouse moved to (%f, %f)\n", xpos, ypos);
+//    // Aqui você pode atualizar a rotação do jogador, etc.
+//}
