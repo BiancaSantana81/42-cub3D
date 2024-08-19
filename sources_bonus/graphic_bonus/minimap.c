@@ -59,7 +59,7 @@ static uint32_t	get_color_for_map_char(char map_char)
 	else if (map_char == '0' || ft_strchr("NSWE", map_char))
 		return (0x00FF0000);
 	else if (map_char == ' ')
-		return (0x000000FF);
+		return (0x00FF0000);
 	return (0);
 }
 

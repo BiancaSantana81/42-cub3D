@@ -33,14 +33,14 @@ void	draw_player(t_cub *game, int scale)
 	start_x = game->pos.x * scale - player_scale / 2;
 	start_y = game->pos.y * scale - player_scale / 2;
 
-	if (start_x < 0)
-		start_x = 0;
-	else if (start_y < 0)
-		start_y = 0;
-	else if (start_x + player_scale > game->map_image->width)
-		start_x = game->map_image->width - player_scale;
-	else if (start_y + player_scale > game->map_image->height)
-		start_y = game->map_image->height + player_scale;
+	// if (start_x < 0)
+	// 	start_x = 0;
+	// else if (start_y < 0)
+	// 	start_y = 0;
+	// if (start_x + player_scale > game->map_image->width)
+	// 	start_x = game->map_image->width - player_scale;
+	// else if (start_y + player_scale > game->map_image->height)
+	// 	start_y = game->map_image->height - player_scale;
 	if (game->map_image)
 		draw_player_square(game, start_x, start_y, player_scale);
 }
