@@ -7,6 +7,7 @@ MAKEFLAGS  += --silent
 LIBMLX      := ./MLX42
 LIBFT_PATH  := ./libft
 LIBFT       := $(addprefix $(LIBFT_PATH)/, libft.a)
+MLX_REPO    := https://github.com/codam-coding-college/MLX42.git
 
 # PATHS
 CC          := gcc
@@ -52,7 +53,7 @@ MAGENT      := \033[1;35m
 CYAN        := \033[1;36m
 RESET       := \033[0m
 
-# LOADING BAR 
+# LOADING BAR
 TOTAL_FILES = $(words $(CFILES))
 CURRENT_CFILES = 0
 
@@ -74,6 +75,10 @@ endef
 all: libmlx $(OBJ_PATH) $(NAME)
 
 libmlx:
+	@if [ ! -d "$(LIBMLX)" ]; then \
+		echo "$(YELLOW)Cloning MLX42 repository...$(RESET)"; \
+		git clone $(MLX_REPO) $(LIBMLX); \
+	fi
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 $(LIBFT):
