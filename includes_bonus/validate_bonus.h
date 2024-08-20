@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate.h                                         :+:      :+:    :+:   */
+/*   validate_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:23:14 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:23:17 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:24:10 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:24:12 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VALIDATE_H
-# define VALIDATE_H
+#ifndef VALIDATE_BONUS_H
+# define VALIDATE_BONUS_H
 
 # include "../libft/src/libft.h"
-# include "structs.h"
+# include "structs_bonus.h"
 
 # define WARNING_ARGS_1 "Error: No map file\n"
 # define WARNING_ARGS_2 "Error: too many arguments\n"

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   validation_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:27:15 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:27:20 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:31:12 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:31:15 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 int	validate_map(int argc, char **argv, t_cub *game)
 {

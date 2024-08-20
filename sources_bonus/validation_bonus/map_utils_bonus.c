@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   map_utils_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:26:58 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:27:00 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:31:03 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:31:06 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 void	get_max_lines(t_data *data)
 {

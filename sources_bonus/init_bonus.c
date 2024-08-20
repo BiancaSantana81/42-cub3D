@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:27:45 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:27:49 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:31:31 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:31:34 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub.h"
+#include "../includes_bonus/cub_bonus.h"
 
 void	init_cub(t_cub *game)
 {
 	game->mlx = NULL;
+	game->map_image = NULL;
 	game->frame_time = 0;
 	game->keys.w = false;
 	game->keys.s = false;
@@ -22,10 +23,14 @@ void	init_cub(t_cub *game)
 	game->keys.d = false;
 	game->keys.left = false;
 	game->keys.right = false;
+	game->keys.minimap = false;
+	game->keys.player = false;
 	game->north = NULL;
 	game->south = NULL;
 	game->west = NULL;
 	game->east = NULL;
+	game->player_1 = NULL;
+	game->player_2 = NULL;
 	game->data = ft_calloc(1, sizeof(t_data));
 	init_data(game);
 	get_game(game);

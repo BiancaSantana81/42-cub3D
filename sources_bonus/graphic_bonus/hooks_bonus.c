@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   hooks_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:25:45 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:25:48 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:29:15 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:29:18 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 static void	pressed(mlx_key_data_t keydata, t_cub *game);
 static void	release(mlx_key_data_t keydata, t_cub *game);
@@ -25,7 +25,11 @@ void	hook_key_press(mlx_key_data_t keydata, void *param)
 		hook_close(game);
 		return ;
 	}
-	if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
+	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
+		game->keys.minimap = !game->keys.minimap;
+	if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
+		game->keys.player = !game->keys.player;
+	else if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
 		pressed(keydata, game);
 	else if (keydata.action == MLX_RELEASE)
 		release(keydata, game);

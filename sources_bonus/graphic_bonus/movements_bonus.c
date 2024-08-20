@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements.c                                        :+:      :+:    :+:   */
+/*   movements_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:25:59 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:26:04 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:30:01 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:30:03 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
-void	process_input(t_cub *game)
+void	process_input(t_cub *game, int32_t x)
 {
 	float	new_x;
 	float	new_y;
@@ -20,17 +20,17 @@ void	process_input(t_cub *game)
 	new_x = 0;
 	new_y = 0;
 	calculate_new_position(game, &new_x, &new_y);
-	if (can_move_to(game, new_x, new_y) && (new_x != 0 && new_y != 0))
+	if (can_move_to(game, new_x, new_y))
 	{
 		game->pos.x = new_x;
 		game->pos.y = new_y;
 	}
-	if (game->keys.left)
+	if (game->keys.left || (x >= 0 && x < 300))
 	{
 		game->dir = rotate_vector(game->dir, -1.5);
 		game->camera_plane = rotate_vector(game->camera_plane, -1.5);
 	}
-	if (game->keys.right)
+	if (game->keys.right || (x > 500 && x <= WIDTH - 1))
 	{
 		game->dir = rotate_vector(game->dir, 1.5);
 		game->camera_plane = rotate_vector(game->camera_plane, 1.5);
@@ -53,13 +53,13 @@ void	calculate_new_position(t_cub *game, float *new_x, float *new_y)
 	*new_y = game->pos.y;
 	if (game->keys.w == true)
 	{
-		*new_x += game->dir.x * move_speed ;
-		*new_y += game->dir.y * move_speed ;
+		*new_x += game->dir.x * move_speed;
+		*new_y += game->dir.y * move_speed;
 	}
 	if (game->keys.s == true)
 	{
-		*new_x -= game->dir.x * move_speed ;
-		*new_y -= game->dir.y * move_speed ;
+		*new_x -= game->dir.x * move_speed;
+		*new_y -= game->dir.y * move_speed;
 	}
 	if (game->keys.a == true)
 	{

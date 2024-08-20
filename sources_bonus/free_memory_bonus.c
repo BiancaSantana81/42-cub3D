@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_memory.c                                      :+:      :+:    :+:   */
+/*   free_memory_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:27:32 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:27:33 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:31:23 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:31:26 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub.h"
+#include "../includes_bonus/cub_bonus.h"
 
 void	free_data(t_data *data)
 {
@@ -40,4 +40,15 @@ void	free_memory(t_cub *game)
 		mlx_delete_texture(game->west);
 	if (game->east)
 		mlx_delete_texture(game->east);
+	if (game->player_1)
+		free_sprite(game, game->player_1);
+	if (game->player_2)
+		free_sprite(game, game->player_2);
+}
+
+void	free_sprite(t_cub *game, t_images *sprite)
+{
+	mlx_delete_image(game->mlx, sprite->image);
+	mlx_delete_texture(sprite->texture);
+	free(sprite);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_squares.c                                     :+:      :+:    :+:   */
+/*   draw_squares_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:25:37 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:25:39 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:29:04 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:29:07 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 void	draw_background(t_cub *game)
 {

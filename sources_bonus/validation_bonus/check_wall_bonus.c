@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_wall.c                                       :+:      :+:    :+:   */
+/*   check_wall_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:26:43 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:26:45 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:30:37 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:30:41 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 static int	is_open(t_data *data, int line, int column)
 {

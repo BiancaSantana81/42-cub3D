@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:28:00 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:28:06 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:31:40 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:31:43 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub.h"
+#include "../includes_bonus/cub_bonus.h"
 
 int	main(int argc, char **argv)
 {
@@ -27,7 +27,10 @@ int	init_game(t_cub *game)
 	handle_mlx_actions(INIT, game);
 	handle_mlx_actions(NEW_IMAGE, game);
 	load_textures(game);
+	mlx_image_to_window(game->mlx, game->player_1->image, WIDTH / 3, 350);
+	mlx_image_to_window(game->mlx, game->player_2->image, WIDTH / 3, 350);
 	setup(game);
+	mlx_set_mouse_pos(game->mlx, WIDTH / 2, HEIGHT / 2);
 	mlx_key_hook(game->mlx, hook_key_press, game);
 	mlx_loop_hook(game->mlx, draw_playerview, game);
 	mlx_close_hook(game->mlx, hook_close, game);
@@ -48,8 +51,11 @@ void	handle_mlx_actions(int action, t_cub *game)
 	else if (action == NEW_IMAGE)
 	{
 		game->mlx_image = mlx_new_image(game->mlx, WIDTH, HEIGHT);
+		game->map_image = mlx_new_image(game->mlx, MINI_WIDTH, MINI_HEIGHT);
 		if (!game->mlx_image)
 			handle_error("Error open window.\n");
+		if (!game->map_image)
+			handle_error("Error open minimap.\n");
 		if (mlx_image_to_window(game->mlx, game->mlx_image, 0, 0) < 0)
 			handle_error("Error mlx_image_to_window.\n");
 	}

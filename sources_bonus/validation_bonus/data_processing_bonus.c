@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_processing.c                                  :+:      :+:    :+:   */
+/*   data_processing_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:26:51 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:26:53 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:30:47 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:30:50 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 static void	read_textures_path_aux(t_data *data, char *temp);
 static void	copy_texture_path(char **texture, char *path);

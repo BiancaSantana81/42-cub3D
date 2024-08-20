@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
+/*   structs_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:23:02 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:23:07 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:24:01 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:24:04 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTS_H
-# define STRUCTS_H
+#ifndef STRUCTS_BONUS_H
+# define STRUCTS_BONUS_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../libft/src/libft.h"
@@ -42,6 +42,8 @@ typedef struct s_keys
 	bool	d;
 	bool	left;
 	bool	right;
+	bool	minimap;
+	bool	player;
 }	t_keys;
 
 typedef struct s_validate
@@ -83,17 +85,35 @@ typedef struct s_wall
 	float	texture_pos;
 }	t_wall;
 
+typedef struct s_square_params
+{
+	uint32_t	start_x;
+	uint32_t	start_y;
+	uint32_t	end_x;
+	uint32_t	end_y;
+	uint32_t	color;
+}	t_square_params;
+
+typedef struct s_images
+{
+	mlx_texture_t	*texture;
+	mlx_image_t		*image;
+}	t_images;
+
 typedef struct s_cub
 {
 	mlx_t			*mlx;
-	t_keys			keys;
 	mlx_image_t		*mlx_image;
+	mlx_image_t		*map_image;
 	mlx_texture_t	*texture;
 	mlx_texture_t	*north;
 	mlx_texture_t	*south;
 	mlx_texture_t	*west;
 	mlx_texture_t	*east;
+	t_images		*player_1;
+	t_images		*player_2;
 	int				*texture_buffer[4];
+	t_keys			keys;
 	t_vector		pos;
 	t_vector		dir;
 	t_vector		camera_plane;

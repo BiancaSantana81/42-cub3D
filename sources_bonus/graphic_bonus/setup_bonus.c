@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup.c                                            :+:      :+:    :+:   */
+/*   setup_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:26:08 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:26:13 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:30:10 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:30:14 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 static void	define_initial_plane(t_cub *game)
 {
@@ -58,8 +58,8 @@ void	update_fps(t_cub *game)
 		fps_nbr = ft_itoa(1 / game->mlx->delta_time);
 		fps_txt = ft_strjoin("FPS: ", fps_nbr);
 		free(fps_nbr);
-		fps_image = mlx_put_string(game->mlx, fps_txt,
-				WIDTH - 80, HEIGHT - 590);
+		fps_image = mlx_put_string(game->mlx,
+				fps_txt, WIDTH - 80, HEIGHT - 590);
 		free(fps_txt);
 	}
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wall.c                                             :+:      :+:    :+:   */
+/*   wall_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:26:19 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:26:21 by bsantana         ###   ########.fr       */
+/*   Created: 2024/08/20 14:30:18 by bsantana          #+#    #+#             */
+/*   Updated: 2024/08/20 14:30:23 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes_bonus/cub_bonus.h"
 
 static void	intersection_point(t_dda *ray, t_cub *game, t_wall *wall);
 static void	find_texture_position_x(t_dda *ray, t_cub *game, t_wall *wall);
