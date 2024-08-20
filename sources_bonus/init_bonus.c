@@ -16,6 +16,8 @@ void	init_cub(t_cub *game)
 	game->south = NULL;
 	game->west = NULL;
 	game->east = NULL;
+	game->player_1 = NULL;
+	game->player_2 = NULL;
 	game->data = ft_calloc(1, sizeof(t_data));
 	init_data(game);
 	get_game(game);

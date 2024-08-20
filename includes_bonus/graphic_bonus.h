@@ -17,6 +17,7 @@ void			calculate_new_position(t_cub *game, float *new_x, float *new_y);
 /* IMAGES */
 mlx_texture_t	*init_images(char *path);
 void			load_textures(t_cub *game);
+t_images		*init_generic_images(t_cub *game, char *path);
 uint32_t		get_texture_color(mlx_texture_t *texture, int y, int x);
 
 /* DRAW SQUARES */

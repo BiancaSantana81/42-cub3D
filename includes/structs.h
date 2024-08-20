@@ -74,6 +74,7 @@ typedef struct s_wall
 typedef struct s_cub
 {
 	mlx_t			*mlx;
+	t_keys			keys;
 	mlx_image_t		*mlx_image;
 	mlx_texture_t	*texture;
 	mlx_texture_t	*north;
@@ -81,7 +82,6 @@ typedef struct s_cub
 	mlx_texture_t	*west;
 	mlx_texture_t	*east;
 	int				*texture_buffer[4];
-	t_keys			keys;
 	t_vector		pos;
 	t_vector		dir;
 	t_vector		camera_plane;

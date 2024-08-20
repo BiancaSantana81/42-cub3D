@@ -81,6 +81,12 @@ typedef struct s_square_params
 	uint32_t	color;
 }	t_square_params;
 
+typedef struct s_images
+{
+	mlx_texture_t	*texture;
+	mlx_image_t		*image;
+}	t_images;
+
 typedef struct s_cub
 {
 	mlx_t			*mlx;
@@ -91,6 +97,8 @@ typedef struct s_cub
 	mlx_texture_t	*south;
 	mlx_texture_t	*west;
 	mlx_texture_t	*east;
+	t_images		*player_1;
+	t_images		*player_2;
 	int				*texture_buffer[4];
 	t_keys			keys;
 	t_vector		pos;
