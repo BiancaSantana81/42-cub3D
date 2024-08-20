@@ -19,7 +19,6 @@ void	hook_key_press(mlx_key_data_t keydata, void *param)
 		pressed(keydata, game);
 	else if (keydata.action == MLX_RELEASE)
 		release(keydata, game);
-
 }
 
 void	hook_close(void *param)

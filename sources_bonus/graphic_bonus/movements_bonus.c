@@ -4,7 +4,7 @@ void	process_input(t_cub *game, int32_t x)
 {
 	float	new_x;
 	float	new_y;
-	
+
 	new_x = 0;
 	new_y = 0;
 	calculate_new_position(game, &new_x, &new_y);
