@@ -19,6 +19,7 @@ mlx_texture_t	*init_images(char *path);
 void			load_textures(t_cub *game);
 t_images		*init_generic_images(t_cub *game, char *path);
 uint32_t		get_texture_color(mlx_texture_t *texture, int y, int x);
+void			update_player(t_cub *game);
 
 /* DRAW SQUARES */
 void			draw_background(t_cub *game);

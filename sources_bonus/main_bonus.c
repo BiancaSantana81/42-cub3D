@@ -16,6 +16,7 @@ int	init_game(t_cub *game)
 	handle_mlx_actions(NEW_IMAGE, game);
 	load_textures(game);
 	mlx_image_to_window(game->mlx, game->player_1->image, WIDTH / 3, 350);
+	mlx_image_to_window(game->mlx, game->player_2->image, WIDTH / 3, 350);
 	setup(game);
 	mlx_set_mouse_pos(game->mlx, WIDTH / 2, HEIGHT / 2);
 	mlx_key_hook(game->mlx, hook_key_press, game);

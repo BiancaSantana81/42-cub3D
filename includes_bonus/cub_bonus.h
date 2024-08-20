@@ -39,5 +39,6 @@ void	handle_error(char *error);
 /* FREE_MEMORY */
 void	free_data(t_data *data);
 void	free_memory(t_cub *game);
+void	free_sprite(t_cub *game, t_images *sprite);
 
 #endif

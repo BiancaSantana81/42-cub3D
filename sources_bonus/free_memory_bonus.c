@@ -28,4 +28,15 @@ void	free_memory(t_cub *game)
 		mlx_delete_texture(game->west);
 	if (game->east)
 		mlx_delete_texture(game->east);
+	if (game->player_1)
+		free_sprite(game, game->player_1);
+	if (game->player_2)
+		free_sprite(game, game->player_2);
+}
+
+void	free_sprite(t_cub *game, t_images *sprite)
+{
+	mlx_delete_image(game->mlx, sprite->image);
+	mlx_delete_texture(sprite->texture);
+	free(sprite);
 }

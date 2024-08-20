@@ -6,8 +6,9 @@ void	load_textures(t_cub *game)
 	game->south = init_images(game->data->so);
 	game->west = init_images(game->data->we);
 	game->east = init_images(game->data->ea);
-	game->player_1 = init_generic_images(game, "textures/player1.png");
-	game->player_2 = init_generic_images(game, "textures/player2.png");
+	game->player_1 = init_generic_images(game, "textures/player_1.png");
+	game->player_2 = init_generic_images(game, "textures/player_2.png");
+	game->player_2->image->enabled = false;
 }
 
 mlx_texture_t	*init_images(char *path)
@@ -52,4 +53,26 @@ uint32_t	get_texture_color(mlx_texture_t *texture, int y, int x)
 	texture_pos *= texture->bytes_per_pixel;
 	pixel = &texture->pixels[texture_pos];
 	return (pixel[0] << 24 | pixel[1] << 16 | pixel[2] << 8 | pixel[3]);
+}
+
+void	update_player(t_cub *game)
+{
+	static double	last_time;
+	double			current_time;
+
+	last_time = 0;
+	current_time = mlx_get_time();
+	if (game->keys.player)
+	{
+		game->player_1->image->enabled = false;
+		game->player_2->image->enabled = true;
+		last_time = current_time;
+		if (current_time - last_time >= 0.5)
+			game->keys.player = false;
+	}
+	if (!game->keys.player)
+	{
+		game->player_1->image->enabled = true;
+		game->player_2->image->enabled = false;
+	}
 }

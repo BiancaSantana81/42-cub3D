@@ -9,6 +9,7 @@ void	draw_playerview(void *param)
 	game = (t_cub *)param;
 	mlx_get_mouse_pos(game->mlx, &x, &y);
 	update_fps(game);
+	update_player(game);
 	draw_minimap(game);
 	update_minimap(game);
 	process_input(game, x);

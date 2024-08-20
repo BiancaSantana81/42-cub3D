@@ -12,6 +12,7 @@ void	init_cub(t_cub *game)
 	game->keys.left = false;
 	game->keys.right = false;
 	game->keys.minimap = false;
+	game->keys.player = false;
 	game->north = NULL;
 	game->south = NULL;
 	game->west = NULL;
