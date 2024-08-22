@@ -42,15 +42,17 @@ void	check_rgb(uint32_t *color, char *rgb_color)
 void	split_rgb(char ***rgb, char *rgb_color)
 {
 	char	*temp_strim;
+	char	*temp_rgb;
 	int		i;
 
 	i = 0;
+	temp_rgb = rgb_color;
 	while (ft_isspace(*rgb_color) || *rgb_color == 'F' || *rgb_color == 'C')
 		rgb_color++;
 	*rgb = ft_split(rgb_color, ',');
 	if (!*rgb)
 	{
-		free(rgb_color);
+		free(temp_rgb);
 		handle_error("Error: invalid rgb color\n");
 	}
 	while ((*rgb)[i])
@@ -61,7 +63,7 @@ void	split_rgb(char ***rgb, char *rgb_color)
 		i++;
 	}
 	if (i != 3)
-		handle_error_rgb(rgb_color, *rgb);
+		handle_error_rgb(temp_rgb, *rgb);
 }
 
 uint32_t	convert_rgb(int r, int g, int b)

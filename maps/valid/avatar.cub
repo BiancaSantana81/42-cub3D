@@ -6,7 +6,7 @@ WE ./textures/water_256.png
 
 EA ./textures/earth_256.png
 
-F 139,69,1
+F 139,69,118,26565
 C 100,149,237
 
 111111111111111111111111
