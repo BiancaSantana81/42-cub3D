@@ -13,7 +13,7 @@
 #include "../../includes/cub.h"
 
 static void	read_textures_path_aux(t_data *data, char *temp);
-static void	copy_texture_path(char **texture, char *path);
+static void	copy_texture_path(char **texture, char *path, char *mode);
 static void	trim_newline(char *str);
 
 int	data_processing(char *map_file, t_data *data)
@@ -57,13 +57,13 @@ static void	read_textures_path_aux(t_data *data, char *temp)
 	static int	colors;
 
 	if (ft_strncmp("NO", temp, 2) == 0)
-		copy_texture_path(&(data->no), temp);
+		copy_texture_path(&(data->no), temp, "NO");
 	else if (ft_strncmp("SO", temp, 2) == 0)
-		copy_texture_path(&(data->so), temp);
+		copy_texture_path(&(data->so), temp, "SO");
 	else if (ft_strncmp("WE", temp, 2) == 0)
-		copy_texture_path(&(data->we), temp);
+		copy_texture_path(&(data->we), temp, "WE");
 	else if (ft_strncmp("EA", temp, 2) == 0)
-		copy_texture_path(&(data->ea), temp);
+		copy_texture_path(&(data->ea), temp, "EA");
 	else if (ft_strncmp("F", temp, 1) == 0)
 	{
 		check_rgb(&data->floor, temp);
@@ -79,18 +79,26 @@ static void	read_textures_path_aux(t_data *data, char *temp)
 	data->size_textures++;
 }
 
-static void	copy_texture_path(char **texture, char *path)
+static void	copy_texture_path(char **texture, char *path, char *mode)
 {
 	char	*original;
+	int		size_key;
 
+	size_key = 0;
 	original = path;
 	if (*texture != NULL)
 		free(*texture);
-	while (ft_isspace(*path) || *path == 'N' || *path == 'O' || *path == 'S'
-		|| *path == 'E' || *path == 'W' || *path == 'A')
+	while (ft_isspace(*path) || ft_strncmp(mode, path, 2) == 0)
+	{
+		if (ft_strncmp(mode, path, 2) == 0)
+		{
+			size_key++;
+			path++;
+		}
 		path++;
+	}
 	trim_newline(path);
-	if (!check_path(path))
+	if (!check_path(path) || size_key != 1)
 	{
 		free(original);
 		handle_error("Error: invalid texture path\n");

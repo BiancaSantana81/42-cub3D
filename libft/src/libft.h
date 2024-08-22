@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 22
+#  define BUFFER_SIZE 1
 # endif
 
 # define PI 3.141592653589793
