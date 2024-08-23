@@ -6,7 +6,7 @@
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:30:29 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:30:32 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:15:07 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,43 @@
 
 static void	handle_error_rgb(char *rgb_color, char **rgb);
 
-void	check_rgb(uint32_t *color, char *rgb_color)
+void	check_rgb(uint32_t *color, char *rgb_color, char *original)
 {
 	char	**rgb;
 	int		i;
 	int		j;
 
 	i = 0;
-	split_rgb(&rgb, rgb_color);
+	split_rgb(&rgb, rgb_color, original);
 	while (rgb[i])
 	{
 		j = 0;
 		while (rgb[i][j])
 		{
 			if (!ft_isdigit(rgb[i][j]))
-				handle_error_rgb(rgb_color, rgb);
+				handle_error_rgb(original, rgb);
 			j++;
 		}
 		if (ft_atoi(rgb[i]) < 0 || ft_atoi(rgb[i]) > 255)
-			handle_error_rgb(rgb_color, rgb);
+			handle_error_rgb(original, rgb);
 		i++;
 	}
 	*color = convert_rgb(ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]));
 	ft_free_matrix(rgb);
 }
 
-void	split_rgb(char ***rgb, char *rgb_color)
+void	split_rgb(char ***rgb, char *rgb_color, char *original)
 {
 	char	*temp_strim;
-	char	*temp_rgb;
 	int		i;
 
 	i = 0;
-	temp_rgb = rgb_color;
 	while (ft_isspace(*rgb_color) || *rgb_color == 'F' || *rgb_color == 'C')
 		rgb_color++;
 	*rgb = ft_split(rgb_color, ',');
 	if (!*rgb)
 	{
-		free(temp_rgb);
+		free(original);
 		handle_error("Error: invalid rgb color\n");
 	}
 	while ((*rgb)[i])
@@ -63,7 +61,7 @@ void	split_rgb(char ***rgb, char *rgb_color)
 		i++;
 	}
 	if (i != 3)
-		handle_error_rgb(temp_rgb, *rgb);
+		handle_error_rgb(original, *rgb);
 }
 
 uint32_t	convert_rgb(int r, int g, int b)
@@ -71,9 +69,9 @@ uint32_t	convert_rgb(int r, int g, int b)
 	return (r << 24 | g << 16 | b << 8 | 255);
 }
 
-static void	handle_error_rgb(char *rgb_color, char **rgb)
+static void	handle_error_rgb(char *original, char **rgb)
 {
-	free(rgb_color);
+	free(original);
 	ft_free_matrix(rgb);
 	handle_error("Error: invalid rgb color\n");
 }
