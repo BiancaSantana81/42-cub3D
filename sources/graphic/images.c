@@ -14,13 +14,13 @@
 
 void	load_textures(t_cub *game)
 {
-	game->north = init_images(game->data->no);
-	game->south = init_images(game->data->so);
-	game->west = init_images(game->data->we);
-	game->east = init_images(game->data->ea);
+	game->north = init_textures(game->data->no);
+	game->south = init_textures(game->data->so);
+	game->west = init_textures(game->data->we);
+	game->east = init_textures(game->data->ea);
 }
 
-mlx_texture_t	*init_images(char *path)
+mlx_texture_t	*init_textures(char *path)
 {
 	mlx_texture_t	*images;
 
