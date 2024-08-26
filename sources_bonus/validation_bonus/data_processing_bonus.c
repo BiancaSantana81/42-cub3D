@@ -58,20 +58,20 @@ static void	read_textures_path_aux(t_data *data, char *temp, char *line)
 	static int	ceiling;
 	static int	floor;
 
-	if (ft_strncmp("NO ", temp, 3) == 0)
+	if (ft_strncmp("NO", temp, 2) == 0)
 		copy_texture_path(&(data->no), temp, "NO", line);
-	else if (ft_strncmp("SO ", temp, 3) == 0)
+	else if (ft_strncmp("SO", temp, 2) == 0)
 		copy_texture_path(&(data->so), temp, "SO", line);
-	else if (ft_strncmp("WE ", temp, 3) == 0)
+	else if (ft_strncmp("WE", temp, 2) == 0)
 		copy_texture_path(&(data->we), temp, "WE", line);
-	else if (ft_strncmp("EA ", temp, 3) == 0)
+	else if (ft_strncmp("EA", temp, 2) == 0)
 		copy_texture_path(&(data->ea), temp, "EA", line);
-	else if (ft_strncmp("F ", temp, 2) == 0)
+	else if (ft_strncmp("F", temp, 1) == 0)
 	{
 		check_rgb(&data->floor, temp, line);
 		floor++;
 	}
-	else if (ft_strncmp("C ", temp, 2) == 0)
+	else if (ft_strncmp("C", temp, 1) == 0)
 	{
 		check_rgb(&data->ceiling, temp, line);
 		ceiling++;
