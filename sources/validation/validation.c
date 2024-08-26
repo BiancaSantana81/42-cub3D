@@ -24,6 +24,7 @@ int	validate_map(int argc, char **argv, t_cub *game)
 	analyze_map_content(game->data, &valid);
 	check_map_content(&valid);
 	surrounded_by_walls(game->data);
+	// substituir por espaço por '\n' e '1'
 	return (EXIT_SUCCESS);
 }
 

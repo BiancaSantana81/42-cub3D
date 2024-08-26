@@ -32,7 +32,7 @@ int			check_map_content(t_validate *valid);
 void		check_rgb(uint32_t *color, char *rgb_color, char *original);
 void		split_rgb(char ***rgb, char *rgb_color, char *original);
 uint32_t	convert_rgb(int r, int g, int b);
-int			check_path(char *path);	
+int			check_path(char *path);
 
 /* DATA PROCESSING */
 int			data_processing(char *map_file, t_data *data);
@@ -47,6 +47,9 @@ void		get_max_lines(t_data *data);
 char		*replace_tabs(char *line, int tabs);
 void		found_tabs(t_data *data);
 int			count_tabs(char *line);
+
+/* REPLACE MAP */
+
 
 /* WALL */
 int			surrounded_by_walls(t_data *data);
