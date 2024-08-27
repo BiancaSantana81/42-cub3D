@@ -18,7 +18,7 @@ OBJ_BONUS_PATH := objects_bonus
 
 # SOURCES
 CFILES      :=  main.c init.c utils.c free_memory.c \
-                validation/validation.c validation/check_rgb.c validation/data_processing.c validation/map.c validation/map_utils.c  validation/replace_map.c validation/check_wall.c \
+                validation/validation.c validation/check_rgb.c validation/data_processing.c validation/map.c validation/map_utils.c validation/check_wall.c \
                 graphic/hooks.c graphic/movements.c graphic/images.c graphic/draw_squares.c graphic/wall.c \
                 graphic/algorithm.c graphic/setup.c graphic/draw_loop.c
 

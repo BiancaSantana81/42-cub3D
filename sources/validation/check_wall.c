@@ -71,28 +71,28 @@ bool	check_sides(t_data *data, int line, int col)
 int	surrounded_by_walls(t_data *data)
 {
 	char	**map;
-	int		line;
-	int		col;
+	int		y;
+	int		x;
 	int		width;
 
-	line = 0;
+	y = 0;
 	map = data->map;
-	while (map[line])
+	while (map[y])
 	{
-		col = 0;
-		width = ft_strlen(map[line]) - 1;
-		while (col != width)
+		x = 0;
+		width = ft_strlen(map[y]) - 1;
+		while (x != width)
 		{
-			if (map[line][col] == '0' || ft_strchr("NSWE", map[line][col]))
+			if (map[y][x] == '0' || ft_strchr("NSWE", map[y][x]))
 			{
-				if ((line == 0 || line == data->lines) || (col == 0 || col == width))
+				if ((y == 0 || y == data->ys) || (x == 0 || x == width))
 					handle_error("Invalid map: check de edges\n");
-				if (!check_sides(data, line, col) || !check_diagonals(data, line, col))
+				if (!check_sides(data, y, x) || !check_diagonals(data, y, x))
 					handle_error("Invalid map: check the walls\n");
 			}
-			col++;
+			x++;
 		}
-		line++;
+		y++;
 	}
 	return (EXIT_SUCCESS);
 }
