@@ -53,13 +53,13 @@ bool	can_move_to(t_cub *game, float new_x, float new_y)
 			* get_signal(game->dir.y))][(int)new_x] == '1')
 		return (false);
 	if (game->data->map[(int)new_y][(int)(new_x + margin
-			* get_signal(game->dir.x))] == '1')
+		* get_signal(game->dir.x))] == '1')
 		return (false);
 	if (game->data->map[(int)(new_y + margin
 			* get_signal(game->camera_plane.y))][(int)new_x] == '1')
 		return (false);
 	if (game->data->map[(int)new_y][(int)(new_x + margin
-			* get_signal(game->camera_plane.x))] == '1')
+		* get_signal(game->camera_plane.x))] == '1')
 		return (false);
 	return (true);
 }
