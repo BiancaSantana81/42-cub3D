@@ -48,7 +48,6 @@ typedef struct s_validate
 {
 	int		invalid;
 	int		player;
-	int		n;
 }	t_validate;
 
 typedef struct s_coord

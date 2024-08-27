@@ -50,5 +50,4 @@ void	init_variables_valid(t_validate *valid)
 {
 	valid->invalid = 0;
 	valid->player = 0;
-	valid->n = 0;
 }

@@ -1,0 +1,21 @@
+NO ./textures/air_256.png
+
+SO ./textures/fire_256.png
+
+WE ./textures/water_256.png
+
+EA	./textures/earth_256.png
+
+F 139,69,1
+C 0,0,0
+
+11111 1
+10001 1
+11S01 1
+10111 1
+1011111
+1000001
+1111111
+  111
+  101
+  111

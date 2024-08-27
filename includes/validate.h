@@ -40,13 +40,14 @@ void		read_textures_path(t_data *data, char *temp, int fd);
 
 /* MAP */
 void		count_map_size(t_data *data, char *temp, int fd);
-void		read_and_copy_map_content(t_data *data, char *temp, int fd);
+void		read_and_copy_map_content(char *temp, int fd);
 void		analyze_map_content(t_data *data, t_validate *valid);
 void		get_max_columns(t_data *data);
 void		get_max_lines(t_data *data);
 char		*replace_tabs(char *line, int tabs);
 void		found_tabs(t_data *data);
 int			count_tabs(char *line);
+int			check_invalid_char(char c);
 
 /* WALL */
 void		surrounded_by_walls(t_data *data);
