@@ -25,17 +25,17 @@
 # define WARNING_OPEN_MAP "Error: map is open.\n"
 
 /* VALIDATION */
-int			validate_map(int argc, char **argv, t_cub *game);
-int			check_arguments(int argc);
-int			check_extension(char *map_file);
-int			check_map_content(t_validate *valid);
+void		validate_map(int argc, char **argv, t_cub *game);
+void		check_arguments(int argc);
+void		check_extension(char *map_file);
+void		check_map_content(t_validate *valid);
 void		check_rgb(uint32_t *color, char *rgb_color, char *original);
 void		split_rgb(char ***rgb, char *rgb_color, char *original);
 uint32_t	convert_rgb(int r, int g, int b);
 int			check_path(char *path);
 
 /* DATA PROCESSING */
-int			data_processing(char *map_file, t_data *data);
+void		data_processing(char *map_file, t_data *data);
 void		read_textures_path(t_data *data, char *temp, int fd);
 
 /* MAP */
@@ -49,7 +49,7 @@ void		found_tabs(t_data *data);
 int			count_tabs(char *line);
 
 /* WALL */
-int			surrounded_by_walls(t_data *data);
+void		surrounded_by_walls(t_data *data);
 bool		check_diagonals(t_data *data, int line, int col);
 bool		check_sides(t_data *data, int line, int col);
 

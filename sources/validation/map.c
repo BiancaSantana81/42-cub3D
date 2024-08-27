@@ -96,13 +96,12 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 	}
 }
 
-int	check_map_content(t_validate *valid)
+void	check_map_content(t_validate *valid)
 {
 	if (valid->invalid != 0)
-		return (handle_error(WARNING_INVALID), (EXIT_FAILURE));
+		handle_error(WARNING_INVALID);
 	else if (valid->player != 1)
-		return (handle_error(WARNING_PLAYER), (EXIT_FAILURE));
+		handle_error(WARNING_PLAYER);
 	else if (valid->n != 0)
-		return (handle_error(WARNING_EMPTY_LINE), (EXIT_FAILURE));
-	return (0);
+		handle_error(WARNING_EMPTY_LINE);
 }

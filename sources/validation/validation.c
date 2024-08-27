@@ -12,7 +12,7 @@
 
 #include "../../includes/cub.h"
 
-int	validate_map(int argc, char **argv, t_cub *game)
+void	validate_map(int argc, char **argv, t_cub *game)
 {
 	t_validate	valid;
 
@@ -24,10 +24,9 @@ int	validate_map(int argc, char **argv, t_cub *game)
 	analyze_map_content(game->data, &valid);
 	check_map_content(&valid);
 	surrounded_by_walls(game->data);
-	return (EXIT_SUCCESS);
 }
 
-int	check_arguments(int argc)
+void	check_arguments(int argc)
 {
 	if (argc < 2)
 	{
@@ -42,10 +41,10 @@ int	check_arguments(int argc)
 		exit(EXIT_FAILURE);
 	}
 	else
-		return (EXIT_SUCCESS);
+		return ;
 }
 
-int	check_extension(char *map_file)
+void	check_extension(char *map_file)
 {
 	char	*dotcub;
 	int		i;
@@ -61,9 +60,8 @@ int	check_extension(char *map_file)
 		len++;
 	}
 	if (dotcub[i] == '\0')
-		return (EXIT_SUCCESS);
-	printf(WARNING_EXT);
-	free_memory(get_game(NULL));
+		return ;
+	handle_error(WARNING_EXT);
 	exit(EXIT_FAILURE);
 }
 

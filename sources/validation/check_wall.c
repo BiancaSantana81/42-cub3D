@@ -68,7 +68,7 @@ bool	check_sides(t_data *data, int line, int col)
 	return (true);
 }
 
-int	surrounded_by_walls(t_data *data)
+void	surrounded_by_walls(t_data *data)
 {
 	char	**map;
 	int		y;
@@ -94,5 +94,4 @@ int	surrounded_by_walls(t_data *data)
 		}
 		y++;
 	}
-	return (EXIT_SUCCESS);
 }
