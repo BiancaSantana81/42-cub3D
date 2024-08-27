@@ -85,7 +85,7 @@ int	surrounded_by_walls(t_data *data)
 		{
 			if (map[y][x] == '0' || ft_strchr("NSWE", map[y][x]))
 			{
-				if ((y == 0 || y == data->ys) || (x == 0 || x == width))
+				if ((y == 0 || y == data->lines) || (x == 0 || x == width))
 					handle_error("Invalid map: check de edges\n");
 				if (!check_sides(data, y, x) || !check_diagonals(data, y, x))
 					handle_error("Invalid map: check the walls\n");
