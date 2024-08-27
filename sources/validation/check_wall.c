@@ -18,25 +18,13 @@ bool	check_diagonals(t_data *data, int line, int col)
 
 	map = data->map;
 	if (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '\n')
-	{
-		printf("Error: empty line on upper left diagonal\n");
 		return (false);
-	}
 	else if (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '\n')
-	{
-		printf("Error: empty line on bottom left diagonal\n");
 		return (false);
-	}
 	else if (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '\n')
-	{
-		printf("Error: empty line on upper right diagonal\n");
 		return (false);
-	}
 	else if (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '\n')
-	{
-		printf("Error: empty line on bottom right diagonal\n");
 		return (false);
-	}
 	return (true);
 }
 
@@ -51,20 +39,11 @@ bool	check_sides(t_data *data, int line, int col)
 		return (false);
 	}
 	else if (map[line + 1][col] == ' ' || map[line + 1][col] == '\n')
-	{
-		printf("Error: empty line below\n");
 		return (false);
-	}
 	else if (map[line][col - 1] == ' ' || map[line][col - 1] == '\n')
-	{
-		printf("Error: empty line left side\n");
 		return (false);
-	}
 	else if (map[line][col + 1] == ' ' || map[line][col + 1] == '\n')
-	{
-		printf("Error: empty line right side\n");
 		return (false);
-	}
 	return (true);
 }
 
