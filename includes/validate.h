@@ -48,10 +48,10 @@ char		*replace_tabs(char *line, int tabs);
 void		found_tabs(t_data *data);
 int			count_tabs(char *line);
 
-/* REPLACE MAP */
-
-
 /* WALL */
 int			surrounded_by_walls(t_data *data);
+bool		check_diagonals(t_data *data, int line, int col);
+bool		check_sides(t_data *data, int line, int col);
+
 
 #endif

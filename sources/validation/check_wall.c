@@ -12,58 +12,85 @@
 
 #include "../../includes/cub.h"
 
-bool	check_diagonal(t_data *data, int line, int column)
-{
-	
-	
-	return (true);
-}
-
-bool	check_sides(t_data *data, int line, int column)
+bool	check_diagonals(t_data *data, int line, int col)
 {
 	char	**map;
 
 	map = data->map;
-	if (map[line][column] == '0' || ft_strchr("NSWE", map[line][column]))
+	if (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '\n')
 	{
-		// if (line == 0 || line == data->lines - 1)
-		// 	return (false);
-		// else if (column == 0 || column == data->columns - 1)
-		// 	return (false);
-		else if (map[line - 1][column] == ' ' || (int)ft_strlen(map[line - 1]) - 1 < column)
-			return (false);
-		else if (map[line + 1][column] == ' ' || (int)ft_strlen(map[line + 1]) - 1 < column)
-			return (false);
-		else if (map[line][column - 1] == ' ' || map[line][column + 1] == ' ')
-			return (false);
+		printf("Error: empty line on upper left diagonal\n");
+		return (false);
+	}
+	else if (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '\n')
+	{
+		printf("Error: empty line on bottom left diagonal\n");
+		return (false);
+	}
+	else if (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '\n')
+	{
+		printf("Error: empty line on upper right diagonal\n");
+		return (false);
+	}
+	else if (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '\n')
+	{
+		printf("Error: empty line on bottom right diagonal\n");
+		return (false);
+	}
+	return (true);
+}
+
+bool	check_sides(t_data *data, int line, int col)
+{
+	char	**map;
+
+	map = data->map;
+	if (map[line - 1][col] == ' ' || map[line - 1][col] == '\n')
+	{
+		handle_error("Error: empty line above\n");
+		return (false);
+	}
+	else if (map[line + 1][col] == ' ' || map[line + 1][col] == '\n')
+	{
+		printf("Error: empty line below\n");
+		return (false);
+	}
+	else if (map[line][col - 1] == ' ' || map[line][col - 1] == '\n')
+	{
+		printf("Error: empty line left side\n");
+		return (false);
+	}
+	else if (map[line][col + 1] == ' ' || map[line][col + 1] == '\n')
+	{
+		printf("Error: empty line right side\n");
+		return (false);
 	}
 	return (true);
 }
 
 int	surrounded_by_walls(t_data *data)
 {
-	char 	**map;
+	char	**map;
 	int		line;
-	int		column;
+	int		col;
 	int		width;
 
 	line = 0;
 	map = data->map;
 	while (map[line])
 	{
-		column = 0;
-		width = ft_strlen(map[line] -1);
-		while (map[line][column] != width)
+		col = 0;
+		width = ft_strlen(map[line]) - 1;
+		while (col != width)
 		{
-			if (map[line][column] == '0'
-				|| ft_strchr("NSWE", map[line][column]))
+			if (map[line][col] == '0' || ft_strchr("NSWE", map[line][col]))
 			{
-				if ((line == 0 || line == data->lines) && (column == 0 || column == width))
-					handle_error("Invalid map: check de edges");
-				check_sides(data, line, column);
-				check_diagonal(data, line, column);
+				if ((line == 0 || line == data->lines) || (col == 0 || col == width))
+					handle_error("Invalid map: check de edges\n");
+				if (!check_sides(data, line, col) || !check_diagonals(data, line, col))
+					handle_error("Invalid map: check the walls\n");
 			}
-			column++;
+			col++;
 		}
 		line++;
 	}
