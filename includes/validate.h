@@ -16,12 +16,12 @@
 # include "../libft/src/libft.h"
 # include "structs.h"
 
-# define WARNING_ARGS_1 "Error: No map file\n"
-# define WARNING_ARGS_2 "Error: too many arguments\n"
+# define WARNING_ARGS_1 "Error: no map file.\n"
+# define WARNING_ARGS_2 "Error: too many arguments.\n"
 # define WARNING_EXT "Error: the map file must be .cub\n"
-# define WARNING_PLAYER "Error: invalid player\n"
-# define WARNING_INVALID "Error: there are invalid characters on the map\n"
-# define WARNING_EMPTY_LINE "Error: map invalid\n"
+# define WARNING_PLAYER "Error: invalid player.\n"
+# define WARNING_INVALID "Error: there are invalid characters on the map.\n"
+# define WARNING_EMPTY_LINE "Error: empty line.\n"
 # define WARNING_OPEN_MAP "Error: map is open.\n"
 
 /* VALIDATION */

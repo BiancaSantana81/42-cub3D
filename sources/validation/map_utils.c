@@ -37,7 +37,7 @@ void	get_max_columns(t_data *data)
 			max_columns = columns;
 		i++;
 	}
-	 = max_columns;
+	data->columns = max_columns;
 }
 
 int	count_tabs(char *line)

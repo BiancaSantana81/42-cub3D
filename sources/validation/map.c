@@ -25,9 +25,11 @@ void	count_map_size(t_data *data, char *temp, int fd)
 		temp = get_next_line(fd);
 	}
 	close(fd);
+	if (map_size == 0)
+		handle_error("Error: missing map.\n");
 	data->map = ft_calloc(sizeof(char *), (map_size + 1));
 	if (!data->map)
-		handle_error("Error\n");
+		handle_error("Error: ft_calloc.\n");
 }
 
 void	read_and_copy_map_content(t_data *data, char *temp, int fd)

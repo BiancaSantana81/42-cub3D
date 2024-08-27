@@ -28,6 +28,8 @@ void	data_processing(char *map_file, t_data *data)
 	count_map_size(data, temp, fd);
 	fd = open_file(map_file);
 	read_and_copy_map_content(data, temp, fd);
+	if (data->map == NULL)
+		handle_error("Error: invalid map\n");
 	get_max_columns(data);
 	get_max_lines(data);
 }
