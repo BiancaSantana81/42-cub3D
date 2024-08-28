@@ -6,54 +6,71 @@
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:30:37 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:30:41 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:19:55 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes_bonus/cub_bonus.h"
 
-static int	is_open(t_data *data, int line, int column)
+bool	check_diagonals(t_data *data, int line, int col)
 {
 	char	**map;
 
 	map = data->map;
-	if (map[line][column] == '0' || ft_strchr("NSWE", map[line][column]))
-	{
-		if (line == 0 || line == data->lines - 1)
-			return (0);
-		else if (column == 0 || column == data->columns - 1)
-			return (0);
-		else if (map[line - 1][column] == ' ' || map[line - 1][column] == '\n'
-			|| (int)ft_strlen(map[line - 1]) - 1 < column)
-			return (0);
-		else if (map[line + 1][column] == ' ' || map[line + 1][column] == '\n'
-			|| (int)ft_strlen(map[line + 1]) - 1 < column)
-			return (0);
-		else if (map[line][column - 1] == ' ' || map[line][column + 1] == ' '
-			|| map[line][column + 1] == '\n')
-			return (0);
-	}
-	return (1);
+	if (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '\n')
+		return (false);
+	else if (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '\n')
+		return (false);
+	else if (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '\n')
+		return (false);
+	else if (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '\n')
+		return (false);
+	return (true);
 }
 
-int	surrounded_by_walls(t_data *data)
+bool	check_sides(t_data *data, int line, int col)
 {
-	int	line;
-	int	column;
+	char	**map;
 
-	line = 0;
-	while (data->map[line])
+	map = data->map;
+	if (map[line - 1][col] == ' ' || map[line - 1][col] == '\n')
 	{
-		column = 0;
-		while (data->map[line][column] != '\n')
-		{
-			if (data->map[line][column] == '\0')
-				break ;
-			if (is_open(data, line, column) == 0)
-				return (handle_error(WARNING_OPEN_MAP), (EXIT_FAILURE));
-			column++;
-		}
-		line++;
+		handle_error("Error: empty line above\n");
+		return (false);
 	}
-	return (EXIT_SUCCESS);
+	else if (map[line + 1][col] == ' ' || map[line + 1][col] == '\n')
+		return (false);
+	else if (map[line][col - 1] == ' ' || map[line][col - 1] == '\n')
+		return (false);
+	else if (map[line][col + 1] == ' ' || map[line][col + 1] == '\n')
+		return (false);
+	return (true);
+}
+
+void	surrounded_by_walls(t_data *data)
+{
+	char	**map;
+	int		y;
+	int		x;
+	int		width;
+
+	y = 0;
+	map = data->map;
+	while (map[y])
+	{
+		x = 0;
+		width = ft_strlen(map[y]) - 1;
+		while (x != width)
+		{
+			if (map[y][x] == '0' || ft_strchr("NSWE", map[y][x]))
+			{
+				if ((y == 0 || y == data->lines) || (x == 0 || x == width))
+					handle_error("Invalid map: check de edges\n");
+				if (!check_sides(data, y, x) || !check_diagonals(data, y, x))
+					handle_error("Invalid map: check the walls\n");
+			}
+			x++;
+		}
+		y++;
+	}
 }

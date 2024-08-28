@@ -23,7 +23,7 @@ CFILES      :=  main.c init.c utils.c free_memory.c \
                 graphic/algorithm.c graphic/setup.c graphic/draw_loop.c
 
 CFILES_BONUS := main_bonus.c init_bonus.c utils_bonus.c free_memory_bonus.c \
-                validation_bonus/validation_bonus.c validation_bonus/check_rgb_bonus.c validation_bonus/data_processing_bonus.c validation_bonus/map_bonus.c validation_bonus/map_utils_bonus.c validation_bonus/check_wall_bonus.c \
+                validation_bonus/validation_bonus.c validation_bonus/check_rgb_bonus.c validation_bonus/data_processing_bonus.c validation_bonus/map_bonus.c validation_bonus/map_utils_bonus.c validation_bonus/check_wall_bonus.c validation_bonus/tab_bonus.c \
                 graphic_bonus/hooks_bonus.c graphic_bonus/movements_bonus.c graphic_bonus/images_bonus.c graphic_bonus/draw_squares_bonus.c graphic_bonus/wall_bonus.c \
                 graphic_bonus/algorithm_bonus.c graphic_bonus/setup_bonus.c graphic_bonus/draw_loop_bonus.c \
 				graphic_bonus/minimap.c graphic_bonus/minimap_player.c

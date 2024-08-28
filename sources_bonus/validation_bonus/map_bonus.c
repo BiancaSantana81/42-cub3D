@@ -6,11 +6,13 @@
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:30:56 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:30:58 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:21:38 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes_bonus/cub_bonus.h"
+
+static void	is_not_bar_n(bool *is_map, bool *map_ended, char *temp, int size);
 
 void	count_map_size(t_data *data, char *temp, int fd)
 {
@@ -25,32 +27,32 @@ void	count_map_size(t_data *data, char *temp, int fd)
 		temp = get_next_line(fd);
 	}
 	close(fd);
+	if (map_size == 0)
+		handle_error("Error: missing map.\n");
 	data->map = ft_calloc(sizeof(char *), (map_size + 1));
 	if (!data->map)
-		handle_error("Error\n");
+		handle_error("Error: ft_calloc.\n");
 }
 
-void	read_and_copy_map_content(t_data *data, char *temp, int fd)
+void	read_and_copy_map_content(char *temp, int fd)
 {
-	int		i;
 	int		size;
-	bool	empty_line;
+	bool	is_map;
+	bool	map_ended;
 
-	i = 0;
 	size = 0;
-	empty_line = false;
+	is_map = false;
+	map_ended = false;
 	temp = get_next_line(fd);
 	while (temp)
 	{
-		if (i == 0 && temp[0] == '\n')
-			empty_line = true;
-		else
-			empty_line = false;
-		if (size >= data->size_textures && empty_line == false)
+		if (temp[0] == '\n')
 		{
-			data->map[i] = ft_strdup(temp);
-			i++;
+			if (is_map && !map_ended)
+				map_ended = true;
 		}
+		else
+			is_not_bar_n(&is_map, &map_ended, temp, size);
 		size++;
 		free(temp);
 		temp = get_next_line(fd);
@@ -58,13 +60,23 @@ void	read_and_copy_map_content(t_data *data, char *temp, int fd)
 	close(fd);
 }
 
-static int	check_invalid_char(char c)
+static void	is_not_bar_n(bool *is_map, bool *map_ended, char *temp, int size)
 {
-	if (c == ' ' || c == 'N' || c == 'S' || c == 'E' || c == 'W'
-		|| c == '0' || c == '1' || c == '\0'
-		|| c == '\n' || (c >= 9 && c <= 13))
-		return (1);
-	return (0);
+	t_cub		*game;
+	static int	i;
+
+	game = get_game(NULL);
+	if (*map_ended)
+	{
+		free(temp);
+		handle_error("Error: map invalid.\n");
+	}
+	if (size >= game->data->size_textures)
+	{
+		game->data->map[i] = ft_strdup(temp);
+		i++;
+		*is_map = true;
+	}
 }
 
 void	analyze_map_content(t_data *data, t_validate *valid)
@@ -76,8 +88,6 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 	while (data->map[i])
 	{
 		j = 0;
-		if (data->map[i][j] == '\n')
-			valid->n++;
 		while (data->map[i][j])
 		{
 			if (check_invalid_char(data->map[i][j]) == 0)
@@ -94,15 +104,4 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 		}
 		i++;
 	}
-}
-
-int	check_map_content(t_validate *valid)
-{
-	if (valid->invalid != 0)
-		return (handle_error(WARNING_INVALID), (EXIT_FAILURE));
-	else if (valid->player != 1)
-		return (handle_error(WARNING_PLAYER), (EXIT_FAILURE));
-	else if (valid->n != 0)
-		return (handle_error(WARNING_EMPTY_LINE), (EXIT_FAILURE));
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:30:47 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/23 14:15:44 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:20:18 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	copy_texture_path(char **texture, char *path, char *mode,
 				char *line);
 static void	trim_newline(char *str);
 
-int	data_processing(char *map_file, t_data *data)
+void	data_processing(char *map_file, t_data *data)
 {
 	char	*temp;
 	int		fd;
@@ -27,10 +27,11 @@ int	data_processing(char *map_file, t_data *data)
 	read_textures_path(data, temp, fd);
 	count_map_size(data, temp, fd);
 	fd = open_file(map_file);
-	read_and_copy_map_content(data, temp, fd);
+	read_and_copy_map_content(temp, fd);
+	if (data->map == NULL)
+		handle_error("Error: invalid map\n");
 	get_max_columns(data);
 	get_max_lines(data);
-	return (EXIT_SUCCESS);
 }
 
 void	read_textures_path(t_data *data, char *temp, int fd)

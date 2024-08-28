@@ -6,7 +6,7 @@
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:23:14 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:23:17 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:26:48 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,16 @@ void		read_and_copy_map_content(char *temp, int fd);
 void		analyze_map_content(t_data *data, t_validate *valid);
 void		get_max_columns(t_data *data);
 void		get_max_lines(t_data *data);
-char		*replace_tabs(char *line, int tabs);
-void		found_tabs(t_data *data);
-int			count_tabs(char *line);
 int			check_invalid_char(char c);
 
 /* WALL */
 void		surrounded_by_walls(t_data *data);
 bool		check_diagonals(t_data *data, int line, int col);
 bool		check_sides(t_data *data, int line, int col);
+
+/* TAB */
+int			count_tabs(char *line);
+void		found_tabs(t_data *data);
+char		*replace_tabs(char *line, int tabs);
 
 #endif

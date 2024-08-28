@@ -6,11 +6,12 @@
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:30:29 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/23 14:15:07 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:19:32 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes_bonus/cub_bonus.h"
+
 
 static void	handle_error_rgb(char *rgb_color, char **rgb);
 
