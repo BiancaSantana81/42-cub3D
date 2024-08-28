@@ -1,10 +1,10 @@
-NO ./textures/air_256.png
+NO ./textures/air.png
 
-SO ./textures/fire_256.png
+SO ./textures/fire.png
 
-WE  ./textures/water_256.png
+WE  ./textures/water.png
 
-   EA ./textures/earth_256.png
+   EA ./textures/earth.png
 
 
    C 100,149,237

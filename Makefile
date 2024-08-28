@@ -138,9 +138,6 @@ fclean: clean
 	@echo " 🟥 🟧 🟨 🟩 🟦 🟪 🟥 🟧 🟨 🟩 🟦 🟪 🟥"
 	@echo "                                     "
 
-val: $(NAME)
-	valgrind --leak-check=full --show-leak-kinds=all -q ./$(NAME)
-
 clear:
 	clear
 	$(MAKE) all

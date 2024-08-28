@@ -16,14 +16,16 @@ void	process_input(t_cub *game, int32_t x)
 {
 	float	new_x;
 	float	new_y;
+	float	lerp_factor;
 
 	new_x = 0;
 	new_y = 0;
+	lerp_factor = 1;
 	calculate_new_position(game, &new_x, &new_y);
 	if (can_move_to(game, new_x, new_y))
 	{
-		game->pos.x = new_x;
-		game->pos.y = new_y;
+		game->pos.x = game->pos.x + lerp_factor * (new_x - game->pos.x);
+		game->pos.y = game->pos.y + lerp_factor * (new_y - game->pos.y);
 	}
 	if (game->keys.left || (x >= 0 && x < 300))
 	{
