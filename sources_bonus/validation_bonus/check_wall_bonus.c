@@ -34,10 +34,7 @@ bool	check_sides(t_data *data, int line, int col)
 
 	map = data->map;
 	if (map[line - 1][col] == ' ' || map[line - 1][col] == '\n')
-	{
-		handle_error("Error: empty line above\n");
 		return (false);
-	}
 	else if (map[line + 1][col] == ' ' || map[line + 1][col] == '\n')
 		return (false);
 	else if (map[line][col - 1] == ' ' || map[line][col - 1] == '\n')
@@ -65,9 +62,9 @@ void	surrounded_by_walls(t_data *data)
 			if (map[y][x] == '0' || ft_strchr("NSWE", map[y][x]))
 			{
 				if ((y == 0 || y == data->lines) || (x == 0 || x == width))
-					handle_error("Invalid map: check de edges\n");
+					handle_error("Error: invalid map, check de edges\n");
 				if (!check_sides(data, y, x) || !check_diagonals(data, y, x))
-					handle_error("Invalid map: check the walls\n");
+					handle_error("Error: invalid map, check the walls\n");
 			}
 			x++;
 		}
