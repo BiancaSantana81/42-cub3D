@@ -6,7 +6,7 @@
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:27:06 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/20 14:27:08 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:34:33 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,3 @@ void	analyze_map_content(t_data *data, t_validate *valid)
 		i++;
 	}
 }
-
