@@ -1,6 +1,6 @@
 NAME        := cub3D
 NAME_BONUS  := cub3D_bonus
-CFLAGS      := -Wextra -Wall -Werror -g3
+CFLAGS      := -Wextra -Wall -Werror -g3 -O3
 MAKEFLAGS  += --silent
 
 # LIBRARIES_PATH

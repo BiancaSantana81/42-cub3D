@@ -16,14 +16,16 @@ void	process_input(t_cub *game)
 {
 	float	new_x;
 	float	new_y;
+	float	lerp_factor;
 
 	new_x = 0;
 	new_y = 0;
+	lerp_factor = 1;
 	calculate_new_position(game, &new_x, &new_y);
 	if (can_move_to(game, new_x, new_y))
 	{
-		game->pos.x = new_x;
-		game->pos.y = new_y;
+		game->pos.x = game->pos.x + lerp_factor * (new_x - game->pos.x);
+		game->pos.y = game->pos.y + lerp_factor * (new_y - game->pos.y);
 	}
 	if (game->keys.left)
 	{
@@ -46,25 +48,22 @@ int	get_signal(float value)
 
 bool	can_move_to(t_cub *game, float new_x, float new_y)
 {
-	if (game->data->map[(int)new_y][(int)new_x] == '1')
+	float	margin;
+
+	margin = 0.1;
+	if (game->data->map[(int)(new_y + margin
+			* get_signal(new_y - game->pos.y))][(int)new_x] == '1')
+		return (false);
+	if (game->data->map[(int)new_y][(int)(new_x + margin
+		* get_signal(new_x - game->pos.x))] == '1')
+		return (false);
+	if (game->data->map[(int)(new_y + margin
+			* get_signal(game->camera_plane.y))][(int)new_x] == '1')
+		return (false);
+	if (game->data->map[(int)new_y][(int)(new_x + margin
+		* get_signal(game->camera_plane.x))] == '1')
 		return (false);
 	return (true);
-	// float	margin;
-
-	// margin = 0.1;
-	// if (game->data->map[(int)(new_y + margin
-	// 		* get_signal(game->dir.y))][(int)new_x] == '1')
-	// 	return (false);
-	// if (game->data->map[(int)new_y][(int)(new_x + margin
-	// 	* get_signal(game->dir.x))] == '1')
-	// 	return (false);
-	// if (game->data->map[(int)(new_y + margin
-	// 		* get_signal(game->camera_plane.y))][(int)new_x] == '1')
-	// 	return (false);
-	// if (game->data->map[(int)new_y][(int)(new_x + margin
-	// 	* get_signal(game->camera_plane.x))] == '1')
-	// 	return (false);
-	// return (true);
 }
 
 void	calculate_new_position(t_cub *game, float *new_x, float *new_y)
