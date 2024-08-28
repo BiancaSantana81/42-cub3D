@@ -8,7 +8,7 @@ WE ./textures/earth.png
 EA ./textures/fire.png
 
 
-F 139,69,1
+	F 139,69,1
 C 	 100,149,237
 
         1111111111111111111111111

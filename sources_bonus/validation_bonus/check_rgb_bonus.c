@@ -13,15 +13,19 @@
 #include "../../includes_bonus/cub_bonus.h"
 
 static void	handle_error_rgb(char *rgb_color, char **rgb);
+static void	control_characters(char *rgb_color, char *original, char c);
 
-void	check_rgb(uint32_t *color, char *rgb_color, char *original)
+void	check_rgb(uint32_t *color, char *rgb_color, char *original, char c)
 {
 	char	**rgb;
+	int		qtd;
 	int		i;
 	int		j;
 
 	i = 0;
-	split_rgb(&rgb, rgb_color, original);
+	qtd = 0;
+	control_characters(rgb_color, original, c);
+	split_rgb(&rgb, rgb_color, original, c);
 	while (rgb[i])
 	{
 		j = 0;
@@ -39,13 +43,31 @@ void	check_rgb(uint32_t *color, char *rgb_color, char *original)
 	ft_free_matrix(rgb);
 }
 
-void	split_rgb(char ***rgb, char *rgb_color, char *original)
+static void	control_characters(char *rgb_color, char *original, char c)
+{
+	int	qtd;
+
+	qtd = 0;
+	while (ft_isspace(*rgb_color) || *rgb_color == c)
+	{
+		if (*rgb_color == c)
+			qtd++;
+		rgb_color++;
+	}
+	if (qtd != 1)
+	{
+		free(original);
+		handle_error("Error: invalid rgb color\n");
+	}
+}
+
+void	split_rgb(char ***rgb, char *rgb_color, char *original, char c)
 {
 	char	*temp_strim;
 	int		i;
 
 	i = 0;
-	while (ft_isspace(*rgb_color) || *rgb_color == 'F' || *rgb_color == 'C')
+	while (ft_isspace(*rgb_color) || *rgb_color == c)
 		rgb_color++;
 	*rgb = ft_split(rgb_color, ',');
 	if (!*rgb)

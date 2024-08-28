@@ -69,12 +69,12 @@ static void	read_textures_path_aux(t_data *data, char *temp, char *line)
 		copy_texture_path(&(data->ea), temp, "EA", line);
 	else if (ft_strncmp("F", temp, 1) == 0)
 	{
-		check_rgb(&data->floor, temp, line);
+		check_rgb(&data->floor, temp, line, 'F');
 		floor++;
 	}
 	else if (ft_strncmp("C", temp, 1) == 0)
 	{
-		check_rgb(&data->ceiling, temp, line);
+		check_rgb(&data->ceiling, temp, line, 'C');
 		ceiling++;
 	}
 	if (ceiling >= 1 && floor >= 1)

@@ -29,8 +29,8 @@ void		validate_map(int argc, char **argv, t_cub *game);
 void		check_arguments(int argc);
 void		check_extension(char *map_file);
 void		check_map_content(t_validate *valid);
-void		check_rgb(uint32_t *color, char *rgb_color, char *original);
-void		split_rgb(char ***rgb, char *rgb_color, char *original);
+void		check_rgb(uint32_t *color, char *rgb_color, char *original, char c);
+void		split_rgb(char ***rgb, char *rgb_color, char *original, char c);
 uint32_t	convert_rgb(int r, int g, int b);
 int			check_path(char *path);
 
