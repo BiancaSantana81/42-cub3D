@@ -6,7 +6,7 @@
 /*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:30:47 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/28 12:20:18 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/29 11:22:07 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,13 @@ static void	copy_texture_path(char **texture, char *path, char *mode,
 
 static void	trim_newline(char *str)
 {
-	size_t	len;
+	size_t	i;
 
-	len = 0;
-	while (str[len])
+	i = 0;
+	while (str[i])
 	{
-		if (str[len] == '\n')
-			str[len] = '\0';
-		len++;
+		if (str[i] == '\n' || str[i] == ' ')
+			str[i] = '\0';
+		i++;
 	}
 }
