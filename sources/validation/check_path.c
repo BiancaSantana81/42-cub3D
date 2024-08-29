@@ -91,23 +91,23 @@ void	copy_texture_path(char **texture, char *path, char *mode,
 void	trim_newline(char *str, char *line)
 {
 	size_t	i;
+	size_t	len;
 
 	i = 0;
-	while (str[i])
+	len = 0;
+	while (str[i] && !ft_isspace(str[i]))
+		i++;
+	while (str[i] && ft_isspace(str[i]))
 	{
-		if (ft_isspace(str[i]))
-			i++;
-		else if (str[i] == '\n')
-		{
-			str[i] = '\0';
-			i++;
-		}
-		else
-		{
-			free(line);
-			handle_error("Error: invalid texture path.\n");
-		}
+		len++;
+		i++;
 	}
+	if (str[i] != '\0' && str[i] != '\n')
+	{
+		free(line);
+		handle_error("Error: invalid texture path.\n");
+	}
+	str[i - len] = '\0';
 }
 
 void	check_spaces(char *temp, char *mode, char *line)
