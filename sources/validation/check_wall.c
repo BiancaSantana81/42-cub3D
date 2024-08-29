@@ -17,13 +17,20 @@ bool	check_diagonals(t_data *data, int line, int col)
 	char	**map;
 
 	map = data->map;
-	if (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '\n')
+	if (line > 0 && col > 0 && col < (int)ft_strlen(map[line - 1])
+		&& (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '\n'))
 		return (false);
-	else if (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '\n')
+	else if (line < data->lines - 1 && col > 0
+		&& col < (int)ft_strlen(map[line + 1])
+		&& (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '\n'))
 		return (false);
-	else if (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '\n')
+	else if (line > 0 && col < (int)ft_strlen(map[line]) - 1
+		&& col < (int)ft_strlen(map[line - 1])
+		&& (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '\n'))
 		return (false);
-	else if (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '\n')
+	else if (line < data->lines - 1 && col < (int)ft_strlen(map[line]) - 1
+		&& col < (int)ft_strlen(map[line + 1])
+		&& (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '\n'))
 		return (false);
 	return (true);
 }
@@ -33,13 +40,17 @@ bool	check_sides(t_data *data, int line, int col)
 	char	**map;
 
 	map = data->map;
-	if (map[line - 1][col] == ' ' || map[line - 1][col] == '\n')
+	if (line > 0 && col < (int)ft_strlen(map[line - 1])
+		&& (map[line - 1][col] == ' ' || map[line - 1][col] == '\n'))
 		return (false);
-	else if (map[line + 1][col] == ' ' || map[line + 1][col] == '\n')
+	else if (line < data->lines - 1 && col < (int)ft_strlen(map[line + 1])
+		&& (map[line + 1][col] == ' ' || map[line + 1][col] == '\n'))
 		return (false);
-	else if (map[line][col - 1] == ' ' || map[line][col - 1] == '\n')
+	else if (col > 0
+		&& (map[line][col - 1] == ' ' || map[line][col - 1] == '\n'))
 		return (false);
-	else if (map[line][col + 1] == ' ' || map[line][col + 1] == '\n')
+	else if (col < (int)ft_strlen(map[line]) - 1
+		&& (map[line][col + 1] == ' ' || map[line][col + 1] == '\n'))
 		return (false);
 	return (true);
 }
