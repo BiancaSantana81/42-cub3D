@@ -43,7 +43,7 @@ void	handle_mlx_actions(int action, t_cub *game)
 		mlx_set_setting(MLX_STRETCH_IMAGE, true);
 		game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3D", true);
 		if (!game->mlx)
-			handle_error("Error: mlx_init failed");
+			handle_error("Error: mlx_init failed.");
 	}
 	else if (action == NEW_IMAGE)
 	{

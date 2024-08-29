@@ -22,7 +22,7 @@ void	read_textures_path_aux(t_data *data, char *temp, char *line)
 		if (temp[0] != '\n' && temp[0] != '\0')
 		{
 			free(line);
-			handle_error("Error: invalid file\n");
+			handle_error("Error: invalid file.\n");
 		}
 	}
 	check_colors(data, line, temp);
@@ -43,7 +43,7 @@ static void	check_colors(t_data *data, char *line, char *temp)
 	if (ceiling > 1 || floor > 1)
 	{
 		free(line);
-		handle_error("Error: duplicated color\n");
+		handle_error("Error: duplicated color.\n");
 	}
 }
 
@@ -56,7 +56,7 @@ void	copy_texture_path(char **texture, char *path, char *mode,
 	if (*texture != NULL)
 	{
 		free(line);
-		handle_error("Error: duplicated texture path\n");
+		handle_error("Error: duplicated texture path.\n");
 	}
 	while (ft_isspace(*path) || ft_strncmp(mode, path, 2) == 0)
 	{
@@ -71,7 +71,7 @@ void	copy_texture_path(char **texture, char *path, char *mode,
 	if (!check_path(path) || size_key != 1)
 	{
 		free(line);
-		handle_error("Error: invalid texture path\n");
+		handle_error("Error: invalid texture path.\n");
 	}
 	*texture = ft_strdup(path);
 }

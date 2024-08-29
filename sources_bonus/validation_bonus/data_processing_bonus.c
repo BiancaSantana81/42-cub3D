@@ -46,5 +46,5 @@ void	read_textures_path(t_data *data, char *temp, int fd)
 		temp = get_next_line(fd);
 	}
 	if (!temp)
-		handle_error("Error: invalid texture\n");
+		handle_error("Error: invalid file\n");
 }

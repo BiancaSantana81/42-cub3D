@@ -18,7 +18,7 @@ int	open_file(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		handle_error("Error: open file\n");
+		handle_error("Error: open file.\n");
 	return (fd);
 }
 

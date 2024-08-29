@@ -55,7 +55,7 @@ static void	control_characters(char *rgb_color, char *original, char c)
 	if (qtd != 1)
 	{
 		free(original);
-		handle_error("Error: invalid rgb color\n");
+		handle_error("Error: invalid rgb color.\n");
 	}
 }
 
@@ -71,7 +71,7 @@ void	split_rgb(char ***rgb, char *rgb_color, char *original, char c)
 	if (!*rgb)
 	{
 		free(original);
-		handle_error("Error: invalid rgb color\n");
+		handle_error("Error: invalid rgb color.\n");
 	}
 	while ((*rgb)[i])
 	{
@@ -93,5 +93,5 @@ static void	handle_error_rgb(char *original, char **rgb)
 {
 	free(original);
 	ft_free_matrix(rgb);
-	handle_error("Error: invalid rgb color\n");
+	handle_error("Error: invalid rgb color.\n");
 }
