@@ -24,7 +24,7 @@ void	data_processing(char *map_file, t_data *data)
 	fd = open_file(map_file);
 	read_and_copy_map_content(temp, fd);
 	if (data->map == NULL)
-		handle_error("Error: invalid map\n");
+		handle_error("Error: invalid map.\n");
 	get_max_columns(data);
 	get_max_lines(data);
 }
@@ -46,5 +46,5 @@ void	read_textures_path(t_data *data, char *temp, int fd)
 		temp = get_next_line(fd);
 	}
 	if (!temp)
-		handle_error("Error: invalid file\n");
+		handle_error("Error: invalid file.\n");
 }
