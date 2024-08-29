@@ -69,6 +69,7 @@ void	copy_texture_path(char **texture, char *path, char *mode,
 		free(line);
 		handle_error("Error: duplicated texture path.\n");
 	}
+	check_spaces(path, mode, line);
 	while (ft_isspace(*path) || ft_strncmp(mode, path, 2) == 0)
 	{
 		if (ft_strncmp(mode, path, 2) == 0)
@@ -97,5 +98,21 @@ void	trim_newline(char *str)
 		if (str[i] == '\n' || ft_isspace(str[i]))
 		str[i] = '\0';
 		i++;
+	}
+}
+
+void	check_spaces(char *temp, char *mode, char *line)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strncmp(mode, temp, 2) == 0)
+		i += 2;
+	if (ft_isspace(temp[i]))
+		return ;
+	else
+	{
+		free(line);
+		handle_error("Error: invalid texture path.\n");
 	}
 }

@@ -43,6 +43,7 @@ void		read_textures_path_aux(t_data *data, char *temp, char *line);
 void		copy_texture_path(char **texture, char *path, char *mode,
 				char *line);
 void		trim_newline(char *str);
+void		check_spaces(char *temp, char *mode, char *line);
 
 /* MAP */
 void		count_map_size(t_data *data, char *temp, int fd);

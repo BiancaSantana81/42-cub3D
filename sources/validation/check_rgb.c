@@ -44,15 +44,19 @@ void	check_rgb(uint32_t *color, char *rgb_color, char *original, char c)
 static void	control_characters(char *rgb_color, char *original, char c)
 {
 	int	qtd;
+	int	space;
 
 	qtd = 0;
+	space = 0;
 	while (ft_isspace(*rgb_color) || *rgb_color == c)
 	{
 		if (*rgb_color == c)
 			qtd++;
+		if (ft_isspace(*rgb_color))
+			space++;
 		rgb_color++;
 	}
-	if (qtd != 1)
+	if (qtd != 1 || space < 1)
 	{
 		free(original);
 		handle_error("Error: invalid rgb color.\n");
