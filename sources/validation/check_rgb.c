@@ -18,12 +18,10 @@ static void	control_characters(char *rgb_color, char *original, char c);
 void	check_rgb(uint32_t *color, char *rgb_color, char *original, char c)
 {
 	char	**rgb;
-	int		qtd;
 	int		i;
 	int		j;
 
 	i = 0;
-	qtd = 0;
 	control_characters(rgb_color, original, c);
 	split_rgb(&rgb, rgb_color, original, c);
 	while (rgb[i])

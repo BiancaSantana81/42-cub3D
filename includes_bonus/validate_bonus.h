@@ -38,6 +38,12 @@ int			check_path(char *path);
 void		data_processing(char *map_file, t_data *data);
 void		read_textures_path(t_data *data, char *temp, int fd);
 
+/* PATH */
+void		read_textures_path_aux(t_data *data, char *temp, char *line);
+void		copy_texture_path(char **texture, char *path, char *mode,
+				char *line);
+void		trim_newline(char *str);
+
 /* MAP */
 void		count_map_size(t_data *data, char *temp, int fd);
 void		read_and_copy_map_content(char *temp, int fd);
