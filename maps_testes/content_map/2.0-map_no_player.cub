@@ -1,8 +1,7 @@
-
-NO ./assets/textures/wall_textures/tile02.png
-WE ./assets/textures/wall_textures/tile01.png
-SO ./assets/textures/wall_textures/tile03.png 
-EA ./assets/textures/wall_textures/tile04.png
+NO ./textures/north.png
+SO ./textures/south.png
+WE ./textures/west.png
+EA ./textures/east.png
 
 F 75,75,75                
 C 47,55,66
