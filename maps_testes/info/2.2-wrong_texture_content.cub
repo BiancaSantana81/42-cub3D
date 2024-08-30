@@ -1,17 +1,15 @@
-NO ./assets/wall/brick-1l.png
-SO ./assets/wall/brick-2l.png
-WE ./assets/wall/brick-2d.png
-EA ./assets/wall/brick-1d.png
+NO ./textures/air.png  aa
+SO ./textures/fire.png  
+WE  ./textures/water.png
+EA ./textures/earth.png
 
-WE ./assets/wall/brick-2d.png
-
-F 220,100,0
+F 220,100,0 aa
 C 225,30,0
 
         1111111111111111111111111
         1000000000110000000000001
         1011000001110000000000001
-        1001000000000000000000001
+        1001000000000000000S00001
 111111111011000001110000000000001
 100000000011000001110111111111111
 11110111111111011100000010001

@@ -1,9 +1,9 @@
-NO ./assets/wall/brick-1l.png
-SO ./assets/wall/brick-2l.png
-WE ./assets/wall/brick-2d.png
-EA ./assets/wall/brick-1d.png
+NO ./textures/air.txt
+SO ./textures/fire.png  
+WE  ./textures/water.png
+EA ./textures/earth.png
 
-F 1,1,256
+F 220,100,0
 C 225,30,0
 
         1111111111111111111111111
