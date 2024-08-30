@@ -3,27 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   check_wall_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: bsantana <bsantana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:30:37 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/28 12:19:55 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/30 15:26:14 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes_bonus/cub_bonus.h"
+
+static void	fill_map_with_twos(t_data *data);
 
 bool	check_diagonals(t_data *data, int line, int col)
 {
 	char	**map;
 
 	map = data->map;
-	if (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '\n')
+	if (line > 0 && col > 0
+		&& (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '2'))
 		return (false);
-	else if (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '\n')
+	if (line + 1 < data->lines && col > 0
+		&& (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '2'))
 		return (false);
-	else if (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '\n')
+	if (line > 0 && col + 1 < data->columns
+		&& (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '2'))
 		return (false);
-	else if (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '\n')
+	if (line + 1 < data->lines && col + 1 < data->columns
+		&& (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '2'))
 		return (false);
 	return (true);
 }
@@ -33,13 +39,17 @@ bool	check_sides(t_data *data, int line, int col)
 	char	**map;
 
 	map = data->map;
-	if (map[line - 1][col] == ' ' || map[line - 1][col] == '\n')
+	if (line <= 0 || line >= data->lines || col <= 0 || col >= data->columns)
 		return (false);
-	else if (map[line + 1][col] == ' ' || map[line + 1][col] == '\n')
+	if (line > 0 && (map[line - 1][col] == ' ' || map[line - 1][col] == '2'))
 		return (false);
-	else if (map[line][col - 1] == ' ' || map[line][col - 1] == '\n')
+	if (line + 1 < data->lines
+		&& (map[line + 1][col] == ' ' || map[line + 1][col] == '2'))
 		return (false);
-	else if (map[line][col + 1] == ' ' || map[line][col + 1] == '\n')
+	if (col > 0 && (map[line][col - 1] == ' ' || map[line][col - 1] == '2'))
+		return (false);
+	if (col + 1 < data->columns
+		&& (map[line][col + 1] == ' ' || map[line][col + 1] == '2'))
 		return (false);
 	return (true);
 }
@@ -52,17 +62,18 @@ void	surrounded_by_walls(t_data *data)
 	int		width;
 
 	y = 0;
+	fill_map_with_twos(data);
 	map = data->map;
 	while (map[y])
 	{
 		x = 0;
 		width = ft_strlen(map[y]) - 1;
-		while (x != width)
+		while (x <= width)
 		{
 			if (map[y][x] == '0' || ft_strchr("NSWE", map[y][x]))
 			{
-				if ((y == 0 || y == data->lines) || (x == 0 || x == width))
-					handle_error("Error: invalid map, check de edges.\n");
+				if ((y == 0 || y == data->lines - 1) || (x == 0 || x == width))
+					handle_error("Error: invalid map, check the edges.\n");
 				if (!check_sides(data, y, x) || !check_diagonals(data, y, x))
 					handle_error("Error: invalid map, check the walls.\n");
 			}
@@ -70,4 +81,31 @@ void	surrounded_by_walls(t_data *data)
 		}
 		y++;
 	}
+}
+
+static void	fill_map_with_twos(t_data *data)
+{
+	int		i;
+	int		j;
+	int		len;
+	char	**new_map;
+
+	i = 0;
+	new_map = ft_calloc(data->lines + 1, sizeof(char *));
+	while (i < data->lines)
+	{
+		j = 0;
+		new_map[i] = ft_calloc((data->columns + 1), sizeof(char));
+		len = strlen(data->map[i]) - 1;
+		while (j < len)
+		{
+			new_map[i][j] = data->map[i][j];
+			j++;
+		}
+		while (j++ < data->columns)
+			new_map[i][j] = '2';
+		i++;
+	}
+	ft_free_matrix(data->map);
+	data->map = new_map;
 }
