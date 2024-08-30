@@ -6,7 +6,7 @@
 /*   By: bsantana <bsantana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:26:43 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/30 15:25:33 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/30 17:47:39 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	surrounded_by_walls(t_data *data)
 	while (map[y])
 	{
 		x = 0;
-		width = ft_strlen(map[y]) - 1;
+		width = ft_strlen(map[y]);
 		while (x <= width)
 		{
 			if (map[y][x] == '0' || ft_strchr("NSWE", map[y][x]))
