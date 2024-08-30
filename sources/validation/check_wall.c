@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_wall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: bsantana <bsantana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:26:43 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/27 12:28:52 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/30 12:33:42 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub.h"
 
-static void fill_map_with_twos(t_data *data);
+static void	fill_map_with_twos(t_data *data);
 
 bool	check_diagonals(t_data *data, int line, int col)
 {
@@ -75,13 +75,13 @@ void	surrounded_by_walls(t_data *data)
 	}
 }
 
-static void fill_map_with_twos(t_data *data)
+static void	fill_map_with_twos(t_data *data)
 {
 	int		i;
 	int		j;
 	int		len;
 	char	**new_map;
-	
+
 	i = 0;
 	new_map = ft_calloc(data->lines + 1, sizeof(char *));
 	while (i < data->lines)
@@ -94,11 +94,8 @@ static void fill_map_with_twos(t_data *data)
 			new_map[i][j] = data->map[i][j];
 			j++;
 		}
-		while (j < data->columns)
-		{
+		while (j++ < data->columns)
 			new_map[i][j] = '2';
-			j++;
-		}
 		i++;
 	}
 	ft_free_matrix(data->map);

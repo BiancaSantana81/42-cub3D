@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_path_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsantana <bsantana@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: bsantana <bsantana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:20:27 by bsantana          #+#    #+#             */
-/*   Updated: 2024/08/29 13:20:34 by bsantana         ###   ########.fr       */
+/*   Updated: 2024/08/30 12:34:23 by bsantana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	trim_newline(char *str)
 	while (str[i])
 	{
 		if (str[i] == '\n' || ft_isspace(str[i]))
-		str[i] = '\0';
+			str[i] = '\0';
 		i++;
 	}
 }
