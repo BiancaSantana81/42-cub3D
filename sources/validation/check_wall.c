@@ -19,13 +19,13 @@ bool	check_diagonals(t_data *data, int line, int col)
 	char	**map;
 
 	map = data->map;
-	if (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '\n')
+	if (map[line - 1][col - 1] == ' ' || map[line - 1][col - 1] == '2')
 		return (false);
-	else if (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '\n')
+	else if (map[line + 1][col - 1] == ' ' || map[line + 1][col - 1] == '2')
 		return (false);
-	else if (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '\n')
+	else if (map[line - 1][col + 1] == ' ' || map[line - 1][col + 1] == '2')
 		return (false);
-	else if (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '\n')
+	else if (map[line + 1][col + 1] == ' ' || map[line + 1][col + 1] == '2')
 		return (false);
 	return (true);
 }
@@ -35,13 +35,13 @@ bool	check_sides(t_data *data, int line, int col)
 	char	**map;
 
 	map = data->map;
-	if (map[line - 1][col] == ' ' || map[line - 1][col] == '\n')
+	if (map[line - 1][col] == ' ' || map[line - 1][col] == '2')
 		return (false);
-	else if (map[line + 1][col] == ' ' || map[line + 1][col] == '\n')
+	else if (map[line + 1][col] == ' ' || map[line + 1][col] == '2')
 		return (false);
-	else if (map[line][col - 1] == ' ' || map[line][col - 1] == '\n')
+	else if (map[line][col - 1] == ' ' || map[line][col - 1] == '2')
 		return (false);
-	else if (map[line][col + 1] == ' ' || map[line][col + 1] == '\n')
+	else if (map[line][col + 1] == ' ' || map[line][col + 1] == '2')
 		return (false);
 	return (true);
 }
@@ -73,7 +73,6 @@ void	surrounded_by_walls(t_data *data)
 		}
 		y++;
 	}
-	handle_error("Error: invalid map, check the walls.\n");
 }
 
 static void fill_map_with_twos(t_data *data)
@@ -87,18 +86,19 @@ static void fill_map_with_twos(t_data *data)
 	new_map = ft_calloc(data->lines + 1, sizeof(char *));
 	while (i < data->lines)
 	{
-		new_map[i] = ft_calloc((data->columns + 2), sizeof(char));
-		len = strlen(data->map[i]);
-		ft_strncpy(new_map[i], data->map[i], len);
-		j = len;
-		printf("antes: %s\n", new_map[i]);
+		j = 0;
+		new_map[i] = ft_calloc((data->columns + 1), sizeof(char));
+		len = strlen(data->map[i]) - 1;
+		while (j < len)
+		{
+			new_map[i][j] = data->map[i][j];
+			j++;
+		}
 		while (j < data->columns)
 		{
 			new_map[i][j] = '2';
 			j++;
 		}
-		printf("depois: %s\n", new_map[i]);
-		new_map[i][j] = '\0';
 		i++;
 	}
 	ft_free_matrix(data->map);
