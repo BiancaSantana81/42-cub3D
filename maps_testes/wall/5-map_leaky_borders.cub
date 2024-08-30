@@ -1,10 +1,10 @@
-NO ./textures/air.png
-SO ./textures/fire.png  
-WE  ./textures/water.png
-EA ./textures/earth.png
+NO ./textures/north.png
+SO ./textures/south.png
+WE ./textures/west.png
+EA ./textures/east.png
 
-F 75,75,75                
-C 47,55,66
+F 220,100,0
+C 225,30,0
 
 1111111111111111111111111                     111111111111111111111111111
 1000000000110000010000000                     100000000000000000010000001

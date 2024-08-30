@@ -1,7 +1,7 @@
-NO ./assets/wall/brick-1l.png
-SO ./assets/wall/brick-2l.png
-WE ./assets/wall/brick-2d.png
-EA ./assets/wall/brick-1d.png
+NO ./textures/north.png
+SO ./textures/south.png
+WE ./textures/west.png
+EA ./textures/east.png
 
 F 220,100,0
 C 225,30,0

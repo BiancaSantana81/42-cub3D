@@ -1,17 +1,10 @@
-F                                       153,153,102                  
+NO ./textures/north.png
+SO ./textures/south.png
+WE ./textures/west.png
+EA ./textures/east.png
 
-
-WE               ./assets/textures/wall_textures/tile01.png
-
-C 51,51,153
-
-
-NO ./assets/textures/wall_textures/tile02.png
-SO               ./assets/textures/wall_textures/tile03.png 
-        EA       ./assets/textures/wall_textures/tile04.png
-
-
-
+F 220,100,0
+C 225,30,0
 
 1111111111111111111111111
 1000000000110000000000001
