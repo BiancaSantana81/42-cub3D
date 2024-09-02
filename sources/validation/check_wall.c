@@ -58,8 +58,7 @@ void	surrounded_by_walls(t_data *data)
 {
 	char	**map;
 	int		y;
-	int		x;
-	int		width;
+	size_t	x;
 
 	y = 0;
 	fill_map_with_twos(data);
@@ -67,12 +66,12 @@ void	surrounded_by_walls(t_data *data)
 	while (map[y])
 	{
 		x = 0;
-		width = ft_strlen(map[y]);
-		while (x <= width)
+		while (map[y][x])
 		{
 			if (map[y][x] == '0' || ft_strchr("NSWE", map[y][x]))
 			{
-				if ((y == 0 || y == data->lines - 1) || (x == 0 || x == width))
+				if ((y == 0 || y == data->lines - 1)
+					|| (x == 0 || x == ft_strlen(map[y])))
 					handle_error("Error: invalid map, check the edges.\n");
 				if (!check_sides(data, y, x) || !check_diagonals(data, y, x))
 					handle_error("Error: invalid map, check the walls.\n");
