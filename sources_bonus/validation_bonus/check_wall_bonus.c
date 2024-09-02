@@ -13,6 +13,7 @@
 #include "../../includes_bonus/cub_bonus.h"
 
 static void	fill_map_with_twos(t_data *data);
+static int	count_len(char *str);
 
 bool	check_diagonals(t_data *data, int line, int col)
 {
@@ -59,7 +60,6 @@ void	surrounded_by_walls(t_data *data)
 	char	**map;
 	int		y;
 	int		x;
-	int		width;
 
 	y = 0;
 	fill_map_with_twos(data);
@@ -67,12 +67,12 @@ void	surrounded_by_walls(t_data *data)
 	while (map[y])
 	{
 		x = 0;
-		width = ft_strlen(map[y]) - 1;
-		while (x <= width)
+		while (map[y][x])
 		{
 			if (map[y][x] == '0' || ft_strchr("NSWE", map[y][x]))
 			{
-				if ((y == 0 || y == data->lines - 1) || (x == 0 || x == width))
+				if ((y == 0 || y == data->lines - 1)
+					|| (x == 0 || x == count_len(map[y]) - 1))
 					handle_error("Error: invalid map, check the edges.\n");
 				if (!check_sides(data, y, x) || !check_diagonals(data, y, x))
 					handle_error("Error: invalid map, check the walls.\n");
@@ -85,27 +85,38 @@ void	surrounded_by_walls(t_data *data)
 
 static void	fill_map_with_twos(t_data *data)
 {
-	int		i;
-	int		j;
-	int		len;
+	size_t	i;
+	size_t	j;
 	char	**new_map;
 
 	i = 0;
 	new_map = ft_calloc(data->lines + 1, sizeof(char *));
-	while (i < data->lines)
+	while (i < (size_t)data->lines)
 	{
 		j = 0;
 		new_map[i] = ft_calloc((data->columns + 1), sizeof(char));
-		len = strlen(data->map[i]) - 1;
-		while (j < len)
+		while (j < ft_strlen(data->map[i]) - 1)
 		{
 			new_map[i][j] = data->map[i][j];
 			j++;
 		}
-		while (j++ < data->columns)
+		while (j < (size_t)data->columns)
+		{
 			new_map[i][j] = '2';
+			j++;
+		}
 		i++;
 	}
 	ft_free_matrix(data->map);
 	data->map = new_map;
+}
+
+static int	count_len(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i] != '2')
+		i++;
+	return (i);
 }
