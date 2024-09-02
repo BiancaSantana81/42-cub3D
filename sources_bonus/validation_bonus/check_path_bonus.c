@@ -79,7 +79,7 @@ void	copy_texture_path(char **texture, char *path, char *mode,
 		}
 		path++;
 	}
-	trim_newline(path);
+	trim_newline(path, line);
 	if (!check_path(path) || size_key != 1)
 	{
 		free(line);
@@ -88,17 +88,26 @@ void	copy_texture_path(char **texture, char *path, char *mode,
 	*texture = ft_strdup(path);
 }
 
-void	trim_newline(char *str)
+void	trim_newline(char *str, char *line)
 {
 	size_t	i;
+	size_t	len;
 
 	i = 0;
-	while (str[i])
+	len = 0;
+	while (str[i] && !ft_isspace(str[i]))
+		i++;
+	while (str[i] && ft_isspace(str[i]))
 	{
-		if (str[i] == '\n' || ft_isspace(str[i]))
-			str[i] = '\0';
+		len++;
 		i++;
 	}
+	if (str[i] != '\0' && str[i] != '\n')
+	{
+		free(line);
+		handle_error("Error: invalid texture path.\n");
+	}
+	str[i - len] = '\0';
 }
 
 void	check_spaces(char *temp, char *mode, char *line)
