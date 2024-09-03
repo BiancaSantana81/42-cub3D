@@ -79,6 +79,8 @@ void	split_rgb(char ***rgb, char *rgb_color, char *original, char c)
 	}
 	while ((*rgb)[i])
 	{
+		if (ft_strncmp((*rgb)[i], "\n", 1) == 0 || ft_isspace((*rgb)[i][0]))
+			handle_error_rgb(original, *rgb);
 		temp_strim = ft_strtrim((*rgb)[i], " \t\v\f\r\n\b");
 		free((*rgb)[i]);
 		(*rgb)[i] = temp_strim;
