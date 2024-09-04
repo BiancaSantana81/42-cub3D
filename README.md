@@ -12,7 +12,17 @@ Inspirado no clássico “Wolfenstein 3D”, o Cub3D é um jogo 3D desenvolvido 
 - **Colisões com Paredes**: Implementação de colisões para impedir que o jogador atravesse paredes.
 - **Rotação do Ponto de Vista com o Mouse**: Movimente o mouse para girar a visão do jogador, melhorando a jogabilidade (versão bônus).
 - **Player animado**: Movimente a espada do personagem (versão bônus).
-  
+
+## Pré-instalação
+Certifique-se de que as bibliotecas necessárias estão instaladas:
+```bash
+# Em sistemas Ubuntu
+
+> sudo apt-get install libglfw3-dev
+
+# Para outros sistemas, como Windows ou macOS, consulte a documentação oficial da GLFW
+> 
+```
 ## Instalação
 1. Clone o repositório:
     ```bash
