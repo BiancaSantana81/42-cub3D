@@ -21,7 +21,6 @@ Certifique-se de que as bibliotecas necessárias estão instaladas:
 > sudo apt-get install libglfw3-dev
 
 # Para outros sistemas, como Windows ou macOS, consulte a documentação oficial da GLFW
-> 
 ```
 ## Instalação
 1. Clone o repositório:
